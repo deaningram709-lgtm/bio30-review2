@@ -410,16 +410,27 @@ nav {
 }
 
 .outcome-toggle .ot-check {
-  margin-left: auto; width: 26px; height: 26px;
-  border: 2px solid var(--border); border-radius: 6px;
+  margin-left: auto; width: 34px; height: 34px;
+  border: 2.5px solid #bbb; border-radius: 8px;
   display: flex; align-items: center; justify-content: center;
   flex-shrink: 0; cursor: pointer; background: #fff;
   transition: background 0.2s, border-color 0.2s, transform 0.15s, box-shadow 0.15s;
-  box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+  box-shadow: 0 1px 4px rgba(0,0,0,0.12);
 }
-.outcome-toggle .ot-check:hover { border-color: var(--green-light); transform: scale(1.1); box-shadow: 0 2px 8px rgba(64,145,108,0.25); }
-.outcome-toggle .ot-check.checked { background: var(--green-light); border-color: var(--green-light); box-shadow: 0 2px 8px rgba(64,145,108,0.35); }
-.outcome-toggle .ot-check.checked::after { content: '✓'; color: #fff; font-size: 0.85rem; font-weight: 800; }
+.ot-check-wrap {
+  margin-left: auto; display: flex; align-items: center; gap: 7px; flex-shrink: 0;
+}
+.ot-check-label {
+  font-size: 0.72rem; font-weight: 700; color: #aaa;
+  white-space: nowrap; pointer-events: none;
+  letter-spacing: 0.02em; transition: color 0.2s;
+}
+.ot-check.checked ~ .ot-check-label, .ot-check-wrap.done .ot-check-label { color: var(--green-light); }
+.outcome-toggle .ot-check:hover { border-color: var(--green-light); transform: scale(1.08); box-shadow: 0 2px 10px rgba(64,145,108,0.3); background: #f0faf4; }
+.outcome-toggle .ot-check.checked { background: var(--green-light); border-color: var(--green-light); box-shadow: 0 2px 8px rgba(64,145,108,0.4); }
+.outcome-toggle .ot-check.checked::after { content: '✓'; color: #fff; font-size: 1rem; font-weight: 900; }
+.outcome-toggle .ot-check::before { content: '○'; font-size: 0.8rem; color: var(--text-light); line-height: 1; }
+.outcome-toggle .ot-check.checked::before { content: ''; }
 
 .outcome-item.completed .outcome-toggle { background: #f0faf4; }
 .outcome-item.completed .outcome-toggle .ot-code { background: #c6ecd5; color: var(--green-dark); }
@@ -733,7 +744,7 @@ footer strong { color: var(--amber); }
         <button class="outcome-toggle" onclick="toggleOutcome('a1-1')">
           <span class="ot-arrow">▶</span><span class="ot-code">A1.1</span>
           Neuron Structure &amp; Function
-          <span class="ot-check" onclick="checkOutcome(event,'a1-1')"></span>
+          <span class="ot-check-wrap" id="wrap-a1-1"><span class="ot-check" onclick="checkOutcome(event,'a1-1')"></span><span class="ot-check-label">Done</span></span>
         </button>
         <div class="outcome-body">
           <ul>
@@ -751,7 +762,7 @@ footer strong { color: var(--amber); }
         <button class="outcome-toggle" onclick="toggleOutcome('a1-2')">
           <span class="ot-arrow">▶</span><span class="ot-code">A1.2</span>
           Synaptic Transmission
-          <span class="ot-check" onclick="checkOutcome(event,'a1-2')"></span>
+          <span class="ot-check-wrap" id="wrap-a1-2"><span class="ot-check" onclick="checkOutcome(event,'a1-2')"></span><span class="ot-check-label">Done</span></span>
         </button>
         <div class="outcome-body">
           <ul>
@@ -768,7 +779,7 @@ footer strong { color: var(--amber); }
         <button class="outcome-toggle" onclick="toggleOutcome('a1-3')">
           <span class="ot-arrow">▶</span><span class="ot-code">A1.3</span>
           CNS — Brain &amp; Spinal Cord
-          <span class="ot-check" onclick="checkOutcome(event,'a1-3')"></span>
+          <span class="ot-check-wrap" id="wrap-a1-3"><span class="ot-check" onclick="checkOutcome(event,'a1-3')"></span><span class="ot-check-label">Done</span></span>
         </button>
         <div class="outcome-body">
           <ul>
@@ -786,7 +797,7 @@ footer strong { color: var(--amber); }
         <button class="outcome-toggle" onclick="toggleOutcome('a1-4')">
           <span class="ot-arrow">▶</span><span class="ot-code">A1.4</span>
           PNS — Somatic &amp; Autonomic
-          <span class="ot-check" onclick="checkOutcome(event,'a1-4')"></span>
+          <span class="ot-check-wrap" id="wrap-a1-4"><span class="ot-check" onclick="checkOutcome(event,'a1-4')"></span><span class="ot-check-label">Done</span></span>
         </button>
         <div class="outcome-body">
           <ul>
@@ -802,7 +813,7 @@ footer strong { color: var(--amber); }
         <button class="outcome-toggle" onclick="toggleOutcome('a1-5')">
           <span class="ot-arrow">▶</span><span class="ot-code">A1.5</span>
           Sensory Systems
-          <span class="ot-check" onclick="checkOutcome(event,'a1-5')"></span>
+          <span class="ot-check-wrap" id="wrap-a1-5"><span class="ot-check" onclick="checkOutcome(event,'a1-5')"></span><span class="ot-check-label">Done</span></span>
         </button>
         <div class="outcome-body">
           <ul>
@@ -818,7 +829,7 @@ footer strong { color: var(--amber); }
         <button class="outcome-toggle" onclick="toggleOutcome('a1-6')">
           <span class="ot-arrow">▶</span><span class="ot-code">A1.6</span>
           Nervous System Disorders
-          <span class="ot-check" onclick="checkOutcome(event,'a1-6')"></span>
+          <span class="ot-check-wrap" id="wrap-a1-6"><span class="ot-check" onclick="checkOutcome(event,'a1-6')"></span><span class="ot-check-label">Done</span></span>
         </button>
         <div class="outcome-body">
           <ul>
@@ -840,7 +851,7 @@ footer strong { color: var(--amber); }
         <button class="outcome-toggle" onclick="toggleOutcome('a2-1')">
           <span class="ot-arrow">▶</span><span class="ot-code">A2.1</span>
           Hormones &amp; Glands
-          <span class="ot-check" onclick="checkOutcome(event,'a2-1')"></span>
+          <span class="ot-check-wrap" id="wrap-a2-1"><span class="ot-check" onclick="checkOutcome(event,'a2-1')"></span><span class="ot-check-label">Done</span></span>
         </button>
         <div class="outcome-body">
           <ul>
@@ -856,7 +867,7 @@ footer strong { color: var(--amber); }
         <button class="outcome-toggle" onclick="toggleOutcome('a2-2')">
           <span class="ot-arrow">▶</span><span class="ot-code">A2.2</span>
           Feedback Mechanisms
-          <span class="ot-check" onclick="checkOutcome(event,'a2-2')"></span>
+          <span class="ot-check-wrap" id="wrap-a2-2"><span class="ot-check" onclick="checkOutcome(event,'a2-2')"></span><span class="ot-check-label">Done</span></span>
         </button>
         <div class="outcome-body">
           <ul>
@@ -872,7 +883,7 @@ footer strong { color: var(--amber); }
         <button class="outcome-toggle" onclick="toggleOutcome('a2-3')">
           <span class="ot-arrow">▶</span><span class="ot-code">A2.3</span>
           Endocrine Disorders
-          <span class="ot-check" onclick="checkOutcome(event,'a2-3')"></span>
+          <span class="ot-check-wrap" id="wrap-a2-3"><span class="ot-check" onclick="checkOutcome(event,'a2-3')"></span><span class="ot-check-label">Done</span></span>
         </button>
         <div class="outcome-body">
           <ul>
@@ -1073,7 +1084,7 @@ footer strong { color: var(--amber); }
         <button class="outcome-toggle" onclick="toggleOutcome('b1-1')">
           <span class="ot-arrow">▶</span><span class="ot-code">B1.1</span>
           Male Reproductive System
-          <span class="ot-check" onclick="checkOutcome(event,'b1-1')"></span>
+          <span class="ot-check-wrap" id="wrap-b1-1"><span class="ot-check" onclick="checkOutcome(event,'b1-1')"></span><span class="ot-check-label">Done</span></span>
         </button>
         <div class="outcome-body">
           <ul>
@@ -1089,7 +1100,7 @@ footer strong { color: var(--amber); }
         <button class="outcome-toggle" onclick="toggleOutcome('b1-2')">
           <span class="ot-arrow">▶</span><span class="ot-code">B1.2</span>
           Female Reproductive System
-          <span class="ot-check" onclick="checkOutcome(event,'b1-2')"></span>
+          <span class="ot-check-wrap" id="wrap-b1-2"><span class="ot-check" onclick="checkOutcome(event,'b1-2')"></span><span class="ot-check-label">Done</span></span>
         </button>
         <div class="outcome-body">
           <ul>
@@ -1105,7 +1116,7 @@ footer strong { color: var(--amber); }
         <button class="outcome-toggle" onclick="toggleOutcome('b1-4')">
           <span class="ot-arrow">▶</span><span class="ot-code">B1.3</span>
           Menstrual Cycle
-          <span class="ot-check" onclick="checkOutcome(event,'b1-4')"></span>
+          <span class="ot-check-wrap" id="wrap-b1-4"><span class="ot-check" onclick="checkOutcome(event,'b1-4')"></span><span class="ot-check-label">Done</span></span>
         </button>
         <div class="outcome-body">
           <ul>
@@ -1128,7 +1139,7 @@ footer strong { color: var(--amber); }
         <button class="outcome-toggle" onclick="toggleOutcome('b2-1')">
           <span class="ot-arrow">▶</span><span class="ot-code">B2.1</span>
           Hormonal Control of Reproduction
-          <span class="ot-check" onclick="checkOutcome(event,'b2-1')"></span>
+          <span class="ot-check-wrap" id="wrap-b2-1"><span class="ot-check" onclick="checkOutcome(event,'b2-1')"></span><span class="ot-check-label">Done</span></span>
         </button>
         <div class="outcome-body">
           <ul>
@@ -1145,7 +1156,7 @@ footer strong { color: var(--amber); }
         <button class="outcome-toggle" onclick="toggleOutcome('b2-2')">
           <span class="ot-arrow">▶</span><span class="ot-code">B2.2</span>
           Contraception &amp; Reproductive Technologies
-          <span class="ot-check" onclick="checkOutcome(event,'b2-2')"></span>
+          <span class="ot-check-wrap" id="wrap-b2-2"><span class="ot-check" onclick="checkOutcome(event,'b2-2')"></span><span class="ot-check-label">Done</span></span>
         </button>
         <div class="outcome-body">
           <ul>
@@ -1168,7 +1179,7 @@ footer strong { color: var(--amber); }
         <button class="outcome-toggle" onclick="toggleOutcome('b3-1')">
           <span class="ot-arrow">▶</span><span class="ot-code">B3.1</span>
           Fertilization to Implantation
-          <span class="ot-check" onclick="checkOutcome(event,'b3-1')"></span>
+          <span class="ot-check-wrap" id="wrap-b3-1"><span class="ot-check" onclick="checkOutcome(event,'b3-1')"></span><span class="ot-check-label">Done</span></span>
         </button>
         <div class="outcome-body">
           <ul>
@@ -1184,7 +1195,7 @@ footer strong { color: var(--amber); }
         <button class="outcome-toggle" onclick="toggleOutcome('b3-2')">
           <span class="ot-arrow">▶</span><span class="ot-code">B3.2</span>
           Embryonic &amp; Fetal Development
-          <span class="ot-check" onclick="checkOutcome(event,'b3-2')"></span>
+          <span class="ot-check-wrap" id="wrap-b3-2"><span class="ot-check" onclick="checkOutcome(event,'b3-2')"></span><span class="ot-check-label">Done</span></span>
         </button>
         <div class="outcome-body">
           <ul>
@@ -1201,7 +1212,7 @@ footer strong { color: var(--amber); }
         <button class="outcome-toggle" onclick="toggleOutcome('b3-3')">
           <span class="ot-arrow">▶</span><span class="ot-code">B3.3</span>
           Birth &amp; Lactation
-          <span class="ot-check" onclick="checkOutcome(event,'b3-3')"></span>
+          <span class="ot-check-wrap" id="wrap-b3-3"><span class="ot-check" onclick="checkOutcome(event,'b3-3')"></span><span class="ot-check-label">Done</span></span>
         </button>
         <div class="outcome-body">
           <ul>
@@ -1394,7 +1405,7 @@ footer strong { color: var(--amber); }
         <button class="outcome-toggle" onclick="toggleOutcome('c-mitosis')">
           <span class="ot-arrow">▶</span><span class="ot-code">Unit 3A</span>
           Mitosis &amp; the Cell Cycle
-          <span class="ot-check" onclick="checkOutcome(event,'c-mitosis')"></span>
+          <span class="ot-check-wrap" id="wrap-c-mitosis"><span class="ot-check" onclick="checkOutcome(event,'c-mitosis')"></span><span class="ot-check-label">Done</span></span>
         </button>
         <div class="outcome-body">
           <ul>
@@ -1412,7 +1423,7 @@ footer strong { color: var(--amber); }
         <button class="outcome-toggle" onclick="toggleOutcome('c-meiosis')">
           <span class="ot-arrow">▶</span><span class="ot-code">Unit 3A</span>
           Meiosis
-          <span class="ot-check" onclick="checkOutcome(event,'c-meiosis')"></span>
+          <span class="ot-check-wrap" id="wrap-c-meiosis"><span class="ot-check" onclick="checkOutcome(event,'c-meiosis')"></span><span class="ot-check-label">Done</span></span>
         </button>
         <div class="outcome-body">
           <ul>
@@ -1429,7 +1440,7 @@ footer strong { color: var(--amber); }
         <button class="outcome-toggle" onclick="toggleOutcome('c-karyotype')">
           <span class="ot-arrow">▶</span><span class="ot-code">Unit 3A</span>
           Karyotypes &amp; Chromosomal Abnormalities
-          <span class="ot-check" onclick="checkOutcome(event,'c-karyotype')"></span>
+          <span class="ot-check-wrap" id="wrap-c-karyotype"><span class="ot-check" onclick="checkOutcome(event,'c-karyotype')"></span><span class="ot-check-label">Done</span></span>
         </button>
         <div class="outcome-body">
           <ul>
@@ -1452,7 +1463,7 @@ footer strong { color: var(--amber); }
         <button class="outcome-toggle" onclick="toggleOutcome('c-mono')">
           <span class="ot-arrow">▶</span><span class="ot-code">Unit 3B</span>
           Monohybrid &amp; Dihybrid Crosses
-          <span class="ot-check" onclick="checkOutcome(event,'c-mono')"></span>
+          <span class="ot-check-wrap" id="wrap-c-mono"><span class="ot-check" onclick="checkOutcome(event,'c-mono')"></span><span class="ot-check-label">Done</span></span>
         </button>
         <div class="outcome-body">
           <ul>
@@ -1470,7 +1481,7 @@ footer strong { color: var(--amber); }
         <button class="outcome-toggle" onclick="toggleOutcome('c-di')">
           <span class="ot-arrow">▶</span><span class="ot-code">Unit 3B</span>
           Linkage, Crossing Over &amp; Chromosome Mapping
-          <span class="ot-check" onclick="checkOutcome(event,'c-di')"></span>
+          <span class="ot-check-wrap" id="wrap-c-di"><span class="ot-check" onclick="checkOutcome(event,'c-di')"></span><span class="ot-check-label">Done</span></span>
         </button>
         <div class="outcome-body">
           <ul>
@@ -1486,7 +1497,7 @@ footer strong { color: var(--amber); }
         <button class="outcome-toggle" onclick="toggleOutcome('c-ped')">
           <span class="ot-arrow">▶</span><span class="ot-code">Unit 3B</span>
           Sex Linkage &amp; Pedigrees
-          <span class="ot-check" onclick="checkOutcome(event,'c-ped')"></span>
+          <span class="ot-check-wrap" id="wrap-c-ped"><span class="ot-check" onclick="checkOutcome(event,'c-ped')"></span><span class="ot-check-label">Done</span></span>
         </button>
         <div class="outcome-body">
           <ul>
@@ -1509,7 +1520,7 @@ footer strong { color: var(--amber); }
         <button class="outcome-toggle" onclick="toggleOutcome('c-dna')">
           <span class="ot-arrow">▶</span><span class="ot-code">Unit 3C</span>
           DNA Structure &amp; Replication
-          <span class="ot-check" onclick="checkOutcome(event,'c-dna')"></span>
+          <span class="ot-check-wrap" id="wrap-c-dna"><span class="ot-check" onclick="checkOutcome(event,'c-dna')"></span><span class="ot-check-label">Done</span></span>
         </button>
         <div class="outcome-body">
           <ul>
@@ -1525,7 +1536,7 @@ footer strong { color: var(--amber); }
         <button class="outcome-toggle" onclick="toggleOutcome('c-trans')">
           <span class="ot-arrow">▶</span><span class="ot-code">Unit 3C</span>
           Transcription &amp; Translation
-          <span class="ot-check" onclick="checkOutcome(event,'c-trans')"></span>
+          <span class="ot-check-wrap" id="wrap-c-trans"><span class="ot-check" onclick="checkOutcome(event,'c-trans')"></span><span class="ot-check-label">Done</span></span>
         </button>
         <div class="outcome-body">
           <ul>
@@ -1541,7 +1552,7 @@ footer strong { color: var(--amber); }
         <button class="outcome-toggle" onclick="toggleOutcome('c-mut')">
           <span class="ot-arrow">▶</span><span class="ot-code">Unit 3C</span>
           Mutations &amp; Biotechnology
-          <span class="ot-check" onclick="checkOutcome(event,'c-mut')"></span>
+          <span class="ot-check-wrap" id="wrap-c-mut"><span class="ot-check" onclick="checkOutcome(event,'c-mut')"></span><span class="ot-check-label">Done</span></span>
         </button>
         <div class="outcome-body">
           <ul>
@@ -1910,7 +1921,7 @@ footer strong { color: var(--amber); }
         <button class="outcome-toggle" onclick="toggleOutcome('d-hw')">
           <span class="ot-arrow">▶</span><span class="ot-code">Unit D</span>
           Hardy-Weinberg Theory &amp; Equations
-          <span class="ot-check" onclick="checkOutcome(event,'d-hw')"></span>
+          <span class="ot-check-wrap" id="wrap-d-hw"><span class="ot-check" onclick="checkOutcome(event,'d-hw')"></span><span class="ot-check-label">Done</span></span>
         </button>
         <div class="outcome-body">
           <ul>
@@ -1927,7 +1938,7 @@ footer strong { color: var(--amber); }
         <button class="outcome-toggle" onclick="toggleOutcome('d-evo')">
           <span class="ot-arrow">▶</span><span class="ot-code">Unit D</span>
           Forces of Evolution
-          <span class="ot-check" onclick="checkOutcome(event,'d-evo')"></span>
+          <span class="ot-check-wrap" id="wrap-d-evo"><span class="ot-check" onclick="checkOutcome(event,'d-evo')"></span><span class="ot-check-label">Done</span></span>
         </button>
         <div class="outcome-body">
           <ul>
@@ -1945,7 +1956,7 @@ footer strong { color: var(--amber); }
         <button class="outcome-toggle" onclick="toggleOutcome('d-spec')">
           <span class="ot-arrow">▶</span><span class="ot-code">Unit D</span>
           Speciation &amp; Community Interactions
-          <span class="ot-check" onclick="checkOutcome(event,'d-spec')"></span>
+          <span class="ot-check-wrap" id="wrap-d-spec"><span class="ot-check" onclick="checkOutcome(event,'d-spec')"></span><span class="ot-check-label">Done</span></span>
         </button>
         <div class="outcome-body">
           <ul>
@@ -2262,10 +2273,15 @@ function checkOutcome(event, id) {
   event.stopPropagation();
   const item = document.querySelector('[data-id="' + id + '"]');
   const check = item ? item.querySelector('.ot-check') : event.currentTarget;
+  const wrap = item ? item.querySelector('.ot-check-wrap') : null;
+  const label = item ? item.querySelector('.ot-check-label') : null;
   check.classList.toggle('checked');
-  if (item) item.classList.toggle('completed', check.classList.contains('checked'));
+  const done = check.classList.contains('checked');
+  if (item) item.classList.toggle('completed', done);
+  if (wrap) wrap.classList.toggle('done', done);
+  if (label) label.textContent = done ? 'Done ✓' : 'Done';
   const saved = JSON.parse(localStorage.getItem('bio30progress') || '{}');
-  saved[id] = check.classList.contains('checked');
+  saved[id] = done;
   localStorage.setItem('bio30progress', JSON.stringify(saved));
   updateProgress();
 }
@@ -2279,6 +2295,10 @@ function restoreProgress() {
       const check = item.querySelector('.ot-check');
       if (check) check.classList.add('checked');
       item.classList.add('completed');
+      const wrap = item.querySelector('.ot-check-wrap');
+      const label = item.querySelector('.ot-check-label');
+      if (wrap) wrap.classList.add('done');
+      if (label) label.textContent = 'Done ✓';
     }
   });
   updateProgress();
