@@ -1,0 +1,2436 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Biology 30 — Diploma Exam Review Hub</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --green-dark: #1B4332;
+  --green-mid: #2D6A4F;
+  --green-light: #40916C;
+  --green-pale: #D8F3DC;
+  --amber: #E9C46A;
+  --amber-dark: #C9A227;
+  --teal: #48CAE4;
+  --coral: #F4845F;
+  --bg: #FAF8F3;
+  --card: #FFFFFF;
+  --text: #1C1C2E;
+  --text-mid: #4A4A6A;
+  --text-light: #7A7A9A;
+  --border: #E8E4DC;
+  --shadow: 0 2px 16px rgba(27,67,50,0.08);
+  --shadow-lg: 0 8px 32px rgba(27,67,50,0.14);
+  --radius: 12px;
+  --radius-sm: 8px;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: 'Inter', sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.6;
+}
+
+/* ── NAV ─────────────────────────────────────────── */
+nav {
+  position: sticky; top: 0; z-index: 100;
+  background: var(--green-dark);
+  box-shadow: 0 2px 12px rgba(0,0,0,0.25);
+  display: flex; align-items: center; gap: 0;
+}
+
+.nav-brand {
+  display: flex; align-items: center; gap: 10px;
+  padding: 14px 24px;
+  color: #fff;
+  font-family: 'Playfair Display', serif;
+  font-size: 1.1rem;
+  font-weight: 700;
+  letter-spacing: 0.3px;
+  text-decoration: none;
+  white-space: nowrap;
+  border-right: 1px solid rgba(255,255,255,0.12);
+}
+
+.nav-brand span { font-size: 1.4rem; }
+
+.nav-links { display: flex; align-items: stretch; flex: 1; }
+
+.nav-item { position: relative; }
+
+.nav-item > a, .nav-item > button {
+  display: flex; align-items: center; gap: 5px;
+  padding: 0 18px; height: 52px;
+  color: rgba(255,255,255,0.88);
+  font-size: 0.82rem; font-weight: 500; letter-spacing: 0.4px;
+  text-decoration: none; background: none; border: none;
+  cursor: pointer; white-space: nowrap;
+  transition: background 0.15s, color 0.15s;
+}
+
+.nav-item > a:hover, .nav-item > button:hover,
+.nav-item.active > button { background: rgba(255,255,255,0.1); color: #fff; }
+
+.nav-item > button::after { content: '▾'; font-size: 0.7rem; margin-left: 2px; }
+
+.dropdown {
+  display: none; position: absolute; top: 100%; left: 0;
+  background: #fff; border-radius: var(--radius-sm);
+  box-shadow: var(--shadow-lg);
+  min-width: 240px; padding: 8px 0; z-index: 200;
+  border: 1px solid var(--border);
+}
+
+.nav-item:hover .dropdown, .nav-item:focus-within .dropdown { display: block; }
+
+.dropdown a {
+  display: flex; align-items: center; gap: 10px;
+  padding: 10px 18px;
+  color: var(--text); font-size: 0.82rem; font-weight: 500;
+  text-decoration: none;
+  transition: background 0.12s;
+}
+
+.dropdown a:hover { background: var(--green-pale); color: var(--green-dark); }
+
+.dropdown-section {
+  padding: 6px 18px 2px;
+  font-size: 0.68rem; font-weight: 700; letter-spacing: 1px;
+  color: var(--text-light); text-transform: uppercase;
+  border-top: 1px solid var(--border); margin-top: 4px;
+}
+
+.dropdown-section:first-child { border-top: none; margin-top: 0; }
+
+.nav-cta {
+  margin-left: auto;
+  padding: 0 20px;
+  display: flex; align-items: center;
+}
+
+.nav-cta a {
+  background: var(--amber); color: var(--green-dark);
+  padding: 8px 18px; border-radius: 20px;
+  font-size: 0.8rem; font-weight: 700;
+  text-decoration: none;
+  transition: background 0.15s, transform 0.1s;
+}
+
+.nav-cta a:hover { background: var(--amber-dark); transform: translateY(-1px); }
+
+/* ── HERO ─────────────────────────────────────────── */
+#home {
+  background: linear-gradient(135deg, var(--green-dark) 0%, var(--green-mid) 60%, #1a5c6e 100%);
+  color: #fff; padding: 64px 40px 48px;
+  position: relative; overflow: hidden;
+}
+
+#home::before {
+  content: '';
+  position: absolute; inset: 0;
+  background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+}
+
+.hero-inner { position: relative; max-width: 1100px; margin: 0 auto; }
+
+.hero-badge {
+  display: inline-flex; align-items: center; gap: 6px;
+  background: rgba(233,196,106,0.2); border: 1px solid rgba(233,196,106,0.4);
+  color: var(--amber); padding: 5px 14px; border-radius: 20px;
+  font-size: 0.75rem; font-weight: 600; letter-spacing: 0.5px;
+  text-transform: uppercase; margin-bottom: 18px;
+}
+
+.hero-inner h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 700; line-height: 1.15;
+  margin-bottom: 14px;
+}
+
+.hero-inner h1 em { font-style: normal; color: var(--amber); }
+
+.hero-inner p {
+  font-size: 1.05rem; color: rgba(255,255,255,0.82);
+  max-width: 600px; margin-bottom: 32px;
+}
+
+.hero-stats {
+  display: flex; gap: 16px; flex-wrap: wrap; margin-bottom: 32px;
+}
+
+.stat-card {
+  background: rgba(255,255,255,0.1);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255,255,255,0.15);
+  border-radius: var(--radius-sm);
+  padding: 14px 22px; text-align: center;
+}
+
+.stat-card .num {
+  font-size: 1.7rem; font-weight: 700; color: var(--amber);
+  line-height: 1;
+}
+
+.stat-card .lbl {
+  font-size: 0.72rem; color: rgba(255,255,255,0.7);
+  text-transform: uppercase; letter-spacing: 0.6px; margin-top: 4px;
+}
+
+.hero-units {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 12px;
+}
+
+.unit-chip {
+  background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.15);
+  border-radius: var(--radius-sm); padding: 14px 16px;
+  cursor: pointer; text-decoration: none; color: #fff;
+  transition: background 0.2s, transform 0.15s, border-color 0.2s;
+  display: flex; align-items: center; gap: 10px;
+}
+
+.unit-chip:hover {
+  background: rgba(255,255,255,0.15);
+  border-color: rgba(255,255,255,0.3);
+  transform: translateY(-2px);
+}
+
+.unit-chip .chip-icon { font-size: 1.4rem; }
+
+.unit-chip .chip-text { font-size: 0.82rem; }
+.unit-chip .chip-text strong { display: block; font-weight: 600; margin-bottom: 1px; }
+.unit-chip .chip-text span { color: rgba(255,255,255,0.6); font-size: 0.75rem; }
+
+/* ── EXAM COUNTDOWN ───────────────────────────────── */
+.countdown-bar {
+  background: var(--amber); color: var(--green-dark);
+  padding: 10px 40px; text-align: center;
+  font-size: 0.85rem; font-weight: 600;
+  display: flex; align-items: center; justify-content: center; gap: 12px;
+}
+
+.countdown-bar input[type="date"] {
+  border: none; background: rgba(0,0,0,0.1);
+  border-radius: 6px; padding: 3px 8px;
+  font-size: 0.82rem; font-weight: 600;
+  color: var(--green-dark); cursor: pointer;
+}
+
+#countdown-display { font-size: 1rem; font-weight: 700; }
+/* ── STUDY SCHEDULE PANEL ─────────────────────────── */
+#schedule-panel {
+  display: none;
+  background: #fffbeb;
+  border-top: 2px solid rgba(180,130,0,0.18);
+  padding: 14px 40px 18px;
+  animation: schedSlide 0.3s ease;
+}
+@keyframes schedSlide {
+  from { opacity:0; transform:translateY(-6px); }
+  to   { opacity:1; transform:translateY(0); }
+}
+#schedule-panel.visible { display: block; }
+.schedule-title {
+  text-align: center;
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--green-dark);
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  margin-bottom: 12px;
+  opacity: 0.7;
+}
+.schedule-grid {
+  display: flex;
+  gap: 8px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.sched-card {
+  background: white;
+  border-radius: 10px;
+  padding: 10px 14px;
+  min-width: 128px;
+  max-width: 190px;
+  flex: 1 1 128px;
+  border-top: 3px solid var(--sc-color,#4caf50);
+  box-shadow: 0 1px 5px rgba(0,0,0,0.08);
+}
+.sched-card .sc-icon { font-size: 1.1rem; line-height:1; }
+.sched-card .sc-name { font-weight:700; font-size:0.8rem; color:#1a1a2e; margin:4px 0 1px; }
+.sched-card .sc-sub  { font-size:0.67rem; color:#888; margin-bottom:4px; }
+.sched-card .sc-dates{ font-size:0.7rem; font-weight:700; color:var(--sc-color,#4caf50); }
+.sched-card .sc-tip  { font-size:0.66rem; color:#999; margin-top:4px; line-height:1.4; }
+.sched-card a.sc-jump{
+  display:inline-block; margin-top:7px;
+  font-size:0.67rem; color:var(--sc-color,#4caf50);
+  text-decoration:none; font-weight:700;
+}
+.sched-card a.sc-jump:hover { text-decoration:underline; }
+
+
+/* ── SECTION LAYOUT ───────────────────────────────── */
+.section { padding: 56px 40px; max-width: 1100px; margin: 0 auto; }
+
+.section-header {
+  display: flex; align-items: flex-end; gap: 20px;
+  margin-bottom: 32px; padding-bottom: 20px;
+  border-bottom: 2px solid var(--border);
+}
+
+.unit-tag {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 6px 14px; border-radius: 20px;
+  font-size: 0.72rem; font-weight: 700; letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+
+.tag-a { background: #DCFCE7; color: #166534; }
+.tag-b { background: #FEF9C3; color: #854D0E; }
+.tag-c { background: #E0F2FE; color: #075985; }
+.tag-d { background: #FAE8FF; color: #6B21A8; }
+.tag-diploma { background: #FFE4E6; color: #9F1239; }
+
+.section-header .header-text h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.75rem; font-weight: 700; color: var(--green-dark);
+  margin-bottom: 4px;
+}
+
+.section-header .header-text p {
+  color: var(--text-mid); font-size: 0.88rem;
+}
+
+.weight-badge {
+  margin-left: auto; padding: 10px 18px;
+  background: var(--green-pale); border-radius: var(--radius-sm);
+  text-align: center; white-space: nowrap;
+}
+
+.weight-badge .pct { font-size: 1.4rem; font-weight: 700; color: var(--green-dark); line-height: 1; }
+.weight-badge .lbl { font-size: 0.68rem; color: var(--text-mid); letter-spacing: 0.5px; }
+
+/* ── TABS ─────────────────────────────────────────── */
+.tabs { display: flex; gap: 4px; margin-bottom: 28px; flex-wrap: wrap; }
+
+.tab-btn {
+  padding: 9px 20px; border-radius: 20px;
+  border: 1.5px solid var(--border); background: var(--card);
+  font-size: 0.8rem; font-weight: 600; color: var(--text-mid);
+  cursor: pointer; transition: all 0.15s;
+}
+
+.tab-btn:hover { border-color: var(--green-light); color: var(--green-dark); }
+.tab-btn.active { background: var(--green-dark); color: #fff; border-color: var(--green-dark); }
+
+.tab-content { display: none; }
+.tab-content.active { display: block; }
+
+/* ── CARDS GRID ───────────────────────────────────── */
+.cards-grid {
+  display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 16px;
+}
+
+.card {
+  background: var(--card); border-radius: var(--radius);
+  border: 1.5px solid var(--border);
+  box-shadow: var(--shadow);
+  overflow: hidden; transition: box-shadow 0.15s, transform 0.15s;
+}
+
+.card:hover { box-shadow: var(--shadow-lg); transform: translateY(-2px); }
+
+.card-header {
+  padding: 14px 18px 10px;
+  display: flex; align-items: center; gap: 10px;
+}
+
+.card-icon { font-size: 1.3rem; }
+
+.card-header h3 { font-size: 0.88rem; font-weight: 700; color: var(--green-dark); }
+.card-header p { font-size: 0.75rem; color: var(--text-mid); }
+
+.card-links { padding: 0 14px 14px; list-style: none; }
+
+.card-links li { margin-bottom: 4px; }
+
+.card-links a {
+  display: flex; align-items: center; gap: 8px;
+  padding: 7px 10px; border-radius: var(--radius-sm);
+  color: var(--text); font-size: 0.8rem;
+  text-decoration: none;
+  transition: background 0.12s, color 0.12s;
+}
+
+.card-links a:hover { background: var(--green-pale); color: var(--green-dark); }
+
+.card-links a .link-icon { font-size: 1rem; flex-shrink: 0; }
+
+.card-links a .ext-badge {
+  margin-left: auto; font-size: 0.65rem; font-weight: 600;
+  background: #E0F2FE; color: #075985;
+  padding: 2px 7px; border-radius: 10px;
+}
+
+.card-links a .pdf-badge {
+  margin-left: auto; font-size: 0.65rem; font-weight: 600;
+  background: #FFE4E6; color: #9F1239;
+  padding: 2px 7px; border-radius: 10px;
+}
+
+/* ── OUTCOMES ACCORDION ───────────────────────────── */
+.outcomes-list { display: flex; flex-direction: column; gap: 8px; }
+
+.outcome-item {
+  background: var(--card); border: 1.5px solid var(--border);
+  border-radius: var(--radius-sm); overflow: hidden;
+}
+
+.outcome-toggle {
+  width: 100%; display: flex; align-items: center; gap: 12px;
+  padding: 13px 18px; cursor: pointer;
+  background: none; border: none; text-align: left;
+  font-size: 0.85rem; font-weight: 600; color: var(--text);
+  transition: background 0.12s;
+}
+
+.outcome-toggle:hover { background: var(--green-pale); }
+
+.outcome-toggle .ot-code {
+  font-size: 0.72rem; color: var(--green-light); font-weight: 700;
+  background: var(--green-pale); padding: 2px 8px; border-radius: 10px;
+  white-space: nowrap;
+}
+
+.outcome-toggle .ot-check {
+  margin-left: auto; width: 20px; height: 20px;
+  border: 2px solid var(--border); border-radius: 4px;
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0; cursor: pointer;
+  transition: background 0.15s, border-color 0.15s;
+}
+
+.outcome-toggle .ot-check.checked { background: var(--green-light); border-color: var(--green-light); }
+.outcome-toggle .ot-check.checked::after { content: '✓'; color: #fff; font-size: 0.75rem; font-weight: 700; }
+
+.outcome-toggle .ot-arrow { color: var(--text-light); margin-right: 4px; transition: transform 0.2s; }
+.outcome-item.open .ot-arrow { transform: rotate(90deg); }
+
+.outcome-body {
+  display: none; padding: 14px 18px 16px;
+  border-top: 1px solid var(--border);
+  background: #FAFAF8;
+}
+
+.outcome-item.open .outcome-body { display: block; }
+
+.outcome-body p { font-size: 0.83rem; color: var(--text-mid); margin-bottom: 10px; }
+.outcome-body ul { list-style: disc; padding-left: 18px; }
+.outcome-body ul li { font-size: 0.82rem; color: var(--text-mid); margin-bottom: 5px; }
+.outcome-body strong { color: var(--text); }
+
+/* ── KEY CONCEPT BOXES ────────────────────────────── */
+.concept-grid {
+  display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 14px;
+}
+
+.concept-box {
+  background: var(--card); border-radius: var(--radius-sm);
+  border: 1.5px solid var(--border); padding: 18px;
+}
+
+.concept-box h4 {
+  font-size: 0.88rem; font-weight: 700; color: var(--green-dark);
+  margin-bottom: 10px; display: flex; align-items: center; gap: 8px;
+}
+
+.concept-box ul { list-style: none; }
+.concept-box ul li {
+  font-size: 0.8rem; color: var(--text-mid); padding: 4px 0;
+  border-bottom: 1px solid var(--border); display: flex; gap: 6px;
+}
+.concept-box ul li:last-child { border-bottom: none; }
+.concept-box ul li::before { content: '→'; color: var(--green-light); flex-shrink: 0; }
+
+/* ── STUDY TIPS ───────────────────────────────────── */
+.tips-bar {
+  background: linear-gradient(135deg, #FFF8E7, #FFF3CD);
+  border: 1.5px solid var(--amber);
+  border-radius: var(--radius); padding: 18px 22px; margin-bottom: 24px;
+  display: flex; gap: 14px; align-items: flex-start;
+}
+
+.tips-bar .tip-icon { font-size: 1.4rem; flex-shrink: 0; margin-top: 2px; }
+.tips-bar h4 { font-size: 0.85rem; font-weight: 700; color: var(--amber-dark); margin-bottom: 5px; }
+.tips-bar p { font-size: 0.8rem; color: #6b5900; line-height: 1.5; }
+
+/* ── ONLINE RESOURCES ─────────────────────────────── */
+.resource-platform {
+  display: flex; align-items: center; gap: 10px;
+  padding: 13px 16px;
+  background: var(--card); border: 1.5px solid var(--border);
+  border-radius: var(--radius-sm); margin-bottom: 8px;
+  text-decoration: none; color: var(--text);
+  transition: border-color 0.15s, box-shadow 0.15s;
+}
+
+.resource-platform:hover { border-color: var(--teal); box-shadow: 0 2px 10px rgba(72,202,228,0.15); }
+
+.rp-logo { font-size: 1.3rem; width: 36px; text-align: center; }
+.rp-text { flex: 1; }
+.rp-text strong { display: block; font-size: 0.83rem; font-weight: 700; margin-bottom: 2px; }
+.rp-text span { font-size: 0.75rem; color: var(--text-mid); }
+.rp-arrow { color: var(--text-light); font-size: 0.9rem; }
+
+/* ── DIPLOMA SECTION ──────────────────────────────── */
+#diploma { background: linear-gradient(180deg, #fff 0%, var(--green-pale) 100%); }
+
+.diploma-grid {
+  display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 14px; margin-bottom: 28px;
+}
+
+.diploma-card {
+  background: var(--card); border-radius: var(--radius);
+  border: 1.5px solid var(--border); padding: 20px;
+  display: flex; flex-direction: column; gap: 10px;
+}
+
+.diploma-card h3 { font-size: 0.88rem; font-weight: 700; color: var(--green-dark); }
+.diploma-card p { font-size: 0.78rem; color: var(--text-mid); flex: 1; }
+
+.diploma-card a {
+  display: flex; align-items: center; gap: 8px;
+  padding: 9px 14px; border-radius: var(--radius-sm);
+  font-size: 0.8rem; font-weight: 600;
+  text-decoration: none; transition: background 0.15s;
+}
+
+.btn-primary { background: var(--green-dark); color: #fff; }
+.btn-primary:hover { background: var(--green-mid); }
+.btn-secondary { background: var(--green-pale); color: var(--green-dark); }
+.btn-secondary:hover { background: #B7E4C7; }
+
+/* ── PROGRESS BAR ─────────────────────────────────── */
+.progress-section {
+  background: var(--card); border-radius: var(--radius);
+  border: 1.5px solid var(--border); padding: 22px;
+  margin-bottom: 32px;
+}
+
+.progress-section h3 { font-size: 0.9rem; font-weight: 700; color: var(--green-dark); margin-bottom: 14px; }
+
+.progress-bars { display: flex; flex-direction: column; gap: 10px; }
+
+.prog-row { display: flex; align-items: center; gap: 12px; }
+.prog-label { font-size: 0.78rem; font-weight: 600; color: var(--text-mid); width: 140px; flex-shrink: 0; }
+.prog-track { flex: 1; height: 8px; background: var(--border); border-radius: 4px; overflow: hidden; }
+.prog-fill { height: 100%; border-radius: 4px; transition: width 0.5s ease; }
+.prog-pct { font-size: 0.72rem; font-weight: 700; color: var(--text-mid); width: 34px; text-align: right; }
+
+/* ── SEARCH ───────────────────────────────────────── */
+.search-bar {
+  display: flex; align-items: center; gap: 10px;
+  background: var(--card); border: 1.5px solid var(--border);
+  border-radius: 24px; padding: 10px 18px; margin-bottom: 24px;
+}
+
+.search-bar input {
+  flex: 1; border: none; outline: none; background: none;
+  font-size: 0.88rem; color: var(--text);
+}
+
+.search-bar span { color: var(--text-light); }
+
+/* ── FOOTER ───────────────────────────────────────── */
+footer {
+  background: var(--green-dark); color: rgba(255,255,255,0.7);
+  padding: 28px 40px; text-align: center;
+  font-size: 0.78rem; line-height: 1.8;
+}
+
+footer strong { color: var(--amber); }
+
+/* ── UTILS ────────────────────────────────────────── */
+.two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+@media (max-width: 700px) { .two-col { grid-template-columns: 1fr; } }
+
+.divider { height: 1px; background: var(--border); margin: 28px 0; }
+
+.intro-box {
+  background: var(--green-pale); border-radius: var(--radius);
+  padding: 20px 24px; margin-bottom: 24px;
+  border-left: 4px solid var(--green-light);
+}
+
+.intro-box p { font-size: 0.85rem; color: var(--green-dark); line-height: 1.6; }
+.intro-box p + p { margin-top: 8px; }
+
+.section-wrap { border-top: 3px solid var(--border); padding-top: 8px; margin-top: 0; }
+</style>
+</head>
+<body>
+
+<!-- ═══════════════════════════════════════════════════ NAV -->
+<nav>
+  <a href="#home" class="nav-brand"><span>🧬</span> Bio 30 Review Hub</a>
+  <div class="nav-links">
+
+    <div class="nav-item">
+      <button>Unit A — Nervous &amp; Endocrine</button>
+      <div class="dropdown">
+        <div class="dropdown-section">Nervous &amp; Endocrine Systems</div>
+        <a href="#unit-a" onclick="openTab('a','outcomes')">📋 Learning Outcomes</a>
+        <a href="#unit-a" onclick="openTab('a','concepts')">🧠 Key Concepts</a>
+        <a href="#unit-a" onclick="openTab('a','resources')">📄 Notes &amp; Resources</a>
+        <a href="#unit-a" onclick="openTab('a','online')">🌐 Online Study Tools</a>
+      </div>
+    </div>
+
+    <div class="nav-item">
+      <button>Unit B — Reproduction</button>
+      <div class="dropdown">
+        <a href="#unit-b" onclick="openTab('b','outcomes')">📋 Learning Outcomes</a>
+        <a href="#unit-b" onclick="openTab('b','concepts')">🔬 Key Concepts</a>
+        <a href="#unit-b" onclick="openTab('b','resources')">📄 Notes &amp; Resources</a>
+        <a href="#unit-b" onclick="openTab('b','online')">🌐 Online Study Tools</a>
+      </div>
+    </div>
+
+    <div class="nav-item">
+      <button>Unit C — Genetics</button>
+      <div class="dropdown">
+        <div class="dropdown-section">Cell Division (3A)</div>
+        <a href="#unit-c" onclick="openTab('c','outcomes')">📋 Learning Outcomes</a>
+        <a href="#unit-c" onclick="openTab('c','concepts')">🔬 Key Concepts</a>
+        <div class="dropdown-section">Mendelian &amp; Molecular (3B / 3C)</div>
+        <a href="#unit-c" onclick="openTab('c','resources')">📄 Notes &amp; Resources</a>
+        <a href="#unit-c" onclick="openTab('c','online')">🌐 Online Study Tools</a>
+      </div>
+    </div>
+
+    <div class="nav-item">
+      <button>Unit D — Populations</button>
+      <div class="dropdown">
+        <a href="#unit-d" onclick="openTab('d','outcomes')">📋 Learning Outcomes</a>
+        <a href="#unit-d" onclick="openTab('d','concepts')">🌿 Key Concepts</a>
+        <a href="#unit-d" onclick="openTab('d','resources')">📄 Notes &amp; Resources</a>
+        <a href="#unit-d" onclick="openTab('d','online')">🌐 Online Study Tools</a>
+      </div>
+    </div>
+
+    <div class="nav-item">
+      <a href="#diploma">🎓 Diploma Prep</a>
+    </div>
+
+  </div>
+  <div class="nav-cta"><a href="#diploma">Practice Exams ↗</a></div>
+</nav>
+
+<!-- ═══════════════════════════════════════════════════ COUNTDOWN BAR -->
+<div class="countdown-bar">
+  <span>📅 Diploma Exam:</span>
+  <input type="date" id="exam-date" onchange="updateCountdown()">
+  <span id="countdown-display">← Set your exam date!</span>
+
+<div id="schedule-panel"></div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════ HERO -->
+<section id="home" style="padding-top:56px;">
+  <div class="hero-inner">
+    <div class="hero-badge">🌿 Alberta Biology 30 · Diploma Exam Review</div>
+    <h1>You've got this.<br><em>Let's review together.</em></h1>
+    <p>This hub brings everything you need for the Biology 30 Diploma Exam into one place — structured notes, key concepts, practice questions, and the best online study tools.</p>
+    <div class="hero-stats">
+      <div class="stat-card"><div class="num">4</div><div class="lbl">Units</div></div>
+      <div class="stat-card"><div class="num">30%</div><div class="lbl">Diploma Weight</div></div>
+      <div class="stat-card"><div class="num">~2.5h</div><div class="lbl">Exam Duration</div></div>
+      <div class="stat-card"><div class="num">100</div><div class="lbl">Marks Total</div></div>
+    </div>
+    <div class="hero-units">
+      <a href="#unit-a" class="unit-chip">
+        <span class="chip-icon">🧠</span>
+        <div class="chip-text"><strong>Unit A</strong><span>Nervous &amp; Endocrine · 25%</span></div>
+      </a>
+      <a href="#unit-b" class="unit-chip">
+        <span class="chip-icon">🧬</span>
+        <div class="chip-text"><strong>Unit B</strong><span>Reproduction &amp; Development · 20%</span></div>
+      </a>
+      <a href="#unit-c" class="unit-chip">
+        <span class="chip-icon">🔬</span>
+        <div class="chip-text"><strong>Unit C</strong><span>Cell Division &amp; Genetics · 35%</span></div>
+      </a>
+      <a href="#unit-d" class="unit-chip">
+        <span class="chip-icon">🌿</span>
+        <div class="chip-text"><strong>Unit D</strong><span>Population Dynamics · 20%</span></div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════ UNIT A -->
+<div style="background:#fff;">
+<div class="section" id="unit-a">
+
+  <div class="section-header">
+    <div><div class="unit-tag tag-a">Unit A</div></div>
+    <div class="header-text">
+      <h2>Nervous &amp; Endocrine Systems</h2>
+      <p>How the body detects, processes, and responds to stimuli through the nervous system and chemical messengers of the endocrine system.</p>
+    </div>
+    <div class="weight-badge"><div class="pct">25%</div><div class="lbl">of Diploma</div></div>
+  </div>
+
+  <div class="tabs" id="tabs-a">
+    <button class="tab-btn active" onclick="openTab('a','outcomes')">📋 Outcomes Checklist</button>
+    <button class="tab-btn" onclick="openTab('a','concepts')">🧠 Key Concepts</button>
+    <button class="tab-btn" onclick="openTab('a','resources')">📄 Your Resources</button>
+    <button class="tab-btn" onclick="openTab('a','online')">🌐 Online Tools</button>
+  </div>
+
+  <!-- TAB: OUTCOMES -->
+  <div class="tab-content active" id="tab-a-outcomes">
+    <div class="progress-section">
+      <h3>Unit A Progress</h3>
+      <div class="progress-bars">
+        <div class="prog-row"><span class="prog-label">Nervous System</span><div class="prog-track"><div class="prog-fill" id="prog-a1" style="width:0%;background:#40916C;"></div></div><span class="prog-pct" id="pct-a1">0%</span></div>
+        <div class="prog-row"><span class="prog-label">Endocrine System</span><div class="prog-track"><div class="prog-fill" id="prog-a2" style="width:0%;background:#E9C46A;"></div></div><span class="prog-pct" id="pct-a2">0%</span></div>
+      </div>
+    </div>
+
+    <h3 style="font-size:0.9rem;font-weight:700;color:var(--green-dark);margin-bottom:12px;">General Outcome 1 — Nervous System</h3>
+    <div class="outcomes-list">
+
+      <div class="outcome-item" data-id="a1-1">
+        <button class="outcome-toggle" onclick="toggleOutcome('a1-1')">
+          <span class="ot-arrow">▶</span><span class="ot-code">A1.1</span>
+          Neuron Structure &amp; Function
+          <span class="ot-check" onclick="checkOutcome(event,'a1-1')"></span>
+        </button>
+        <div class="outcome-body">
+          <ul>
+            <li><strong>Neuron types:</strong> sensory (afferent), motor (efferent), interneuron (association)</li>
+            <li><strong>Structure:</strong> dendrites → cell body → axon → axon terminals → synaptic knobs</li>
+            <li><strong>Myelin sheath:</strong> Schwann cells (PNS) / oligodendrocytes (CNS); speeds transmission via saltatory conduction</li>
+            <li><strong>Resting potential:</strong> −70 mV; maintained by Na⁺/K⁺ pump (3 Na⁺ out, 2 K⁺ in)</li>
+            <li><strong>Action potential:</strong> depolarization (Na⁺ in) → repolarization (K⁺ out) → hyperpolarization → refractory period</li>
+            <li><strong>All-or-nothing law:</strong> stimulus must reach threshold; intensity coded by frequency of APs</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="outcome-item" data-id="a1-2">
+        <button class="outcome-toggle" onclick="toggleOutcome('a1-2')">
+          <span class="ot-arrow">▶</span><span class="ot-code">A1.2</span>
+          Synaptic Transmission
+          <span class="ot-check" onclick="checkOutcome(event,'a1-2')"></span>
+        </button>
+        <div class="outcome-body">
+          <ul>
+            <li><strong>Synapse:</strong> presynaptic neuron → synaptic cleft → postsynaptic neuron</li>
+            <li><strong>Neurotransmitters:</strong> acetylcholine (ACh), dopamine, serotonin, norepinephrine, GABA</li>
+            <li><strong>Sequence:</strong> AP arrives → Ca²⁺ enters → vesicles release NT → NT binds receptors → EPSP or IPSP</li>
+            <li><strong>Summation:</strong> spatial (multiple synapses) or temporal (rapid repeated stimuli)</li>
+            <li><strong>Termination:</strong> reuptake, enzymatic breakdown (e.g. AChE breaks down ACh)</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="outcome-item" data-id="a1-3">
+        <button class="outcome-toggle" onclick="toggleOutcome('a1-3')">
+          <span class="ot-arrow">▶</span><span class="ot-code">A1.3</span>
+          CNS — Brain &amp; Spinal Cord
+          <span class="ot-check" onclick="checkOutcome(event,'a1-3')"></span>
+        </button>
+        <div class="outcome-body">
+          <ul>
+            <li><strong>Cerebrum lobes:</strong> frontal (motor, reasoning), parietal (sensory, spatial), temporal (hearing, memory), occipital (vision)</li>
+            <li><strong>Cerebellum:</strong> balance, coordination, fine motor control</li>
+            <li><strong>Brain stem:</strong> medulla oblongata (breathing, HR, BP), pons (relay), midbrain (reflexes)</li>
+            <li><strong>Hypothalamus:</strong> homeostasis, links NS and endocrine system</li>
+            <li><strong>Spinal cord:</strong> white matter (tracts) surrounds grey matter (cell bodies); dorsal root = sensory, ventral root = motor</li>
+            <li><strong>Reflex arc:</strong> receptor → afferent → spinal cord (interneuron) → efferent → effector; bypasses brain</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="outcome-item" data-id="a1-4">
+        <button class="outcome-toggle" onclick="toggleOutcome('a1-4')">
+          <span class="ot-arrow">▶</span><span class="ot-code">A1.4</span>
+          PNS — Somatic &amp; Autonomic
+          <span class="ot-check" onclick="checkOutcome(event,'a1-4')"></span>
+        </button>
+        <div class="outcome-body">
+          <ul>
+            <li><strong>Somatic NS:</strong> voluntary control of skeletal muscle</li>
+            <li><strong>Autonomic NS:</strong> involuntary control of smooth muscle, cardiac muscle, glands</li>
+            <li><strong>Sympathetic:</strong> "fight or flight" — increases HR, dilates bronchioles, inhibits digestion</li>
+            <li><strong>Parasympathetic:</strong> "rest and digest" — decreases HR, constricts bronchioles, stimulates digestion</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="outcome-item" data-id="a1-5">
+        <button class="outcome-toggle" onclick="toggleOutcome('a1-5')">
+          <span class="ot-arrow">▶</span><span class="ot-code">A1.5</span>
+          Sensory Systems
+          <span class="ot-check" onclick="checkOutcome(event,'a1-5')"></span>
+        </button>
+        <div class="outcome-body">
+          <ul>
+            <li><strong>Eye:</strong> cornea → aqueous humour → pupil/iris → lens → vitreous humour → retina (rods: light/dark; cones: colour) → optic nerve</li>
+            <li><strong>Ear:</strong> outer ear → tympanic membrane → ossicles (malleus, incus, stapes) → oval window → cochlea (hair cells) → auditory nerve</li>
+            <li><strong>Accommodation:</strong> ciliary muscles change lens shape for near/far focus</li>
+            <li><strong>Proprioception:</strong> muscle spindles and Golgi tendon organs sense body position</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="outcome-item" data-id="a1-6">
+        <button class="outcome-toggle" onclick="toggleOutcome('a1-6')">
+          <span class="ot-arrow">▶</span><span class="ot-code">A1.6</span>
+          Nervous System Disorders
+          <span class="ot-check" onclick="checkOutcome(event,'a1-6')"></span>
+        </button>
+        <div class="outcome-body">
+          <ul>
+            <li><strong>Multiple Sclerosis:</strong> autoimmune destruction of myelin → impaired conduction</li>
+            <li><strong>Parkinson's Disease:</strong> insufficient dopamine → tremors, rigidity</li>
+            <li><strong>Alzheimer's:</strong> neuron death, amyloid plaques → memory loss</li>
+            <li><strong>Drug effects:</strong> stimulants increase NT release; depressants enhance inhibitory NTs (e.g. alcohol → GABA)</li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="divider"></div>
+    <h3 style="font-size:0.9rem;font-weight:700;color:var(--green-dark);margin-bottom:12px;">General Outcome 2 — Endocrine System</h3>
+    <div class="outcomes-list">
+
+      <div class="outcome-item" data-id="a2-1">
+        <button class="outcome-toggle" onclick="toggleOutcome('a2-1')">
+          <span class="ot-arrow">▶</span><span class="ot-code">A2.1</span>
+          Hormones &amp; Glands
+          <span class="ot-check" onclick="checkOutcome(event,'a2-1')"></span>
+        </button>
+        <div class="outcome-body">
+          <ul>
+            <li><strong>Endocrine glands:</strong> ductless; secrete hormones directly into blood</li>
+            <li><strong>Key glands:</strong> hypothalamus, pituitary (anterior/posterior), thyroid, parathyroid, adrenal (cortex/medulla), pancreas, gonads</li>
+            <li><strong>Steroid hormones:</strong> lipid-soluble; cross membrane; bind intracellular receptors; alter gene expression (slow, long-lasting)</li>
+            <li><strong>Non-steroid hormones:</strong> water-soluble; bind membrane receptors; use second messengers (cAMP); fast, short-lived response</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="outcome-item" data-id="a2-2">
+        <button class="outcome-toggle" onclick="toggleOutcome('a2-2')">
+          <span class="ot-arrow">▶</span><span class="ot-code">A2.2</span>
+          Feedback Mechanisms
+          <span class="ot-check" onclick="checkOutcome(event,'a2-2')"></span>
+        </button>
+        <div class="outcome-body">
+          <ul>
+            <li><strong>Negative feedback:</strong> response reduces the original stimulus; maintains homeostasis (e.g. blood glucose, thyroid hormones)</li>
+            <li><strong>Positive feedback:</strong> response amplifies the original stimulus (e.g. LH surge triggering ovulation; oxytocin during labour)</li>
+            <li><strong>Hypothalamic-pituitary axis:</strong> hypothalamus releases releasing/inhibiting hormones → anterior pituitary responds → target glands release hormones → feedback to hypothalamus</li>
+            <li><strong>Insulin vs. glucagon:</strong> high blood glucose → insulin (beta cells) → glycogenesis; low blood glucose → glucagon (alpha cells) → glycogenolysis</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="outcome-item" data-id="a2-3">
+        <button class="outcome-toggle" onclick="toggleOutcome('a2-3')">
+          <span class="ot-arrow">▶</span><span class="ot-code">A2.3</span>
+          Endocrine Disorders
+          <span class="ot-check" onclick="checkOutcome(event,'a2-3')"></span>
+        </button>
+        <div class="outcome-body">
+          <ul>
+            <li><strong>Type 1 Diabetes:</strong> autoimmune destruction of beta cells → no insulin production</li>
+            <li><strong>Type 2 Diabetes:</strong> cells become insulin-resistant → high blood glucose</li>
+            <li><strong>Hyperthyroidism:</strong> excess thyroid hormones → increased metabolic rate, weight loss, anxiety</li>
+            <li><strong>Hypothyroidism:</strong> insufficient thyroid hormones → decreased metabolic rate, fatigue, weight gain</li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- TAB: CONCEPTS -->
+  <div class="tab-content" id="tab-a-concepts">
+    <div class="intro-box">
+      <p><strong>Theme: Communication &amp; Control.</strong> Unit A explores how the body coordinates rapid responses (nervous system) and slower, sustained responses (endocrine system). Both systems work together to maintain homeostasis.</p>
+    </div>
+    <div class="concept-grid">
+      <div class="concept-box">
+        <h4>⚡ Action Potential Steps</h4>
+        <ul>
+          <li>Resting: −70 mV; Na⁺ channels closed</li>
+          <li>Depolarization: Na⁺ channels open → Na⁺ rushes in → becomes +30 mV</li>
+          <li>Repolarization: K⁺ channels open → K⁺ out → membrane repolarizes</li>
+          <li>Hyperpolarization: briefly more negative than resting</li>
+          <li>Refractory period: cannot fire again immediately</li>
+          <li>Na⁺/K⁺ pump restores resting potential</li>
+        </ul>
+      </div>
+      <div class="concept-box">
+        <h4>🧠 Brain Region Functions</h4>
+        <ul>
+          <li>Frontal lobe: voluntary movement, personality, decision-making</li>
+          <li>Parietal lobe: somatosensory processing, spatial awareness</li>
+          <li>Temporal lobe: hearing, language comprehension, memory</li>
+          <li>Occipital lobe: visual processing</li>
+          <li>Cerebellum: balance, coordination</li>
+          <li>Medulla: automatic functions (breathing, heart rate)</li>
+        </ul>
+      </div>
+      <div class="concept-box">
+        <h4>💉 Key Hormones to Know</h4>
+        <ul>
+          <li>Insulin (pancreas β) → lowers blood glucose</li>
+          <li>Glucagon (pancreas α) → raises blood glucose</li>
+          <li>ADH (posterior pituitary) → water reabsorption</li>
+          <li>TSH (anterior pituitary) → stimulates thyroid</li>
+          <li>Epinephrine (adrenal medulla) → fight or flight</li>
+          <li>Cortisol (adrenal cortex) → stress response</li>
+        </ul>
+      </div>
+      <div class="concept-box">
+        <h4>🔄 Negative Feedback Template</h4>
+        <ul>
+          <li>Stimulus: change in body variable</li>
+          <li>Receptor: detects change</li>
+          <li>Control centre: processes signal (often hypothalamus)</li>
+          <li>Effector: produces response</li>
+          <li>Response: opposes/reverses the original change</li>
+          <li>System returns to set point</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- TAB: RESOURCES -->
+  <div class="tab-content" id="tab-a-resources">
+    <div class="cards-grid">
+      <div class="card">
+        <div class="card-header"><span class="card-icon">📖</span><div><h3>Unit Notes &amp; Study Guides</h3><p>Nervous &amp; Endocrine Systems</p></div></div>
+        <ul class="card-links">
+<li><a href="resources/unit_a/Bio30_UnitA_full Notes.pdf" target="_blank"><span class="link-icon">📄</span> Unit A Full Notes <span class="pdf-badge">PDF</span></a></li>
+<li><a href="resources/unit_a/Biology30_Unit1_FullStudyGuide.pdf" target="_blank"><span class="link-icon">📄</span> Unit 1 Full Study Guide <span class="pdf-badge">PDF</span></a></li>
+<li><a href="resources/unit_a/Bio30_UnitA_Lesson1.pdf" target="_blank"><span class="link-icon">📄</span> Lesson 1 Notes <span class="pdf-badge">PDF</span></a></li>
+<li><a href="resources/unit_a/Bio30_UnitA_Lesson2.pdf" target="_blank"><span class="link-icon">📄</span> Lesson 2 Notes <span class="pdf-badge">PDF</span></a></li>
+<li><a href="resources/unit_a/Bio30_UnitA_Lesson3.pdf" target="_blank"><span class="link-icon">📄</span> Lesson 3 Notes <span class="pdf-badge">PDF</span></a></li>
+<li><a href="resources/unit_a/Bio30_UnitA_Lesson4.pdf" target="_blank"><span class="link-icon">📄</span> Lesson 4 Notes <span class="pdf-badge">PDF</span></a></li>
+        </ul>
+      </div>
+      <div class="card">
+        <div class="card-header"><span class="card-icon">📝</span><div><h3>Topic Reviews</h3><p>Topic-by-topic review sheets</p></div></div>
+        <ul class="card-links">
+<li><a href="resources/unit_a/Topic 1 Review.pdf" target="_blank"><span class="link-icon">📄</span> Topic 1 Review <span class="pdf-badge">PDF</span></a></li>
+<li><a href="resources/unit_a/Topic 2 Review.pdf" target="_blank"><span class="link-icon">📄</span> Topic 2 Review <span class="pdf-badge">PDF</span></a></li>
+<li><a href="resources/unit_a/Topic 3 Review.pdf" target="_blank"><span class="link-icon">📄</span> Topic 3 Review <span class="pdf-badge">PDF</span></a></li>
+        </ul>
+      </div>
+      <div class="card">
+        <div class="card-header"><span class="card-icon">🎯</span><div><h3>Sample Diploma-Style Exams</h3><p>Practice in diploma format</p></div></div>
+        <ul class="card-links">
+<li><a href="resources/unit_a/Biology30_UnitA_Sample_Diploma_Style_Exam_1.pdf" target="_blank"><span class="link-icon">📄</span> Sample Diploma Exam 1 <span class="pdf-badge">PDF</span></a></li>
+<li><a href="resources/unit_a/Biology30_UnitA_Sample_Diploma_Style_Exam_2.pdf" target="_blank"><span class="link-icon">📄</span> Sample Diploma Exam 2 <span class="pdf-badge">PDF</span></a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- TAB: ONLINE -->
+  <div class="tab-content" id="tab-a-online">
+    <div class="two-col">
+      <div>
+        <h3 style="font-size:0.9rem;font-weight:700;color:var(--green-dark);margin-bottom:12px;">🧠 Nervous System</h3>
+    <a href="https://www.khanacademy.org/science/ap-biology/cell-communication-and-cell-cycle/neuron-structure/v/overview-of-neuron-structure-and-function" target="_blank" class="resource-platform"><span class="rp-logo">🎓</span><div class="rp-text"><strong>Khan Academy — Neurons</strong><span>Neuron structure, action potentials, synapses</span></div><span class="rp-arrow">↗</span></a>
+    <a href="https://www.youtube.com/watch?v=jjSgqavCfRE" target="_blank" class="resource-platform"><span class="rp-logo">▶️</span><div class="rp-text"><strong>CrashCourse — The Nervous System</strong><span>Fast-paced overview of nervous system</span></div><span class="rp-arrow">↗</span></a>
+    <a href="https://www.youtube.com/watch?v=OB4OjJQtKPY" target="_blank" class="resource-platform"><span class="rp-logo">▶️</span><div class="rp-text"><strong>CrashCourse — The Brain</strong><span>Brain anatomy, lobes, and functions</span></div><span class="rp-arrow">↗</span></a>
+    <a href="https://phet.colorado.edu/en/simulations/neuron" target="_blank" class="resource-platform"><span class="rp-logo">⚡</span><div class="rp-text"><strong>PhET — Neuron Simulation</strong><span>Interactive action potential simulator</span></div><span class="rp-arrow">↗</span></a>
+    <a href="https://www.getbodysmart.com/nervous-system/neuron-types-structure" target="_blank" class="resource-platform"><span class="rp-logo">🔬</span><div class="rp-text"><strong>Get Body Smart — Neurons</strong><span>Diagrams and interactive neuron content</span></div><span class="rp-arrow">↗</span></a>
+    <a href="https://www.youtube.com/watch?v=I5SdSIq2ZXk" target="_blank" class="resource-platform"><span class="rp-logo">▶️</span><div class="rp-text"><strong>CrashCourse — Sensing the Environment</strong><span>Eye, ear, and sensory receptors</span></div><span class="rp-arrow">↗</span></a>
+      </div>
+      <div>
+        <h3 style="font-size:0.9rem;font-weight:700;color:var(--green-dark);margin-bottom:12px;">💉 Endocrine System</h3>
+    <a href="https://www.khanacademy.org/science/ap-biology/cellular-energetics/regulation-of-gene-expression-ap/a/endocrine-system" target="_blank" class="resource-platform"><span class="rp-logo">🎓</span><div class="rp-text"><strong>Khan Academy — Endocrine System</strong><span>Hormones, glands, and feedback</span></div><span class="rp-arrow">↗</span></a>
+    <a href="https://www.youtube.com/watch?v=r6VsZa-tS8k" target="_blank" class="resource-platform"><span class="rp-logo">▶️</span><div class="rp-text"><strong>CrashCourse — The Endocrine System</strong><span>Hormones, glands, and homeostasis</span></div><span class="rp-arrow">↗</span></a>
+    <a href="https://www.youtube.com/watch?v=PBbMnMVT_xM" target="_blank" class="resource-platform"><span class="rp-logo">▶️</span><div class="rp-text"><strong>CrashCourse — Endocrine System Pt. 2</strong><span>Feedback loops, hormone interactions</span></div><span class="rp-arrow">↗</span></a>
+    <a href="https://www.getbodysmart.com/endocrine-system" target="_blank" class="resource-platform"><span class="rp-logo">🔬</span><div class="rp-text"><strong>Get Body Smart — Endocrine</strong><span>Interactive diagrams for all glands</span></div><span class="rp-arrow">↗</span></a>
+    <a href="https://www.biologycorner.com/anatomy/endocrine/endocrine_notes.html" target="_blank" class="resource-platform"><span class="rp-logo">📋</span><div class="rp-text"><strong>Biology Corner — Endocrine Notes</strong><span>Concise summary with diagrams</span></div><span class="rp-arrow">↗</span></a>
+      </div>
+    </div>
+    <div style="margin-top:20px;padding:16px 18px;background:linear-gradient(135deg,#c00,#900);border-radius:10px;display:flex;align-items:center;gap:16px;">
+      <span style="font-size:2.2rem;line-height:1;">▶️</span>
+      <div style="flex:1;">
+        <strong style="color:#fff;font-size:0.95rem;display:block;margin-bottom:4px;">YouTube Playlist — Unit A — Nervous &amp; Endocrine Systems</strong>
+        <p style="color:rgba(255,255,255,0.82);font-size:0.78rem;margin:0 0 10px;">Video lessons covering all Unit A — Nervous &amp; Endocrine Systems outcomes — curated for Alberta Biology 30.</p>
+        <a href="https://www.youtube.com/watch?v=WJK43vooxMw&list=PLLaZ8k0__hr0Z7ifrPC_vXovuMv-Ae4Y7" target="_blank" style="display:inline-block;background:#fff;color:#900;padding:6px 16px;border-radius:20px;font-size:0.82rem;font-weight:700;text-decoration:none;">Watch Playlist ▶</a>
+      </div>
+    </div>
+    <div style="margin-top:24px;">
+      <h3 style="font-size:0.9rem;font-weight:700;color:var(--green-dark);margin-bottom:4px;">🎙️ NotebookLM Study Notebooks</h3>
+      <p style="font-size:0.78rem;color:#666;margin-bottom:14px;">AI-powered notebooks built from your course materials — ask questions, get summaries, and listen to audio overviews.</p>
+      <div style="margin-bottom:14px;">
+        <h4 style="font-size:0.82rem;font-weight:600;color:#555;margin:0 0 6px;padding:4px 8px;background:#f0f4f8;border-radius:4px;">Lesson 1 — Intro: Nervous &amp; Endocrine</h4>
+        <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:6px;">
+          <a href="https://notebooklm.google.com/notebook/931843ac-95b8-4c0c-bc30-4f59989987f5" target="_blank" class="resource-platform" style="margin-bottom:6px;"><span class="rp-logo">🎙️</span><div class="rp-text"><strong>Intro Nervous and Endocrine Systems</strong><span>Open in NotebookLM</span></div><span class="rp-arrow">↗</span></a>
+        </div>
+      </div>
+      <div style="margin-bottom:14px;">
+        <h4 style="font-size:0.82rem;font-weight:600;color:#555;margin:0 0 6px;padding:4px 8px;background:#f0f4f8;border-radius:4px;">Lesson 2 — Central Nervous System</h4>
+        <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:6px;">
+          <a href="https://notebooklm.google.com/notebook/b3fc1f91-6e48-43fc-b7bc-9d55c20c2120" target="_blank" class="resource-platform" style="margin-bottom:6px;"><span class="rp-logo">🎙️</span><div class="rp-text"><strong>Central Nervous System: Structure, Function, and Integration</strong><span>Open in NotebookLM</span></div><span class="rp-arrow">↗</span></a>
+        </div>
+      </div>
+      <div style="margin-bottom:14px;">
+        <h4 style="font-size:0.82rem;font-weight:600;color:#555;margin:0 0 6px;padding:4px 8px;background:#f0f4f8;border-radius:4px;">Lesson 3 — Sensory Systems</h4>
+        <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:6px;">
+          <a href="https://notebooklm.google.com/notebook/ad369457-2526-4381-9d28-c291506b8a22" target="_blank" class="resource-platform" style="margin-bottom:6px;"><span class="rp-logo">🎙️</span><div class="rp-text"><strong>Sensory Systems: From Stimulus to Perception</strong><span>Open in NotebookLM</span></div><span class="rp-arrow">↗</span></a>
+        </div>
+      </div>
+      <div style="margin-bottom:14px;">
+        <h4 style="font-size:0.82rem;font-weight:600;color:#555;margin:0 0 6px;padding:4px 8px;background:#f0f4f8;border-radius:4px;">Lesson 4 — Endocrine System</h4>
+        <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:6px;">
+          <a href="https://notebooklm.google.com/notebook/a2a3a8cf-ec67-4aee-be76-1c0ba10f8b6e" target="_blank" class="resource-platform" style="margin-bottom:6px;"><span class="rp-logo">🎙️</span><div class="rp-text"><strong>The Endocrine System: Mechanisms of Long-Term Biological Control</strong><span>Open in NotebookLM</span></div><span class="rp-arrow">↗</span></a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div><!-- end .section -->
+</div><!-- end white bg -->
+
+<!-- ═══════════════════════════════════════════════════ UNIT B -->
+<div style="background:#FFFDF5;">
+<div class="section" id="unit-b">
+
+  <div class="section-header">
+    <div><div class="unit-tag tag-b">Unit B</div></div>
+    <div class="header-text">
+      <h2>Reproduction &amp; Development</h2>
+      <p>Human reproductive systems, hormonal regulation, and embryonic development from fertilization to birth.</p>
+    </div>
+    <div class="weight-badge"><div class="pct">20%</div><div class="lbl">of Diploma</div></div>
+  </div>
+
+  <div class="tabs" id="tabs-b">
+    <button class="tab-btn active" onclick="openTab('b','outcomes')">📋 Outcomes Checklist</button>
+    <button class="tab-btn" onclick="openTab('b','concepts')">🔬 Key Concepts</button>
+    <button class="tab-btn" onclick="openTab('b','resources')">📄 Your Resources</button>
+    <button class="tab-btn" onclick="openTab('b','online')">🌐 Online Tools</button>
+  </div>
+
+  <!-- TAB: OUTCOMES -->
+  <div class="tab-content active" id="tab-b-outcomes">
+    <div class="progress-section">
+      <h3>Unit B Progress</h3>
+      <div class="progress-bars">
+        <div class="prog-row"><span class="prog-label">Reproductive Anatomy</span><div class="prog-track"><div class="prog-fill" id="prog-b1" style="width:0%;background:#E9C46A;"></div></div><span class="prog-pct" id="pct-b1">0%</span></div>
+        <div class="prog-row"><span class="prog-label">Hormonal Regulation</span><div class="prog-track"><div class="prog-fill" id="prog-b2" style="width:0%;background:#F4845F;"></div></div><span class="prog-pct" id="pct-b2">0%</span></div>
+        <div class="prog-row"><span class="prog-label">Development &amp; Birth</span><div class="prog-track"><div class="prog-fill" id="prog-b3" style="width:0%;background:#48CAE4;"></div></div><span class="prog-pct" id="pct-b3">0%</span></div>
+      </div>
+    </div>
+
+    <h3 style="font-size:0.9rem;font-weight:700;color:var(--green-dark);margin-bottom:12px;">General Outcome 1 — Reproductive Anatomy</h3>
+    <div class="outcomes-list">
+
+      <div class="outcome-item" data-id="b1-1">
+        <button class="outcome-toggle" onclick="toggleOutcome('b1-1')">
+          <span class="ot-arrow">▶</span><span class="ot-code">B1.1</span>
+          Male Reproductive System
+          <span class="ot-check" onclick="checkOutcome(event,'b1-1')"></span>
+        </button>
+        <div class="outcome-body">
+          <ul>
+            <li><strong>Structures:</strong> testes → epididymis → vas deferens → seminal vesicles / prostate / bulbourethral gland → urethra</li>
+            <li><strong>Spermatogenesis:</strong> occurs in seminiferous tubules; FSH stimulates; takes ~72 days</li>
+            <li><strong>Sperm structure:</strong> head (nucleus + acrosome), midpiece (mitochondria), flagellum</li>
+            <li><strong>Testosterone:</strong> produced by Leydig cells; regulated by LH; responsible for secondary sexual characteristics</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="outcome-item" data-id="b1-2">
+        <button class="outcome-toggle" onclick="toggleOutcome('b1-2')">
+          <span class="ot-arrow">▶</span><span class="ot-code">B1.2</span>
+          Female Reproductive System
+          <span class="ot-check" onclick="checkOutcome(event,'b1-2')"></span>
+        </button>
+        <div class="outcome-body">
+          <ul>
+            <li><strong>Structures:</strong> ovaries → fallopian tubes → uterus (endometrium) → cervix → vagina</li>
+            <li><strong>Oogenesis:</strong> begins before birth; primary oocytes arrested in prophase I; one mature egg per cycle</li>
+            <li><strong>Ovarian follicle:</strong> primary → secondary → Graafian → ovulation → corpus luteum → corpus albicans</li>
+            <li><strong>Hormones:</strong> FSH (follicle growth), LH (ovulation trigger), estrogen (follicular phase), progesterone (luteal phase)</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="outcome-item" data-id="b1-4">
+        <button class="outcome-toggle" onclick="toggleOutcome('b1-4')">
+          <span class="ot-arrow">▶</span><span class="ot-code">B1.3</span>
+          Menstrual Cycle
+          <span class="ot-check" onclick="checkOutcome(event,'b1-4')"></span>
+        </button>
+        <div class="outcome-body">
+          <ul>
+            <li><strong>Days 1–5:</strong> menstruation — endometrium sheds; low estrogen &amp; progesterone</li>
+            <li><strong>Days 6–13:</strong> follicular phase — FSH stimulates follicle; estrogen rises; endometrium thickens</li>
+            <li><strong>Day 14:</strong> LH surge → ovulation</li>
+            <li><strong>Days 15–28:</strong> luteal phase — corpus luteum produces progesterone; maintains endometrium</li>
+            <li><strong>No fertilization:</strong> corpus luteum degenerates; progesterone drops → menstruation</li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="divider"></div>
+    <h3 style="font-size:0.9rem;font-weight:700;color:var(--green-dark);margin-bottom:12px;">General Outcome 2 — Hormonal Regulation</h3>
+    <div class="outcomes-list">
+
+      <div class="outcome-item" data-id="b2-1">
+        <button class="outcome-toggle" onclick="toggleOutcome('b2-1')">
+          <span class="ot-arrow">▶</span><span class="ot-code">B2.1</span>
+          Hormonal Control of Reproduction
+          <span class="ot-check" onclick="checkOutcome(event,'b2-1')"></span>
+        </button>
+        <div class="outcome-body">
+          <ul>
+            <li><strong>GnRH</strong> (hypothalamus) → stimulates anterior pituitary to release FSH and LH</li>
+            <li><strong>FSH:</strong> stimulates follicle development (female) and sperm production (male)</li>
+            <li><strong>LH:</strong> triggers ovulation and corpus luteum formation; stimulates testosterone in males</li>
+            <li><strong>Estrogen:</strong> positive feedback before ovulation (LH surge); negative feedback after</li>
+            <li><strong>Progesterone:</strong> maintains uterine lining; inhibits FSH and LH (negative feedback)</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="outcome-item" data-id="b2-2">
+        <button class="outcome-toggle" onclick="toggleOutcome('b2-2')">
+          <span class="ot-arrow">▶</span><span class="ot-code">B2.2</span>
+          Contraception &amp; Reproductive Technologies
+          <span class="ot-check" onclick="checkOutcome(event,'b2-2')"></span>
+        </button>
+        <div class="outcome-body">
+          <ul>
+            <li><strong>Oral contraceptives:</strong> synthetic estrogen/progesterone → suppresses FSH/LH → prevents ovulation</li>
+            <li><strong>IUD:</strong> prevents implantation; may contain copper or hormones</li>
+            <li><strong>IVF:</strong> egg fertilized outside body → embryo transferred to uterus</li>
+            <li><strong>Artificial insemination:</strong> sperm placed directly into reproductive tract</li>
+            <li><strong>Ethical considerations:</strong> embryo status, selective reduction, genetic screening</li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="divider"></div>
+    <h3 style="font-size:0.9rem;font-weight:700;color:var(--green-dark);margin-bottom:12px;">General Outcome 3 — Development &amp; Birth</h3>
+    <div class="outcomes-list">
+
+      <div class="outcome-item" data-id="b3-1">
+        <button class="outcome-toggle" onclick="toggleOutcome('b3-1')">
+          <span class="ot-arrow">▶</span><span class="ot-code">B3.1</span>
+          Fertilization to Implantation
+          <span class="ot-check" onclick="checkOutcome(event,'b3-1')"></span>
+        </button>
+        <div class="outcome-body">
+          <ul>
+            <li><strong>Fertilization:</strong> sperm penetrates egg in fallopian tube → acrosome reaction → zona pellucida penetration → cortical reaction (blocks polyspermy)</li>
+            <li><strong>Cleavage:</strong> mitotic divisions without growth → morula → blastocyst</li>
+            <li><strong>Blastocyst:</strong> inner cell mass (embryo) + trophoblast (placenta)</li>
+            <li><strong>Implantation:</strong> day 6–10; blastocyst embeds in endometrium; hCG secreted (maintains corpus luteum)</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="outcome-item" data-id="b3-2">
+        <button class="outcome-toggle" onclick="toggleOutcome('b3-2')">
+          <span class="ot-arrow">▶</span><span class="ot-code">B3.2</span>
+          Embryonic &amp; Fetal Development
+          <span class="ot-check" onclick="checkOutcome(event,'b3-2')"></span>
+        </button>
+        <div class="outcome-body">
+          <ul>
+            <li><strong>Gastrulation:</strong> 3 germ layers — ectoderm (skin, nervous system), mesoderm (muscle, bone, blood), endoderm (gut, lungs)</li>
+            <li><strong>Placenta:</strong> nutrient/gas exchange; maternal and fetal blood do not mix; produces progesterone after week 10</li>
+            <li><strong>Extra-embryonic membranes:</strong> amnion (amniotic fluid), chorion (chorionic villi), yolk sac, allantois</li>
+            <li><strong>Critical periods:</strong> weeks 3–8; teratogens most dangerous during organogenesis</li>
+            <li><strong>Teratogens:</strong> alcohol, tobacco, drugs, certain medications, radiation</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="outcome-item" data-id="b3-3">
+        <button class="outcome-toggle" onclick="toggleOutcome('b3-3')">
+          <span class="ot-arrow">▶</span><span class="ot-code">B3.3</span>
+          Birth &amp; Lactation
+          <span class="ot-check" onclick="checkOutcome(event,'b3-3')"></span>
+        </button>
+        <div class="outcome-body">
+          <ul>
+            <li><strong>Parturition:</strong> triggered by fetal cortisol → estrogen rise → oxytocin positive feedback loop → uterine contractions</li>
+            <li><strong>Stages of labour:</strong> dilation (longest), expulsion (birth), placental stage</li>
+            <li><strong>Lactation:</strong> prolactin (anterior pituitary) → milk production; oxytocin (posterior pituitary) → milk let-down reflex</li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- TAB: CONCEPTS -->
+  <div class="tab-content" id="tab-b-concepts">
+    <div class="intro-box">
+      <p><strong>Theme: Continuity of Life.</strong> Unit B explores how humans reproduce and how a single cell develops into a fully formed human being. Hormonal feedback loops coordinate the entire process.</p>
+    </div>
+    <div class="concept-grid">
+      <div class="concept-box">
+        <h4>📈 Menstrual Cycle Hormones</h4>
+        <ul>
+          <li>Day 1–5: FSH rises → follicle grows → estrogen low</li>
+          <li>Day 6–13: estrogen rises → endometrium thickens</li>
+          <li>Day 13–14: estrogen peaks → LH surge → ovulation</li>
+          <li>Day 15–28: corpus luteum → progesterone peaks → endometrium maintained</li>
+          <li>Day 28: progesterone/estrogen drop → menstruation</li>
+        </ul>
+      </div>
+      <div class="concept-box">
+        <h4>🌱 Embryonic Development Timeline</h4>
+        <ul>
+          <li>Day 0: fertilization in fallopian tube</li>
+          <li>Day 3–4: morula (solid ball of cells)</li>
+          <li>Day 5–6: blastocyst forms</li>
+          <li>Day 6–10: implantation in endometrium</li>
+          <li>Weeks 3–8: embryonic period; organogenesis</li>
+          <li>Week 9+: fetal period; growth and maturation</li>
+        </ul>
+      </div>
+      <div class="concept-box">
+        <h4>🔄 Key Hormones Summary</h4>
+        <ul>
+          <li>FSH: follicle/sperm development</li>
+          <li>LH: ovulation trigger; testosterone stimulation</li>
+          <li>Estrogen: follicular phase; secondary sex chars</li>
+          <li>Progesterone: luteal phase; maintains pregnancy</li>
+          <li>hCG: from trophoblast; maintains corpus luteum</li>
+          <li>Oxytocin: labour contractions; milk let-down</li>
+        </ul>
+      </div>
+      <div class="concept-box">
+        <h4>🏥 Germ Layer Derivatives</h4>
+        <ul>
+          <li>Ectoderm → skin, nervous system, sense organs</li>
+          <li>Mesoderm → muscle, bone, blood, connective tissue, kidneys</li>
+          <li>Endoderm → digestive tract, respiratory system, liver, pancreas</li>
+          <li>All three germ layers form during gastrulation (week 3)</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- TAB: RESOURCES -->
+  <div class="tab-content" id="tab-b-resources">
+    <div class="cards-grid">
+      <div class="card">
+        <div class="card-header"><span class="card-icon">📖</span><div><h3>Unit Notes &amp; Study Guides</h3><p>Reproduction &amp; Development</p></div></div>
+        <ul class="card-links">
+<li><a href="resources/unit_b/Biology30_UnitB_Full Notes.pdf" target="_blank"><span class="link-icon">📄</span> Unit B Full Notes <span class="pdf-badge">PDF</span></a></li>
+<li><a href="resources/unit_b/Reproduction &amp; Development Study Guide 2026.pdf" target="_blank"><span class="link-icon">📄</span> Reproduction &amp; Development Study Guide 2026 <span class="pdf-badge">PDF</span></a></li>
+<li><a href="resources/unit_b/Biology30_UnitB_Lesson1.pdf" target="_blank"><span class="link-icon">📄</span> Lesson 1 Notes <span class="pdf-badge">PDF</span></a></li>
+<li><a href="resources/unit_b/Biology30_UnitB_Lesson2.pdf" target="_blank"><span class="link-icon">📄</span> Lesson 2 Notes <span class="pdf-badge">PDF</span></a></li>
+        </ul>
+      </div>
+      <div class="card">
+        <div class="card-header"><span class="card-icon">📝</span><div><h3>Topic Notes &amp; Review</h3><p>By-topic notes and review materials</p></div></div>
+        <ul class="card-links">
+<li><a href="resources/unit_b/Topic 2 Notes.pdf" target="_blank"><span class="link-icon">📄</span> Topic 2 Notes <span class="pdf-badge">PDF</span></a></li>
+<li><a href="resources/unit_b/Topic 3 Notes.pdf" target="_blank"><span class="link-icon">📄</span> Topic 3 Notes <span class="pdf-badge">PDF</span></a></li>
+<li><a href="resources/unit_b/Topics 1 and 2 Review Booklet.pdf" target="_blank"><span class="link-icon">📄</span> Topics 1 &amp; 2 Review Booklet <span class="pdf-badge">PDF</span></a></li>
+<li><a href="resources/unit_b/Unit B Review.pdf" target="_blank"><span class="link-icon">📄</span> Unit B Review <span class="pdf-badge">PDF</span></a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- TAB: ONLINE -->
+  <div class="tab-content" id="tab-b-online">
+    <div class="two-col">
+      <div>
+        <h3 style="font-size:0.9rem;font-weight:700;color:var(--green-dark);margin-bottom:12px;">🧬 Reproductive Systems &amp; Hormones</h3>
+    <a href="https://www.khanacademy.org/science/ap-biology/gene-expression-and-regulation/reproductive-cloning/a/reproductive-system" target="_blank" class="resource-platform"><span class="rp-logo">🎓</span><div class="rp-text"><strong>Khan Academy — Reproductive System</strong><span>Male and female anatomy with diagrams</span></div><span class="rp-arrow">↗</span></a>
+    <a href="https://www.youtube.com/watch?v=RdwGb9-xRY4" target="_blank" class="resource-platform"><span class="rp-logo">▶️</span><div class="rp-text"><strong>CrashCourse — Reproductive System</strong><span>Anatomy, hormones, menstrual cycle</span></div><span class="rp-arrow">↗</span></a>
+    <a href="https://www.youtube.com/watch?v=7w3-2AIhAu8" target="_blank" class="resource-platform"><span class="rp-logo">▶️</span><div class="rp-text"><strong>CrashCourse — Reproductive System Pt. 2</strong><span>Pregnancy, birth, lactation</span></div><span class="rp-arrow">↗</span></a>
+    <a href="https://www.getbodysmart.com/reproductive-system" target="_blank" class="resource-platform"><span class="rp-logo">🔬</span><div class="rp-text"><strong>Get Body Smart — Reproductive</strong><span>Interactive anatomy diagrams</span></div><span class="rp-arrow">↗</span></a>
+    <a href="https://www.biologycorner.com/anatomy/reproduction/menstrual_cycle.html" target="_blank" class="resource-platform"><span class="rp-logo">📋</span><div class="rp-text"><strong>Biology Corner — Menstrual Cycle</strong><span>Hormone graph interpretation practice</span></div><span class="rp-arrow">↗</span></a>
+      </div>
+      <div>
+        <h3 style="font-size:0.9rem;font-weight:700;color:var(--green-dark);margin-bottom:12px;">🌱 Development &amp; Birth</h3>
+    <a href="https://www.youtube.com/watch?v=rFp2RpZdBRo" target="_blank" class="resource-platform"><span class="rp-logo">▶️</span><div class="rp-text"><strong>CrashCourse — Embryonic Development</strong><span>Fertilization through gastrulation</span></div><span class="rp-arrow">↗</span></a>
+    <a href="https://www.khanacademy.org/science/ap-biology/gene-expression-and-regulation/old-mechanisms-of-development/a/overview-of-animal-development" target="_blank" class="resource-platform"><span class="rp-logo">🎓</span><div class="rp-text"><strong>Khan Academy — Animal Development</strong><span>From fertilization to organogenesis</span></div><span class="rp-arrow">↗</span></a>
+    <a href="https://embryology.med.unsw.edu.au/embryology/index.php/Week_1" target="_blank" class="resource-platform"><span class="rp-logo">🏥</span><div class="rp-text"><strong>UNSW Embryology Atlas</strong><span>Week-by-week development with images</span></div><span class="rp-arrow">↗</span></a>
+    <a href="https://www.biologycorner.com/anatomy/reproduction/" target="_blank" class="resource-platform"><span class="rp-logo">📋</span><div class="rp-text"><strong>Biology Corner — Reproductive System Q&amp;A</strong><span>Review questions and answers</span></div><span class="rp-arrow">↗</span></a>
+      </div>
+    </div>
+    <div style="margin-top:20px;padding:16px 18px;background:linear-gradient(135deg,#c00,#900);border-radius:10px;display:flex;align-items:center;gap:16px;">
+      <span style="font-size:2.2rem;line-height:1;">▶️</span>
+      <div style="flex:1;">
+        <strong style="color:#fff;font-size:0.95rem;display:block;margin-bottom:4px;">YouTube Playlist — Unit B — Reproduction &amp; Development</strong>
+        <p style="color:rgba(255,255,255,0.82);font-size:0.78rem;margin:0 0 10px;">Video lessons covering all Unit B — Reproduction &amp; Development outcomes — curated for Alberta Biology 30.</p>
+        <a href="https://www.youtube.com/watch?v=aJwWG6ykrng&list=PLLaZ8k0__hr0XX3ReJFDw4rQIUL_IkGwM" target="_blank" style="display:inline-block;background:#fff;color:#900;padding:6px 16px;border-radius:20px;font-size:0.82rem;font-weight:700;text-decoration:none;">Watch Playlist ▶</a>
+      </div>
+    </div>
+    <div style="margin-top:24px;">
+      <h3 style="font-size:0.9rem;font-weight:700;color:var(--green-dark);margin-bottom:4px;">🎙️ NotebookLM Study Notebooks</h3>
+      <p style="font-size:0.78rem;color:#666;margin-bottom:14px;">AI-powered notebooks built from your course materials — ask questions, get summaries, and listen to audio overviews.</p>
+      <div style="margin-bottom:14px;">
+        <h4 style="font-size:0.82rem;font-weight:600;color:#555;margin:0 0 6px;padding:4px 8px;background:#f0f4f8;border-radius:4px;">Lesson 1 — Reproductive Anatomy &amp; Hormones</h4>
+        <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:6px;">
+          <a href="https://notebooklm.google.com/notebook/e02b23f8-39e8-4882-8737-043b35c3656e" target="_blank" class="resource-platform" style="margin-bottom:6px;"><span class="rp-logo">🎙️</span><div class="rp-text"><strong>L1 P1 Human Reproductive Anatomy and Hormonal Regulation</strong><span>Open in NotebookLM</span></div><span class="rp-arrow">↗</span></a>
+          <a href="https://notebooklm.google.com/notebook/76b6020e-67d4-4b79-a767-3ff636612a5c" target="_blank" class="resource-platform" style="margin-bottom:6px;"><span class="rp-logo">🎙️</span><div class="rp-text"><strong>L1 P2 Gamete Specialization and Reproductive Success</strong><span>Open in NotebookLM</span></div><span class="rp-arrow">↗</span></a>
+          <a href="https://notebooklm.google.com/notebook/305f478d-fac2-423f-a923-d0bda45fabe0" target="_blank" class="resource-platform" style="margin-bottom:6px;"><span class="rp-logo">🎙️</span><div class="rp-text"><strong>L1 P3 Hormonal and Chromosomal Control of Reproductive Development</strong><span>Open in NotebookLM</span></div><span class="rp-arrow">↗</span></a>
+          <a href="https://notebooklm.google.com/notebook/2b092866-8a6f-4c3b-9a1c-7edeb69602f4" target="_blank" class="resource-platform" style="margin-bottom:6px;"><span class="rp-logo">🎙️</span><div class="rp-text"><strong>L1 P4 Reproductive Health, Fertility, and Species Survival</strong><span>Open in NotebookLM</span></div><span class="rp-arrow">↗</span></a>
+          <a href="https://notebooklm.google.com/notebook/b9bf0ca4-185d-4a29-bff9-c1d630bceb4b" target="_blank" class="resource-platform" style="margin-bottom:6px;"><span class="rp-logo">🎙️</span><div class="rp-text"><strong>L1 P5 Female Reproductive Anatomy: Structure, Function, and Fertility Pathways</strong><span>Open in NotebookLM</span></div><span class="rp-arrow">↗</span></a>
+          <a href="https://notebooklm.google.com/notebook/6c6cbcce-d59e-4e2c-86ca-905bf991deef" target="_blank" class="resource-platform" style="margin-bottom:6px;"><span class="rp-logo">🎙️</span><div class="rp-text"><strong>L1 P6 Hormonal Regulation of the Menstrual Cycle</strong><span>Open in NotebookLM</span></div><span class="rp-arrow">↗</span></a>
+          <a href="https://notebooklm.google.com/notebook/0395a434-7c58-4947-9e1b-752517174eee" target="_blank" class="resource-platform" style="margin-bottom:6px;"><span class="rp-logo">🎙️</span><div class="rp-text"><strong>L1 P7 Human Reproduction: An Integrated System</strong><span>Open in NotebookLM</span></div><span class="rp-arrow">↗</span></a>
+        </div>
+      </div>
+      <div style="margin-bottom:14px;">
+        <h4 style="font-size:0.82rem;font-weight:600;color:#555;margin:0 0 6px;padding:4px 8px;background:#f0f4f8;border-radius:4px;">Lesson 2 — Development &amp; Reproductive Technologies</h4>
+        <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:6px;">
+          <a href="https://notebooklm.google.com/notebook/30895bd2-8184-4e0c-837d-72dac68b4d5f" target="_blank" class="resource-platform" style="margin-bottom:6px;"><span class="rp-logo">🎙️</span><div class="rp-text"><strong>L2 Human Reproduction: A Clinical Approach (Overview)</strong><span>Open in NotebookLM</span></div><span class="rp-arrow">↗</span></a>
+          <a href="https://notebooklm.google.com/notebook/0962a447-51c4-4700-8e1c-689c9d81e153" target="_blank" class="resource-platform" style="margin-bottom:6px;"><span class="rp-logo">🎙️</span><div class="rp-text"><strong>L2 P1 Stages of Early Human Development</strong><span>Open in NotebookLM</span></div><span class="rp-arrow">↗</span></a>
+          <a href="https://notebooklm.google.com/notebook/7e569a4a-bd88-419d-b252-21c478e774c0" target="_blank" class="resource-platform" style="margin-bottom:6px;"><span class="rp-logo">🎙️</span><div class="rp-text"><strong>L2 P2 Extra-Embryonic Membranes and Placental Development</strong><span>Open in NotebookLM</span></div><span class="rp-arrow">↗</span></a>
+          <a href="https://notebooklm.google.com/notebook/1fb0aa47-4b60-4836-a5cd-2cc1b5d83b73" target="_blank" class="resource-platform" style="margin-bottom:6px;"><span class="rp-logo">🎙️</span><div class="rp-text"><strong>L2 P3 Gastrulation and the Formation of Three Germ Layers</strong><span>Open in NotebookLM</span></div><span class="rp-arrow">↗</span></a>
+          <a href="https://notebooklm.google.com/notebook/5f0e9516-fe6b-4252-9be6-d778b9bc3084" target="_blank" class="resource-platform" style="margin-bottom:6px;"><span class="rp-logo">🎙️</span><div class="rp-text"><strong>L2 P4 Human Prenatal Development, Parturition, and Lactation</strong><span>Open in NotebookLM</span></div><span class="rp-arrow">↗</span></a>
+          <a href="https://notebooklm.google.com/notebook/d18d8930-718f-4174-9e3d-62e2abab2bd9" target="_blank" class="resource-platform" style="margin-bottom:6px;"><span class="rp-logo">🎙️</span><div class="rp-text"><strong>L2 P5 External Influences on Reproductive Health and Fetal Development</strong><span>Open in NotebookLM</span></div><span class="rp-arrow">↗</span></a>
+          <a href="https://notebooklm.google.com/notebook/a54f7319-bfe4-40a4-8a09-aaef3dc40f50" target="_blank" class="resource-platform" style="margin-bottom:6px;"><span class="rp-logo">🎙️</span><div class="rp-text"><strong>L2 P6 Reproductive Technologies: Science, Ethics, and Fertility Management</strong><span>Open in NotebookLM</span></div><span class="rp-arrow">↗</span></a>
+          <a href="https://notebooklm.google.com/notebook/fbc8a399-7cb7-4818-90d4-f8802afa1339" target="_blank" class="resource-platform" style="margin-bottom:6px;"><span class="rp-logo">🎙️</span><div class="rp-text"><strong>L2 P7 Reproductive Technology: Science, Ethics, and Assessment Frameworks</strong><span>Open in NotebookLM</span></div><span class="rp-arrow">↗</span></a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+</div><!-- unit-b end -->
+
+<!-- ═══════════════════════════════════════════════════ UNIT C -->
+<div style="background:#F8FBFF;">
+<div class="section" id="unit-c">
+
+  <div class="section-header">
+    <div><div class="unit-tag tag-c">Unit C</div></div>
+    <div class="header-text">
+      <h2>Cell Division, Genetics &amp; Molecular Biology</h2>
+      <p>How cells divide, how traits are inherited, and how DNA carries, expresses, and passes on genetic information.</p>
+    </div>
+    <div class="weight-badge"><div class="pct">35%</div><div class="lbl">of Diploma</div></div>
+  </div>
+
+  <div class="tips-bar">
+    <span class="tip-icon">⭐</span>
+    <div><h4>Highest-weighted unit!</h4>
+    <p>Unit C is worth 35% of your diploma. Genetics calculations (Punnett squares, pedigrees, linkage maps, chi-square) regularly appear as written response questions. Understand the reasoning, not just the steps.</p></div>
+  </div>
+
+  <div class="tabs" id="tabs-c">
+    <button class="tab-btn active" onclick="openTab('c','outcomes')">📋 Outcomes Checklist</button>
+    <button class="tab-btn" onclick="openTab('c','concepts')">🔬 Key Concepts</button>
+    <button class="tab-btn" onclick="openTab('c','resources')">📄 Your Resources</button>
+    <button class="tab-btn" onclick="openTab('c','online')">🌐 Online Tools</button>
+  </div>
+
+  <!-- TAB: OUTCOMES -->
+  <div class="tab-content active" id="tab-c-outcomes">
+
+    <div class="progress-section">
+      <h3>Unit C Progress</h3>
+      <div class="progress-bars">
+        <div class="prog-row"><span class="prog-label">Cell Division (3A)</span><div class="prog-track"><div class="prog-fill" id="prog-c" style="width:0%;background:#48CAE4;"></div></div><span class="prog-pct" id="pct-c">0%</span></div>
+      </div>
+    </div>
+
+    <h3 style="font-size:0.9rem;font-weight:700;color:var(--green-dark);margin-bottom:12px;">Section 3A — Cell Division</h3>
+    <div class="outcomes-list">
+
+      <div class="outcome-item" data-id="c-mitosis">
+        <button class="outcome-toggle" onclick="toggleOutcome('c-mitosis')">
+          <span class="ot-arrow">▶</span><span class="ot-code">Unit 3A</span>
+          Mitosis &amp; the Cell Cycle
+          <span class="ot-check" onclick="checkOutcome(event,'c-mitosis')"></span>
+        </button>
+        <div class="outcome-body">
+          <ul>
+            <li><strong>Interphase:</strong> G1 (growth), S (DNA replication), G2 (preparation for division)</li>
+            <li><strong>Prophase:</strong> chromosomes condense; spindle forms; nuclear envelope breaks down</li>
+            <li><strong>Metaphase:</strong> chromosomes align at metaphase plate; spindle fibres attach to centromeres</li>
+            <li><strong>Anaphase:</strong> sister chromatids separate; pulled to opposite poles</li>
+            <li><strong>Telophase + Cytokinesis:</strong> nuclear envelopes reform; cytoplasm divides</li>
+            <li><strong>Result:</strong> 2 identical diploid daughter cells (2n → 2n)</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="outcome-item" data-id="c-meiosis">
+        <button class="outcome-toggle" onclick="toggleOutcome('c-meiosis')">
+          <span class="ot-arrow">▶</span><span class="ot-code">Unit 3A</span>
+          Meiosis
+          <span class="ot-check" onclick="checkOutcome(event,'c-meiosis')"></span>
+        </button>
+        <div class="outcome-body">
+          <ul>
+            <li><strong>Meiosis I:</strong> homologous chromosomes separate (reduction division) — crossing over occurs in prophase I</li>
+            <li><strong>Meiosis II:</strong> sister chromatids separate (like mitosis)</li>
+            <li><strong>Result:</strong> 4 haploid daughter cells (2n → n); each genetically unique</li>
+            <li><strong>Crossing over:</strong> exchange of segments between homologous chromosomes → genetic recombination</li>
+            <li><strong>Non-disjunction:</strong> chromosomes fail to separate → aneuploidy (monosomy, trisomy)</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="outcome-item" data-id="c-karyotype">
+        <button class="outcome-toggle" onclick="toggleOutcome('c-karyotype')">
+          <span class="ot-arrow">▶</span><span class="ot-code">Unit 3A</span>
+          Karyotypes &amp; Chromosomal Abnormalities
+          <span class="ot-check" onclick="checkOutcome(event,'c-karyotype')"></span>
+        </button>
+        <div class="outcome-body">
+          <ul>
+            <li><strong>Karyotype:</strong> ordered arrangement of chromosome pairs by size and shape</li>
+            <li><strong>Down Syndrome (Trisomy 21):</strong> non-disjunction → extra chromosome 21</li>
+            <li><strong>Turner Syndrome (45, X0):</strong> monosomy of sex chromosome; female phenotype</li>
+            <li><strong>Klinefelter Syndrome (47, XXY):</strong> extra X in male; reduced fertility</li>
+            <li><strong>Polyploidy:</strong> more than two complete sets of chromosomes; important in plant evolution</li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="divider"></div>
+    <h3 style="font-size:0.9rem;font-weight:700;color:var(--green-dark);margin-bottom:12px;">Section 3B — Mendelian Genetics</h3>
+    <div class="outcomes-list">
+
+      <div class="outcome-item" data-id="c-mono">
+        <button class="outcome-toggle" onclick="toggleOutcome('c-mono')">
+          <span class="ot-arrow">▶</span><span class="ot-code">Unit 3B</span>
+          Monohybrid &amp; Dihybrid Crosses
+          <span class="ot-check" onclick="checkOutcome(event,'c-mono')"></span>
+        </button>
+        <div class="outcome-body">
+          <ul>
+            <li><strong>Mendel's Laws:</strong> Segregation (alleles separate during gamete formation); Independent Assortment (genes on different chromosomes assort independently)</li>
+            <li><strong>Monohybrid cross:</strong> Aa × Aa → 1:2:1 genotype ratio; 3:1 phenotype ratio</li>
+            <li><strong>Dihybrid cross:</strong> AaBb × AaBb → 9:3:3:1 phenotype ratio</li>
+            <li><strong>Incomplete dominance:</strong> heterozygote has intermediate phenotype (e.g. RR red × WW white → RW pink)</li>
+            <li><strong>Codominance:</strong> both alleles expressed simultaneously (e.g. AB blood type)</li>
+            <li><strong>Multiple alleles:</strong> more than 2 alleles exist in population (e.g. ABO blood system: Iᴬ, Iᴮ, i)</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="outcome-item" data-id="c-di">
+        <button class="outcome-toggle" onclick="toggleOutcome('c-di')">
+          <span class="ot-arrow">▶</span><span class="ot-code">Unit 3B</span>
+          Linkage, Crossing Over &amp; Chromosome Mapping
+          <span class="ot-check" onclick="checkOutcome(event,'c-di')"></span>
+        </button>
+        <div class="outcome-body">
+          <ul>
+            <li><strong>Linked genes:</strong> genes on the same chromosome tend to be inherited together</li>
+            <li><strong>Recombination frequency:</strong> % recombinant offspring = map units (cM) between genes</li>
+            <li><strong>Gene mapping:</strong> recombination frequency used to determine relative positions of genes on a chromosome</li>
+            <li><strong>Chi-square test:</strong> compares observed vs. expected ratios to determine if deviation is significant</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="outcome-item" data-id="c-ped">
+        <button class="outcome-toggle" onclick="toggleOutcome('c-ped')">
+          <span class="ot-arrow">▶</span><span class="ot-code">Unit 3B</span>
+          Sex Linkage &amp; Pedigrees
+          <span class="ot-check" onclick="checkOutcome(event,'c-ped')"></span>
+        </button>
+        <div class="outcome-body">
+          <ul>
+            <li><strong>X-linked recessive:</strong> more common in males (only one X); carrier females pass it on</li>
+            <li><strong>Examples:</strong> colour blindness, hemophilia, Duchenne muscular dystrophy</li>
+            <li><strong>Pedigree analysis:</strong> squares = males, circles = females; filled = affected; identify inheritance pattern from pattern of expression</li>
+            <li><strong>Autosomal dominant:</strong> appears every generation; both sexes equally affected</li>
+            <li><strong>Autosomal recessive:</strong> can skip generations; carriers appear normal</li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="divider"></div>
+    <h3 style="font-size:0.9rem;font-weight:700;color:var(--green-dark);margin-bottom:12px;">Section 3C — Molecular Genetics</h3>
+    <div class="outcomes-list">
+
+      <div class="outcome-item" data-id="c-dna">
+        <button class="outcome-toggle" onclick="toggleOutcome('c-dna')">
+          <span class="ot-arrow">▶</span><span class="ot-code">Unit 3C</span>
+          DNA Structure &amp; Replication
+          <span class="ot-check" onclick="checkOutcome(event,'c-dna')"></span>
+        </button>
+        <div class="outcome-body">
+          <ul>
+            <li><strong>DNA structure:</strong> double helix; sugar-phosphate backbone; nitrogenous bases (A-T, G-C)</li>
+            <li><strong>Nucleotide:</strong> phosphate + deoxyribose sugar + nitrogenous base</li>
+            <li><strong>Semi-conservative replication:</strong> each new DNA molecule has one original and one new strand</li>
+            <li><strong>Key enzymes:</strong> helicase (unwinds), primase (adds RNA primer), DNA polymerase (adds nucleotides 5'→3'), DNA ligase (joins Okazaki fragments)</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="outcome-item" data-id="c-trans">
+        <button class="outcome-toggle" onclick="toggleOutcome('c-trans')">
+          <span class="ot-arrow">▶</span><span class="ot-code">Unit 3C</span>
+          Transcription &amp; Translation
+          <span class="ot-check" onclick="checkOutcome(event,'c-trans')"></span>
+        </button>
+        <div class="outcome-body">
+          <ul>
+            <li><strong>Transcription:</strong> DNA → mRNA; occurs in nucleus; RNA polymerase reads 3'→5' template; mRNA synthesized 5'→3'</li>
+            <li><strong>Translation:</strong> mRNA → protein; occurs at ribosomes; tRNA anticodon matches mRNA codon; grows from N to C terminus</li>
+            <li><strong>Codons:</strong> 3-base mRNA sequences; 64 possible; AUG = start; UAA, UAG, UGA = stop</li>
+            <li><strong>Central dogma:</strong> DNA → RNA → protein (with reverse transcription and RNA replication as exceptions)</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="outcome-item" data-id="c-mut">
+        <button class="outcome-toggle" onclick="toggleOutcome('c-mut')">
+          <span class="ot-arrow">▶</span><span class="ot-code">Unit 3C</span>
+          Mutations &amp; Biotechnology
+          <span class="ot-check" onclick="checkOutcome(event,'c-mut')"></span>
+        </button>
+        <div class="outcome-body">
+          <ul>
+            <li><strong>Point mutations:</strong> substitution, insertion, deletion; insertion/deletion cause frameshift</li>
+            <li><strong>Silent, missense, nonsense:</strong> same AA / different AA / stop codon introduced</li>
+            <li><strong>Mutagens:</strong> UV radiation, X-rays, chemical mutagens (e.g. benzene)</li>
+            <li><strong>Recombinant DNA:</strong> restriction enzymes cut DNA; ligase joins fragments; vectors carry insert into host cell</li>
+            <li><strong>PCR:</strong> amplifies DNA using primers and thermocycler; denaturation → annealing → extension</li>
+            <li><strong>Gel electrophoresis:</strong> separates DNA by size; smaller fragments migrate farther</li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- TAB: CONCEPTS -->
+  <div class="tab-content" id="tab-c-concepts">
+    <div class="intro-box">
+      <p><strong>Theme: Information &amp; Inheritance.</strong> Unit C covers how cells divide, how genetic information is organized and passed on, and how DNA is expressed and modified. This is the highest-weighted unit — master the calculations!</p>
+    </div>
+    <div class="concept-grid">
+      <div class="concept-box">
+        <h4>🔢 Genetics Problem Strategy</h4>
+        <ul>
+          <li>Step 1: Determine dominance relationships</li>
+          <li>Step 2: Assign genotypes to parents</li>
+          <li>Step 3: Draw Punnett square</li>
+          <li>Step 4: Determine offspring genotype ratios</li>
+          <li>Step 5: Convert to phenotype ratios</li>
+          <li>Dihybrid: use FOIL or 16-box Punnett</li>
+        </ul>
+      </div>
+      <div class="concept-box">
+        <h4>🧬 Protein Synthesis Summary</h4>
+        <ul>
+          <li>Transcription: nucleus; DNA → mRNA</li>
+          <li>mRNA leaves nucleus through nuclear pore</li>
+          <li>Translation: ribosome; mRNA + tRNA → polypeptide</li>
+          <li>Each codon = 3 bases = 1 amino acid</li>
+          <li>AUG = Met = start codon</li>
+          <li>Ribosome moves 5'→3' along mRNA</li>
+        </ul>
+      </div>
+      <div class="concept-box">
+        <h4>📊 Chi-Square Test</h4>
+        <ul>
+          <li>χ² = Σ[(O − E)² / E]</li>
+          <li>O = observed, E = expected</li>
+          <li>df = (categories − 1)</li>
+          <li>If χ² &lt; critical value → results fit expected ratio</li>
+          <li>If χ² &gt; critical value → significant deviation</li>
+          <li>Use p = 0.05 significance level in Bio 30</li>
+        </ul>
+      </div>
+      <div class="concept-box">
+        <h4>🗺️ Gene Linkage &amp; Mapping</h4>
+        <ul>
+          <li>Genes on same chromosome = linked</li>
+          <li>Recombination frequency = # recombinants / total × 100%</li>
+          <li>1% recombination = 1 map unit (cM)</li>
+          <li>&lt;50% recombination → genes are linked</li>
+          <li>50% recombination → genes behave as if on separate chromosomes</li>
+          <li>Three-point crosses confirm gene order</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- TAB: RESOURCES -->
+  <div class="tab-content" id="tab-c-resources">
+    <div class="cards-grid">
+      <div class="card">
+        <div class="card-header"><span class="card-icon">📖</span><div><h3>Complete Unit C Notes</h3><p>Full unit &amp; all lesson notes</p></div></div>
+        <ul class="card-links">
+<li><a href="resources/unit_c/Biology30_UnitC_Full.pdf" target="_blank"><span class="link-icon">📄</span> Unit C Full Notes <span class="pdf-badge">PDF</span></a></li>
+<li><a href="resources/unit_c/Biology30_UnitC_Lesson1.pdf" target="_blank"><span class="link-icon">📄</span> Lesson 1 Notes <span class="pdf-badge">PDF</span></a></li>
+<li><a href="resources/unit_c/Biology30_UnitC_Lesson2.pdf" target="_blank"><span class="link-icon">📄</span> Lesson 2 Notes <span class="pdf-badge">PDF</span></a></li>
+<li><a href="resources/unit_c/Biology30_UnitC_Lesson3.pdf" target="_blank"><span class="link-icon">📄</span> Lesson 3 Notes <span class="pdf-badge">PDF</span></a></li>
+<li><a href="resources/unit_c/Biology30_UnitC_Lesson4.pdf" target="_blank"><span class="link-icon">📄</span> Lesson 4 Notes <span class="pdf-badge">PDF</span></a></li>
+<li><a href="resources/unit_c/Biology30_UnitC_Lesson5.pdf" target="_blank"><span class="link-icon">📄</span> Lesson 5 Notes <span class="pdf-badge">PDF</span></a></li>
+<li><a href="resources/unit_c/Biology30_UnitC_Lesson6.pdf" target="_blank"><span class="link-icon">📄</span> Lesson 6 Notes <span class="pdf-badge">PDF</span></a></li>
+<li><a href="resources/unit_c/Biology30_UnitC_Lesson7.pdf" target="_blank"><span class="link-icon">📄</span> Lesson 7 Notes <span class="pdf-badge">PDF</span></a></li>
+<li><a href="resources/unit_c/Biology30_UnitC_Lesson8.pdf" target="_blank"><span class="link-icon">📄</span> Lesson 8 Notes <span class="pdf-badge">PDF</span></a></li>
+        </ul>
+      </div>
+      <div class="card">
+        <div class="card-header"><span class="card-icon">🔬</span><div><h3>Section 3A — Cell Division</h3><p>Topic notes &amp; study guide</p></div></div>
+        <ul class="card-links">
+<li><a href="resources/unit_c/3A Topic 1 Notes.pdf" target="_blank"><span class="link-icon">📄</span> 3A Topic 1 Notes <span class="pdf-badge">PDF</span></a></li>
+<li><a href="resources/unit_c/3A Topic 2 Notes.pdf" target="_blank"><span class="link-icon">📄</span> 3A Topic 2 Notes <span class="pdf-badge">PDF</span></a></li>
+<li><a href="resources/unit_c/3A Topic 3 Notes.pdf" target="_blank"><span class="link-icon">📄</span> 3A Topic 3 Notes <span class="pdf-badge">PDF</span></a></li>
+<li><a href="resources/unit_c/Biology_30_Unit_3A_Cellular_Division_Study_Guide.pdf" target="_blank"><span class="link-icon">📄</span> Unit 3A Cellular Division Study Guide <span class="pdf-badge">PDF</span></a></li>
+        </ul>
+      </div>
+      <div class="card">
+        <div class="card-header"><span class="card-icon">🧬</span><div><h3>Section 3B — Mendelian Genetics</h3><p>Inheritance topic notes</p></div></div>
+        <ul class="card-links">
+<li><a href="resources/unit_c/3B Topic 1 Notes.pdf" target="_blank"><span class="link-icon">📄</span> 3B Topic 1 Notes <span class="pdf-badge">PDF</span></a></li>
+<li><a href="resources/unit_c/3B Topic 2 Notes.pdf" target="_blank"><span class="link-icon">📄</span> 3B Topic 2 Notes <span class="pdf-badge">PDF</span></a></li>
+<li><a href="resources/unit_c/3B Topic 3 Notes.pdf" target="_blank"><span class="link-icon">📄</span> 3B Topic 3 Notes <span class="pdf-badge">PDF</span></a></li>
+<li><a href="resources/unit_c/genetics_cross_handout.pdf" target="_blank"><span class="link-icon">📄</span> Genetics Cross Handout <span class="pdf-badge">PDF</span></a></li>
+        </ul>
+      </div>
+      <div class="card">
+        <div class="card-header"><span class="card-icon">🔭</span><div><h3>Section 3C — Molecular Genetics</h3><p>DNA, transcription, biotechnology</p></div></div>
+        <ul class="card-links">
+<li><a href="resources/unit_c/3C Topic 1 Notes.pdf" target="_blank"><span class="link-icon">📄</span> 3C Topic 1 Notes <span class="pdf-badge">PDF</span></a></li>
+<li><a href="resources/unit_c/3C Topic 2 Notes.pdf" target="_blank"><span class="link-icon">📄</span> 3C Topic 2 Notes <span class="pdf-badge">PDF</span></a></li>
+<li><a href="resources/unit_c/3C Topic 3 Notes.pdf" target="_blank"><span class="link-icon">📄</span> 3C Topic 3 Notes <span class="pdf-badge">PDF</span></a></li>
+        </ul>
+      </div>
+      <div class="card">
+        <div class="card-header"><span class="card-icon">✏️</span><div><h3>Review Materials</h3><p>Unit C review resources</p></div></div>
+        <ul class="card-links">
+<li><a href="resources/unit_c/UNit Review Sheets Part A.pdf" target="_blank"><span class="link-icon">📄</span> Unit Review Sheets Part A <span class="pdf-badge">PDF</span></a></li>
+<li><a href="resources/unit_c/Unit C Review.pdf" target="_blank"><span class="link-icon">📄</span> Unit C Review <span class="pdf-badge">PDF</span></a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- TAB: ONLINE -->
+  <div class="tab-content" id="tab-c-online">
+    <div class="two-col">
+      <div>
+        <h3 style="font-size:0.9rem;font-weight:700;color:var(--green-dark);margin-bottom:12px;">🔬 Cell Division</h3>
+    <a href="https://www.youtube.com/watch?v=f-ldPgEfAHI" target="_blank" class="resource-platform"><span class="rp-logo">▶️</span><div class="rp-text"><strong>CrashCourse — Mitosis</strong><span>Cell cycle and mitosis explained</span></div><span class="rp-arrow">↗</span></a>
+    <a href="https://www.youtube.com/watch?v=qCLmR9-YY7o" target="_blank" class="resource-platform"><span class="rp-logo">▶️</span><div class="rp-text"><strong>CrashCourse — Meiosis</strong><span>Meiosis, crossing over, variation</span></div><span class="rp-arrow">↗</span></a>
+    <a href="https://phet.colorado.edu/en/simulations/legacy/cell-division" target="_blank" class="resource-platform"><span class="rp-logo">⚡</span><div class="rp-text"><strong>PhET — Cell Division Simulation</strong><span>Interactive mitosis and meiosis</span></div><span class="rp-arrow">↗</span></a>
+        <h3 style="font-size:0.9rem;font-weight:700;color:var(--green-dark);margin:16px 0 12px;">🧬 Mendelian Genetics</h3>
+    <a href="https://www.khanacademy.org/science/ap-biology/heredity" target="_blank" class="resource-platform"><span class="rp-logo">🎓</span><div class="rp-text"><strong>Khan Academy — Heredity</strong><span>Mendelian genetics, Punnett squares, pedigrees</span></div><span class="rp-arrow">↗</span></a>
+    <a href="https://www.youtube.com/watch?v=CBezq1fFUEA" target="_blank" class="resource-platform"><span class="rp-logo">▶️</span><div class="rp-text"><strong>CrashCourse — Heredity</strong><span>Mendel, dominance, probability</span></div><span class="rp-arrow">↗</span></a>
+    <a href="https://www.youtube.com/watch?v=4zmHQLOIXjk" target="_blank" class="resource-platform"><span class="rp-logo">▶️</span><div class="rp-text"><strong>CrashCourse — Pedigrees &amp; Genetics</strong><span>Pedigree analysis, sex-linkage</span></div><span class="rp-arrow">↗</span></a>
+      </div>
+      <div>
+        <h3 style="font-size:0.9rem;font-weight:700;color:var(--green-dark);margin-bottom:12px;">🔭 Molecular Genetics</h3>
+    <a href="https://www.khanacademy.org/science/ap-biology/gene-expression-and-regulation" target="_blank" class="resource-platform"><span class="rp-logo">🎓</span><div class="rp-text"><strong>Khan Academy — Gene Expression</strong><span>DNA, transcription, translation, mutations</span></div><span class="rp-arrow">↗</span></a>
+    <a href="https://www.youtube.com/watch?v=itsb2SqR-R0" target="_blank" class="resource-platform"><span class="rp-logo">▶️</span><div class="rp-text"><strong>CrashCourse — DNA Structure</strong><span>Double helix, base pairing, replication</span></div><span class="rp-arrow">↗</span></a>
+    <a href="https://www.youtube.com/watch?v=NU_dmSLr5yQ" target="_blank" class="resource-platform"><span class="rp-logo">▶️</span><div class="rp-text"><strong>CrashCourse — Transcription &amp; Translation</strong><span>Central dogma fully explained</span></div><span class="rp-arrow">↗</span></a>
+    <a href="https://learn.genetics.utah.edu/content/molecules/dnareplication/" target="_blank" class="resource-platform"><span class="rp-logo">🧪</span><div class="rp-text"><strong>Utah Learn Genetics</strong><span>Animations for DNA replication &amp; protein synthesis</span></div><span class="rp-arrow">↗</span></a>
+    <a href="https://www.dnai.org/index.html" target="_blank" class="resource-platform"><span class="rp-logo">🔬</span><div class="rp-text"><strong>DNA Interactive</strong><span>HHMI animations for molecular genetics</span></div><span class="rp-arrow">↗</span></a>
+    <a href="https://www.biointeractive.org/classroom-resources/gel-electrophoresis-virtual-lab" target="_blank" class="resource-platform"><span class="rp-logo">⚗️</span><div class="rp-text"><strong>HHMI BioInteractive — Gel Electrophoresis</strong><span>Virtual gel electrophoresis lab</span></div><span class="rp-arrow">↗</span></a>
+      </div>
+    </div>
+    <div style="margin-top:20px;padding:16px 18px;background:linear-gradient(135deg,#c00,#900);border-radius:10px;display:flex;align-items:center;gap:16px;">
+      <span style="font-size:2.2rem;line-height:1;">▶️</span>
+      <div style="flex:1;">
+        <strong style="color:#fff;font-size:0.95rem;display:block;margin-bottom:4px;">YouTube Playlist — Unit C (3A) — Cell Division</strong>
+        <p style="color:rgba(255,255,255,0.82);font-size:0.78rem;margin:0 0 10px;">Video lessons covering all Unit C (3A) — Cell Division outcomes — curated for Alberta Biology 30.</p>
+        <a href="https://www.youtube.com/watch?v=LZQsDLDrh3c&list=PLLaZ8k0__hr2ZMMYMrx0XiQgWYQLc1FY3" target="_blank" style="display:inline-block;background:#fff;color:#900;padding:6px 16px;border-radius:20px;font-size:0.82rem;font-weight:700;text-decoration:none;">Watch Playlist ▶</a>
+      </div>
+    </div>
+    <div style="margin-top:20px;padding:16px 18px;background:linear-gradient(135deg,#c00,#900);border-radius:10px;display:flex;align-items:center;gap:16px;">
+      <span style="font-size:2.2rem;line-height:1;">▶️</span>
+      <div style="flex:1;">
+        <strong style="color:#fff;font-size:0.95rem;display:block;margin-bottom:4px;">YouTube Playlist — Unit C (3B) — Mendelian Genetics</strong>
+        <p style="color:rgba(255,255,255,0.82);font-size:0.78rem;margin:0 0 10px;">Video lessons covering all Unit C (3B) — Mendelian Genetics outcomes — curated for Alberta Biology 30.</p>
+        <a href="https://www.youtube.com/watch?v=XP-Kvi6APa4&list=PLLaZ8k0__hr2z3lyayc-cc159DV1XeJrJ" target="_blank" style="display:inline-block;background:#fff;color:#900;padding:6px 16px;border-radius:20px;font-size:0.82rem;font-weight:700;text-decoration:none;">Watch Playlist ▶</a>
+      </div>
+    </div>
+    <div style="margin-top:20px;padding:16px 18px;background:linear-gradient(135deg,#c00,#900);border-radius:10px;display:flex;align-items:center;gap:16px;">
+      <span style="font-size:2.2rem;line-height:1;">▶️</span>
+      <div style="flex:1;">
+        <strong style="color:#fff;font-size:0.95rem;display:block;margin-bottom:4px;">YouTube Playlist — Unit C (3C) — Molecular Genetics</strong>
+        <p style="color:rgba(255,255,255,0.82);font-size:0.78rem;margin:0 0 10px;">Video lessons covering all Unit C (3C) — Molecular Genetics outcomes — curated for Alberta Biology 30.</p>
+        <a href="https://www.youtube.com/watch?v=jn4q_4U28DQ&list=PLLaZ8k0__hr1co8EueURxNjF5HyJCX7Z_" target="_blank" style="display:inline-block;background:#fff;color:#900;padding:6px 16px;border-radius:20px;font-size:0.82rem;font-weight:700;text-decoration:none;">Watch Playlist ▶</a>
+      </div>
+    </div>
+    <div style="margin-top:24px;">
+      <h3 style="font-size:0.9rem;font-weight:700;color:var(--green-dark);margin-bottom:4px;">🎙️ NotebookLM Study Notebooks</h3>
+      <p style="font-size:0.78rem;color:#666;margin-bottom:14px;">AI-powered notebooks built from your course materials — ask questions, get summaries, and listen to audio overviews.</p>
+      <div style="margin-bottom:14px;">
+        <h4 style="font-size:0.82rem;font-weight:600;color:#555;margin:0 0 6px;padding:4px 8px;background:#f0f4f8;border-radius:4px;">3A — Cell Division: Lesson 1 — Chromosome Structure &amp; Cell Cycle</h4>
+        <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:6px;">
+          <a href="https://notebooklm.google.com/notebook/012a1e2a-c865-4a61-bf98-40664322720b" target="_blank" class="resource-platform" style="margin-bottom:6px;"><span class="rp-logo">🎙️</span><div class="rp-text"><strong>L1 P1 Chromosome Structure and the Dynamics of DNA Condensation</strong><span>Open in NotebookLM</span></div><span class="rp-arrow">↗</span></a>
+          <a href="https://notebooklm.google.com/notebook/1c1ec8a3-85fa-44d6-8cb4-1192c817be25" target="_blank" class="resource-platform" style="margin-bottom:6px;"><span class="rp-logo">🎙️</span><div class="rp-text"><strong>L1 P2 The Biological Dynamics of Diploid and Haploid States</strong><span>Open in NotebookLM</span></div><span class="rp-arrow">↗</span></a>
+          <a href="https://notebooklm.google.com/notebook/c68015b0-bafe-4931-b75c-655ed0e84ccd" target="_blank" class="resource-platform" style="margin-bottom:6px;"><span class="rp-logo">🎙️</span><div class="rp-text"><strong>L1 P3 Polyploidy: Genetic Mechanisms and Evolutionary Impacts</strong><span>Open in NotebookLM</span></div><span class="rp-arrow">↗</span></a>
+          <a href="https://notebooklm.google.com/notebook/7fbe0e54-3a47-43a8-b9b4-c1338de8ae79" target="_blank" class="resource-platform" style="margin-bottom:6px;"><span class="rp-logo">🎙️</span><div class="rp-text"><strong>L1 P4 Interphase: The Molecular Mechanics of Cell Growth and Replication</strong><span>Open in NotebookLM</span></div><span class="rp-arrow">↗</span></a>
+          <a href="https://notebooklm.google.com/notebook/50d20c62-93ec-4ba2-bdc1-b6faa6f441b9" target="_blank" class="resource-platform" style="margin-bottom:6px;"><span class="rp-logo">🎙️</span><div class="rp-text"><strong>L1 P5 Mitotic Fidelity: Chromosome Segregation and Checkpoint Mechanisms</strong><span>Open in NotebookLM</span></div><span class="rp-arrow">↗</span></a>
+          <a href="https://notebooklm.google.com/notebook/8b45930c-0c40-4b8b-ae61-4a9470abd53e" target="_blank" class="resource-platform" style="margin-bottom:6px;"><span class="rp-logo">🎙️</span><div class="rp-text"><strong>L1 P6 Cytokinesis and the Mechanisms of Cellular Division</strong><span>Open in NotebookLM</span></div><span class="rp-arrow">↗</span></a>
+        </div>
+      </div>
+      <div style="margin-bottom:14px;">
+        <h4 style="font-size:0.82rem;font-weight:600;color:#555;margin:0 0 6px;padding:4px 8px;background:#f0f4f8;border-radius:4px;">3A — Cell Division: Lesson 2 — Mitosis</h4>
+        <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:6px;">
+          <a href="https://notebooklm.google.com/notebook/5abbfab4-8ae1-477a-a184-0ce03f49a0bc" target="_blank" class="resource-platform" style="margin-bottom:6px;"><span class="rp-logo">🎙️</span><div class="rp-text"><strong>L2 P1 Cellular Foundation and Chromosome Preparation for Mitosis</strong><span>Open in NotebookLM</span></div><span class="rp-arrow">↗</span></a>
+          <a href="https://notebooklm.google.com/notebook/37f6aa91-c478-436d-838f-c2e4e2b1b676" target="_blank" class="resource-platform" style="margin-bottom:6px;"><span class="rp-logo">🎙️</span><div class="rp-text"><strong>L2 P2 Prophase: Nuclear Breakdown and Spindle Formation</strong><span>Open in NotebookLM</span></div><span class="rp-arrow">↗</span></a>
+          <a href="https://notebooklm.google.com/notebook/5ea77f89-1dda-472f-ad51-3f5b7bd479d5" target="_blank" class="resource-platform" style="margin-bottom:6px;"><span class="rp-logo">🎙️</span><div class="rp-text"><strong>L2 P3 Metaphase Alignment and the Spindle Assembly Checkpoint</strong><span>Open in NotebookLM</span></div><span class="rp-arrow">↗</span></a>
+          <a href="https://notebooklm.google.com/notebook/5285bb95-b350-4ec7-9538-3b3bad7ba7d1" target="_blank" class="resource-platform" style="margin-bottom:6px;"><span class="rp-logo">🎙️</span><div class="rp-text"><strong>L2 P4 Molecular Mechanisms and Mechanical Phases of Anaphase</strong><span>Open in NotebookLM</span></div><span class="rp-arrow">↗</span></a>
+          <a href="https://notebooklm.google.com/notebook/3ac19bb8-af31-4469-8ffe-21801a771738" target="_blank" class="resource-platform" style="margin-bottom:6px;"><span class="rp-logo">🎙️</span><div class="rp-text"><strong>L2 P5 Telophase and Cytokinesis: The Final Mechanics of Cell Division</strong><span>Open in NotebookLM</span></div><span class="rp-arrow">↗</span></a>
+          <a href="https://notebooklm.google.com/notebook/42907f9f-f1db-48af-93d7-d914fcce7793" target="_blank" class="resource-platform" style="margin-bottom:6px;"><span class="rp-logo">🎙️</span><div class="rp-text"><strong>L2 P6 Mitotic Regulation and Molecular Quality Control Systems</strong><span>Open in NotebookLM</span></div><span class="rp-arrow">↗</span></a>
+        </div>
+      </div>
+      <div style="margin-bottom:14px;">
+        <h4 style="font-size:0.82rem;font-weight:600;color:#555;margin:0 0 6px;padding:4px 8px;background:#f0f4f8;border-radius:4px;">3A — Cell Division: Lesson 3 — Meiosis</h4>
+        <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:6px;">
+          <a href="https://notebooklm.google.com/notebook/1def47aa-b92b-41fb-8df8-beea2ad6d90e" target="_blank" class="resource-platform" style="margin-bottom:6px;"><span class="rp-logo">🎙️</span><div class="rp-text"><strong>L3 P1 Meiosis and the Mathematics of Chromosome Stability</strong><span>Open in NotebookLM</span></div><span class="rp-arrow">↗</span></a>
+          <a href="https://notebooklm.google.com/notebook/983d7ddd-4ad1-48bd-8455-63f7e7b7cadb" target="_blank" class="resource-platform" style="margin-bottom:6px;"><span class="rp-logo">🎙️</span><div class="rp-text"><strong>L3 P2 Meiosis I: Homolog Separation and Reduction Division</strong><span>Open in NotebookLM</span></div><span class="rp-arrow">↗</span></a>
+          <a href="https://notebooklm.google.com/notebook/39a16245-b8ef-43a2-ad83-8fdc6750bae3" target="_blank" class="resource-platform" style="margin-bottom:6px;"><span class="rp-logo">🎙️</span><div class="rp-text"><strong>L3 P3 Meiosis II: Chromatid Separation and Gamete Completion</strong><span>Open in NotebookLM</span></div><span class="rp-arrow">↗</span></a>
+          <a href="https://notebooklm.google.com/notebook/6e857b2c-bc4e-425e-a163-5b6af442693e" target="_blank" class="resource-platform" style="margin-bottom:6px;"><span class="rp-logo">🎙️</span><div class="rp-text"><strong>L3 P4 Spermatogenesis: From Meiotic Division to Cellular Differentiation</strong><span>Open in NotebookLM</span></div><span class="rp-arrow">↗</span></a>
+          <a href="https://notebooklm.google.com/notebook/b09c873d-dfc3-4eb3-ae1a-8d0ab47d4f54" target="_blank" class="resource-platform" style="margin-bottom:6px;"><span class="rp-logo">🎙️</span><div class="rp-text"><strong>L3 P5 Oogenesis: Mechanics and Evolution of Female Gamete Production</strong><span>Open in NotebookLM</span></div><span class="rp-arrow">↗</span></a>
+          <a href="https://notebooklm.google.com/notebook/39be68d1-b4ab-40a8-8723-2124b3781fc6" target="_blank" class="resource-platform" style="margin-bottom:6px;"><span class="rp-logo">🎙️</span><div class="rp-text"><strong>L3 P6 Cellular Division Strategies: Mitosis versus Meiosis</strong><span>Open in NotebookLM</span></div><span class="rp-arrow">↗</span></a>
+        </div>
+      </div>
+      <div style="margin-bottom:14px;">
+        <h4 style="font-size:0.82rem;font-weight:600;color:#555;margin:0 0 6px;padding:4px 8px;background:#f0f4f8;border-radius:4px;">3A — Cell Division: Lesson 4 — Reproductive Strategies</h4>
+        <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:6px;">
+          <a href="https://notebooklm.google.com/notebook/07cfe705-090e-4013-a942-a2b59ad4ddb8" target="_blank" class="resource-platform" style="margin-bottom:6px;"><span class="rp-logo">🎙️</span><div class="rp-text"><strong>L4 Diversity of Reproductive Strategies</strong><span>Open in NotebookLM</span></div><span class="rp-arrow">↗</span></a>
+          <a href="https://notebooklm.google.com/notebook/68e41567-4c83-44c7-b01d-edcf29033ce4" target="_blank" class="resource-platform" style="margin-bottom:6px;"><span class="rp-logo">🎙️</span><div class="rp-text"><strong>L4 Meiosis and the Diversity of Reproductive Strategies</strong><span>Open in NotebookLM</span></div><span class="rp-arrow">↗</span></a>
+          <a href="https://notebooklm.google.com/notebook/65970ec4-461b-42f3-982e-4c075aa5c6f2" target="_blank" class="resource-platform" style="margin-bottom:6px;"><span class="rp-logo">🎙️</span><div class="rp-text"><strong>L4 P1 Mechanisms and Evolution of Haploid-Diploid Life Cycles</strong><span>Open in NotebookLM</span></div><span class="rp-arrow">↗</span></a>
+          <a href="https://notebooklm.google.com/notebook/7dac221e-91a9-4d4e-a311-c1b3cdac15e4" target="_blank" class="resource-platform" style="margin-bottom:6px;"><span class="rp-logo">🎙️</span><div class="rp-text"><strong>L4 P2 Animal Life Cycles: Diploid Dominance and Fertilization Strategies</strong><span>Open in NotebookLM</span></div><span class="rp-arrow">↗</span></a>
+          <a href="https://notebooklm.google.com/notebook/5a1d3c8c-e9d2-4067-999b-5161e50bf7d0" target="_blank" class="resource-platform" style="margin-bottom:6px;"><span class="rp-logo">🎙️</span><div class="rp-text"><strong>L4 P3 The Evolution of Plant Life Cycles and Reproductive Strategies</strong><span>Open in NotebookLM</span></div><span class="rp-arrow">↗</span></a>
+          <a href="https://notebooklm.google.com/notebook/59aaaded-3638-4349-929e-bb1cc09809d0" target="_blank" class="resource-platform" style="margin-bottom:6px;"><span class="rp-logo">🎙️</span><div class="rp-text"><strong>L4 P4 The Dikaryotic Revolution in Fungal Life Cycles</strong><span>Open in NotebookLM</span></div><span class="rp-arrow">↗</span></a>
+          <a href="https://notebooklm.google.com/notebook/4ebc8095-9f7b-42c4-8370-6e0b29012319" target="_blank" class="resource-platform" style="margin-bottom:6px;"><span class="rp-logo">🎙️</span><div class="rp-text"><strong>L4 P5 Protist Reproductive Strategies and Evolutionary Life Cycles</strong><span>Open in NotebookLM</span></div><span class="rp-arrow">↗</span></a>
+          <a href="https://notebooklm.google.com/notebook/cb21ef6b-aee4-4585-bee6-62db06e7636b" target="_blank" class="resource-platform" style="margin-bottom:6px;"><span class="rp-logo">🎙️</span><div class="rp-text"><strong>L4 P6 Reproductive Strategies and Life Cycle Evolutionary Trade-offs</strong><span>Open in NotebookLM</span></div><span class="rp-arrow">↗</span></a>
+        </div>
+      </div>
+      <div style="margin-bottom:14px;">
+        <h4 style="font-size:0.82rem;font-weight:600;color:#555;margin:0 0 6px;padding:4px 8px;background:#f0f4f8;border-radius:4px;">3B — Mendelian Genetics: Lesson 1 — Principles of Inheritance</h4>
+        <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:6px;">
+          <a href="https://notebooklm.google.com/notebook/9978a4d5-40c3-4ea4-8541-fde59e450133" target="_blank" class="resource-platform" style="margin-bottom:6px;"><span class="rp-logo">🎙️</span><div class="rp-text"><strong>L1 Overview: Principles and Mechanics of Mendelian Genetics</strong><span>Open in NotebookLM</span></div><span class="rp-arrow">↗</span></a>
+          <a href="https://notebooklm.google.com/notebook/9d32bd5c-eff7-47db-8d34-ce6fdcc80a67" target="_blank" class="resource-platform" style="margin-bottom:6px;"><span class="rp-logo">🎙️</span><div class="rp-text"><strong>L1 P1 Molecular Mechanisms of Mendelian Inheritance</strong><span>Open in NotebookLM</span></div><span class="rp-arrow">↗</span></a>
+          <a href="https://notebooklm.google.com/notebook/e308a233-6242-4c9d-ab38-bedb70f8947c" target="_blank" class="resource-platform" style="margin-bottom:6px;"><span class="rp-logo">🎙️</span><div class="rp-text"><strong>L1 P2 Law of Segregation and Monohybrid Crosses</strong><span>Open in NotebookLM</span></div><span class="rp-arrow">↗</span></a>
+          <a href="https://notebooklm.google.com/notebook/3ec6f7e2-127a-4e54-b211-3b9984764f49" target="_blank" class="resource-platform" style="margin-bottom:6px;"><span class="rp-logo">🎙️</span><div class="rp-text"><strong>L1 P3 Independent Assortment and Dihybrid Inheritance</strong><span>Open in NotebookLM</span></div><span class="rp-arrow">↗</span></a>
+          <a href="https://notebooklm.google.com/notebook/d4db1115-9573-4521-8235-ddad4a434037" target="_blank" class="resource-platform" style="margin-bottom:6px;"><span class="rp-logo">🎙️</span><div class="rp-text"><strong>L1 P4 Incomplete Dominance and Codominance</strong><span>Open in NotebookLM</span></div><span class="rp-arrow">↗</span></a>
+          <a href="https://notebooklm.google.com/notebook/8cb5583c-0767-4d54-8c3f-68a905e50fc1" target="_blank" class="resource-platform" style="margin-bottom:6px;"><span class="rp-logo">🎙️</span><div class="rp-text"><strong>L1 P5 Multiple Alleles and Complex Dominance Relationships</strong><span>Open in NotebookLM</span></div><span class="rp-arrow">↗</span></a>
+          <a href="https://notebooklm.google.com/notebook/859dc9ab-ae1f-4d4a-9ab4-69140223c93b" target="_blank" class="resource-platform" style="margin-bottom:6px;"><span class="rp-logo">🎙️</span><div class="rp-text"><strong>L1 P6 Systematic Mendelian Genetics: Problem-Solving Applications</strong><span>Open in NotebookLM</span></div><span class="rp-arrow">↗</span></a>
+        </div>
+      </div>
+      <div style="margin-bottom:14px;">
+        <h4 style="font-size:0.82rem;font-weight:600;color:#555;margin:0 0 6px;padding:4px 8px;background:#f0f4f8;border-radius:4px;">3B — Mendelian Genetics: Lesson 2 — Mathematical Framework</h4>
+        <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:6px;">
+          <a href="https://notebooklm.google.com/notebook/12428cf6-0894-4d3a-a403-9af4d844597e" target="_blank" class="resource-platform" style="margin-bottom:6px;"><span class="rp-logo">🎙️</span><div class="rp-text"><strong>L2 Overview: The Mathematical Framework of Mendelian Inheritance</strong><span>Open in NotebookLM</span></div><span class="rp-arrow">↗</span></a>
+          <a href="https://notebooklm.google.com/notebook/f3f546e8-190d-4a12-8f41-18d326435666" target="_blank" class="resource-platform" style="margin-bottom:6px;"><span class="rp-logo">🎙️</span><div class="rp-text"><strong>L2 P1 Chromosome Segregation and Genetic Probability</strong><span>Open in NotebookLM</span></div><span class="rp-arrow">↗</span></a>
+          <a href="https://notebooklm.google.com/notebook/5923c216-50a5-4040-a2c3-1b5e75a54353" target="_blank" class="resource-platform" style="margin-bottom:6px;"><span class="rp-logo">🎙️</span><div class="rp-text"><strong>L2 P2 Simple Dominance and Phenotypic Ratios</strong><span>Open in NotebookLM</span></div><span class="rp-arrow">↗</span></a>
+          <a href="https://notebooklm.google.com/notebook/826c4af7-df25-4c2c-ac21-692aa3a349ca" target="_blank" class="resource-platform" style="margin-bottom:6px;"><span class="rp-logo">🎙️</span><div class="rp-text"><strong>L2 P3 Multiple Alleles and Complex Dominance Hierarchies</strong><span>Open in NotebookLM</span></div><span class="rp-arrow">↗</span></a>
+          <a href="https://notebooklm.google.com/notebook/550aa445-163e-475e-9326-4a5322f11b4a" target="_blank" class="resource-platform" style="margin-bottom:6px;"><span class="rp-logo">🎙️</span><div class="rp-text"><strong>L2 P4 Incomplete Dominance and Blended Phenotypes</strong><span>Open in NotebookLM</span></div><span class="rp-arrow">↗</span></a>
+          <a href="https://notebooklm.google.com/notebook/ebb18203-dc9b-45c0-8dd3-1f767d21e05c" target="_blank" class="resource-platform" style="margin-bottom:6px;"><span class="rp-logo">🎙️</span><div class="rp-text"><strong>L2 P5 Codominance and Simultaneous Expression</strong><span>Open in NotebookLM</span></div><span class="rp-arrow">↗</span></a>
+          <a href="https://notebooklm.google.com/notebook/293c5e22-297a-4e1b-80f9-f37252373ca7" target="_blank" class="resource-platform" style="margin-bottom:6px;"><span class="rp-logo">🎙️</span><div class="rp-text"><strong>L2 P6 Mechanisms and Analysis of Inheritance Patterns</strong><span>Open in NotebookLM</span></div><span class="rp-arrow">↗</span></a>
+        </div>
+      </div>
+      <div style="margin-bottom:14px;">
+        <h4 style="font-size:0.82rem;font-weight:600;color:#555;margin:0 0 6px;padding:4px 8px;background:#f0f4f8;border-radius:4px;">3B — Mendelian Genetics: Lesson 3 — Linkage &amp; Chromosome Mapping</h4>
+        <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:6px;">
+          <a href="https://notebooklm.google.com/notebook/e5f9b628-ba00-4da3-9254-c07e32fe039a" target="_blank" class="resource-platform" style="margin-bottom:6px;"><span class="rp-logo">🎙️</span><div class="rp-text"><strong>L3 Overview: Chromosomal Theory and Genetic Linkage</strong><span>Open in NotebookLM</span></div><span class="rp-arrow">↗</span></a>
+          <a href="https://notebooklm.google.com/notebook/7cbf36dd-c576-41cc-babf-2ae519b0c8e5" target="_blank" class="resource-platform" style="margin-bottom:6px;"><span class="rp-logo">🎙️</span><div class="rp-text"><strong>L3 Chromosomal Linkage, Crossing Over, and Mapping Analysis</strong><span>Open in NotebookLM</span></div><span class="rp-arrow">↗</span></a>
+          <a href="https://notebooklm.google.com/notebook/578359da-24f7-4c9e-b11e-bd7419631a4e" target="_blank" class="resource-platform" style="margin-bottom:6px;"><span class="rp-logo">🎙️</span><div class="rp-text"><strong>L3 P1 Gene Linkage, Crossing Over, and Chromosome Mapping</strong><span>Open in NotebookLM</span></div><span class="rp-arrow">↗</span></a>
+          <a href="https://notebooklm.google.com/notebook/6c0c7652-5867-4a1d-af19-d2f4f0172c8f" target="_blank" class="resource-platform" style="margin-bottom:6px;"><span class="rp-logo">🎙️</span><div class="rp-text"><strong>L3 P2 Molecular Basis and Mechanisms of Genetic Crossing Over</strong><span>Open in NotebookLM</span></div><span class="rp-arrow">↗</span></a>
+          <a href="https://notebooklm.google.com/notebook/7e37e009-db0a-494a-b696-b0441df6ef5d" target="_blank" class="resource-platform" style="margin-bottom:6px;"><span class="rp-logo">🎙️</span><div class="rp-text"><strong>L3 P3 Calculating Recombination Frequency and Linkage Analysis</strong><span>Open in NotebookLM</span></div><span class="rp-arrow">↗</span></a>
+          <a href="https://notebooklm.google.com/notebook/9cd981a4-2778-41d4-8244-80f75b62c364" target="_blank" class="resource-platform" style="margin-bottom:6px;"><span class="rp-logo">🎙️</span><div class="rp-text"><strong>L3 P4 Principles of Chromosome Mapping</strong><span>Open in NotebookLM</span></div><span class="rp-arrow">↗</span></a>
+          <a href="https://notebooklm.google.com/notebook/21dda19a-9c73-4b9b-b64b-fce496cf0aa8" target="_blank" class="resource-platform" style="margin-bottom:6px;"><span class="rp-logo">🎙️</span><div class="rp-text"><strong>L3 P5 Variability and Multiple Gene Control</strong><span>Open in NotebookLM</span></div><span class="rp-arrow">↗</span></a>
+          <a href="https://notebooklm.google.com/notebook/47c8f4b6-9fb7-4690-996d-6114812d23af" target="_blank" class="resource-platform" style="margin-bottom:6px;"><span class="rp-logo">🎙️</span><div class="rp-text"><strong>L3 P6 Quantitative Genetics and Linkage Analysis Strategies</strong><span>Open in NotebookLM</span></div><span class="rp-arrow">↗</span></a>
+        </div>
+      </div>
+      <div style="margin-bottom:14px;">
+        <h4 style="font-size:0.82rem;font-weight:600;color:#555;margin:0 0 6px;padding:4px 8px;background:#f0f4f8;border-radius:4px;">3B — Mendelian Genetics: Lesson 4 — Sex Linkage, Pedigrees &amp; Ethics</h4>
+        <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:6px;">
+          <a href="https://notebooklm.google.com/notebook/13a23309-7ebb-4b43-afec-84d0029dfd6d" target="_blank" class="resource-platform" style="margin-bottom:6px;"><span class="rp-logo">🎙️</span><div class="rp-text"><strong>L4 Overview: Inheritance Mastery and Ethical Decisions</strong><span>Open in NotebookLM</span></div><span class="rp-arrow">↗</span></a>
+          <a href="https://notebooklm.google.com/notebook/13da0187-2361-40f1-bfe5-f38a4a611cdb" target="_blank" class="resource-platform" style="margin-bottom:6px;"><span class="rp-logo">🎙️</span><div class="rp-text"><strong>L4 P1 Human Sex Chromosomes and Sex-Linked Inheritance</strong><span>Open in NotebookLM</span></div><span class="rp-arrow">↗</span></a>
+          <a href="https://notebooklm.google.com/notebook/cce46c1b-7c32-4633-8a41-9945bc7f3cf8" target="_blank" class="resource-platform" style="margin-bottom:6px;"><span class="rp-logo">🎙️</span><div class="rp-text"><strong>L4 P2 Autosomal and Sex-Linked Inheritance: Probability Analysis</strong><span>Open in NotebookLM</span></div><span class="rp-arrow">↗</span></a>
+          <a href="https://notebooklm.google.com/notebook/5ea1d0e8-5f06-4964-a62f-2069d949f0a8" target="_blank" class="resource-platform" style="margin-bottom:6px;"><span class="rp-logo">🎙️</span><div class="rp-text"><strong>L4 P3 Pedigree Analysis: Tracking Inheritance Patterns</strong><span>Open in NotebookLM</span></div><span class="rp-arrow">↗</span></a>
+          <a href="https://notebooklm.google.com/notebook/b3ce1a45-f484-477b-ba33-7e903c30e6b2" target="_blank" class="resource-platform" style="margin-bottom:6px;"><span class="rp-logo">🎙️</span><div class="rp-text"><strong>L4 P3 Pedigree Mastery: Conditional Probability and Genotype Inference</strong><span>Open in NotebookLM</span></div><span class="rp-arrow">↗</span></a>
+          <a href="https://notebooklm.google.com/notebook/384915b2-8004-4150-8294-50f505716cb9" target="_blank" class="resource-platform" style="margin-bottom:6px;"><span class="rp-logo">🎙️</span><div class="rp-text"><strong>L4 P4 Chi-Square Analysis: Validating Genetic Inheritance Models</strong><span>Open in NotebookLM</span></div><span class="rp-arrow">↗</span></a>
+          <a href="https://notebooklm.google.com/notebook/e3ce2993-1cbf-410c-95b2-86d3602fef8f" target="_blank" class="resource-platform" style="margin-bottom:6px;"><span class="rp-logo">🎙️</span><div class="rp-text"><strong>L4 P5 ABO Blood Groups and Multiple Allele Inheritance Patterns</strong><span>Open in NotebookLM</span></div><span class="rp-arrow">↗</span></a>
+          <a href="https://notebooklm.google.com/notebook/3aea7f56-0284-44f7-b9e0-ba5dfcb6e433" target="_blank" class="resource-platform" style="margin-bottom:6px;"><span class="rp-logo">🎙️</span><div class="rp-text"><strong>L4 P5 Genetic Technology: Ethical Modeling and Risk Assessment</strong><span>Open in NotebookLM</span></div><span class="rp-arrow">↗</span></a>
+          <a href="https://notebooklm.google.com/notebook/6697330d-11c8-4f11-946a-ca53a910d826" target="_blank" class="resource-platform" style="margin-bottom:6px;"><span class="rp-logo">🎙️</span><div class="rp-text"><strong>L4 P6 Biology 30: Integrated Inheritance and Genetic Policy Synthesis</strong><span>Open in NotebookLM</span></div><span class="rp-arrow">↗</span></a>
+          <a href="https://notebooklm.google.com/notebook/c764d18f-b3d6-4730-bef4-7c7d3510771f" target="_blank" class="resource-platform" style="margin-bottom:6px;"><span class="rp-logo">🎙️</span><div class="rp-text"><strong>L4 P6 Mechanisms of Polygenic Inheritance and Complex Genetic Diversity</strong><span>Open in NotebookLM</span></div><span class="rp-arrow">↗</span></a>
+          <a href="https://notebooklm.google.com/notebook/052658a3-164f-4985-8d4d-cdc68b1c95b3" target="_blank" class="resource-platform" style="margin-bottom:6px;"><span class="rp-logo">🎙️</span><div class="rp-text"><strong>Unit 3B Overview: Principles of Mendelian and Complex Inheritance</strong><span>Open in NotebookLM</span></div><span class="rp-arrow">↗</span></a>
+        </div>
+      </div>
+      <div style="margin-bottom:14px;">
+        <h4 style="font-size:0.82rem;font-weight:600;color:#555;margin:0 0 6px;padding:4px 8px;background:#f0f4f8;border-radius:4px;">3C — Molecular Genetics: Lesson 1 — DNA Structure &amp; Replication</h4>
+        <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:6px;">
+          <a href="https://notebooklm.google.com/notebook/6532f6e1-b83a-4c55-8a5e-03fe459dfb21" target="_blank" class="resource-platform" style="margin-bottom:6px;"><span class="rp-logo">🎙️</span><div class="rp-text"><strong>L1 P1 Deciphering the DNA Double Helix</strong><span>Open in NotebookLM</span></div><span class="rp-arrow">↗</span></a>
+          <a href="https://notebooklm.google.com/notebook/5cec74b4-f8f3-4b29-bf82-04119d945cc4" target="_blank" class="resource-platform" style="margin-bottom:6px;"><span class="rp-logo">🎙️</span><div class="rp-text"><strong>L1 P1A Experimental Logic: Identifying DNA as Genetic Material</strong><span>Open in NotebookLM</span></div><span class="rp-arrow">↗</span></a>
+          <a href="https://notebooklm.google.com/notebook/2f8b293c-8dd9-4d02-8c35-4b60d032cb24" target="_blank" class="resource-platform" style="margin-bottom:6px;"><span class="rp-logo">🎙️</span><div class="rp-text"><strong>L1 P2 DNA Structure and Complementary Base Pairing</strong><span>Open in NotebookLM</span></div><span class="rp-arrow">↗</span></a>
+          <a href="https://notebooklm.google.com/notebook/7ca2e812-4a60-4b49-b4cf-43b566ea3b2f" target="_blank" class="resource-platform" style="margin-bottom:6px;"><span class="rp-logo">🎙️</span><div class="rp-text"><strong>L1 P3 The Genetic Code: From DNA Sequence to Biological Trait</strong><span>Open in NotebookLM</span></div><span class="rp-arrow">↗</span></a>
+          <a href="https://notebooklm.google.com/notebook/8563219d-9085-4054-b09a-f2d010bbdb69" target="_blank" class="resource-platform" style="margin-bottom:6px;"><span class="rp-logo">🎙️</span><div class="rp-text"><strong>L1 P4 Mechanisms of Semi-Conservative DNA Replication</strong><span>Open in NotebookLM</span></div><span class="rp-arrow">↗</span></a>
+          <a href="https://notebooklm.google.com/notebook/33f818d9-270a-4ab7-b349-4efe89460c7c" target="_blank" class="resource-platform" style="margin-bottom:6px;"><span class="rp-logo">🎙️</span><div class="rp-text"><strong>L1 P5 DNA Analysis: Applications, Structure, and Replication Synthesis</strong><span>Open in NotebookLM</span></div><span class="rp-arrow">↗</span></a>
+          <a href="https://notebooklm.google.com/notebook/c6723c09-9c48-4ae0-a4d2-fea36a6cbc12" target="_blank" class="resource-platform" style="margin-bottom:6px;"><span class="rp-logo">🎙️</span><div class="rp-text"><strong>L1 P6 DNA Structure, Discovery, and Replication Summary</strong><span>Open in NotebookLM</span></div><span class="rp-arrow">↗</span></a>
+          <a href="https://notebooklm.google.com/notebook/bc4515a1-1c5c-4b44-932f-3748f89450d5" target="_blank" class="resource-platform" style="margin-bottom:6px;"><span class="rp-logo">🎙️</span><div class="rp-text"><strong>L1 Supplementary — Molecular Biology of the DNA Replication Machine</strong><span>Open in NotebookLM</span></div><span class="rp-arrow">↗</span></a>
+        </div>
+      </div>
+      <div style="margin-bottom:14px;">
+        <h4 style="font-size:0.82rem;font-weight:600;color:#555;margin:0 0 6px;padding:4px 8px;background:#f0f4f8;border-radius:4px;">3C — Molecular Genetics: Lesson 2 — Transcription &amp; Translation</h4>
+        <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:6px;">
+          <a href="https://notebooklm.google.com/notebook/2caa933d-5c5f-4aa5-b31c-2f9576b59f93" target="_blank" class="resource-platform" style="margin-bottom:6px;"><span class="rp-logo">🎙️</span><div class="rp-text"><strong>L2 P1 Transcription and the Mechanics of Gene Expression</strong><span>Open in NotebookLM</span></div><span class="rp-arrow">↗</span></a>
+          <a href="https://notebooklm.google.com/notebook/038d931c-6684-4669-92f7-63eaa8828d06" target="_blank" class="resource-platform" style="margin-bottom:6px;"><span class="rp-logo">🎙️</span><div class="rp-text"><strong>L2 P2 Codons and the Genetic Code</strong><span>Open in NotebookLM</span></div><span class="rp-arrow">↗</span></a>
+          <a href="https://notebooklm.google.com/notebook/091d1943-77b9-410a-91dd-fe0e1fe99e06" target="_blank" class="resource-platform" style="margin-bottom:6px;"><span class="rp-logo">🎙️</span><div class="rp-text"><strong>L2 P3 Translation and Ribosome Function</strong><span>Open in NotebookLM</span></div><span class="rp-arrow">↗</span></a>
+          <a href="https://notebooklm.google.com/notebook/9cd12749-83b0-446d-83d6-c8fa977936ef" target="_blank" class="resource-platform" style="margin-bottom:6px;"><span class="rp-logo">🎙️</span><div class="rp-text"><strong>L2 P4 The Molecular Orchestration of Protein Synthesis</strong><span>Open in NotebookLM</span></div><span class="rp-arrow">↗</span></a>
+          <a href="https://notebooklm.google.com/notebook/871172a6-92a4-426f-a271-c41f664abc44" target="_blank" class="resource-platform" style="margin-bottom:6px;"><span class="rp-logo">🎙️</span><div class="rp-text"><strong>L2 P5 From Gene Expression to Traits</strong><span>Open in NotebookLM</span></div><span class="rp-arrow">↗</span></a>
+          <a href="https://notebooklm.google.com/notebook/0977a582-04ca-430c-959a-7073190d931b" target="_blank" class="resource-platform" style="margin-bottom:6px;"><span class="rp-logo">🎙️</span><div class="rp-text"><strong>L2 P6 Integrating Transcription, Translation, and Gene Expression</strong><span>Open in NotebookLM</span></div><span class="rp-arrow">↗</span></a>
+          <a href="https://notebooklm.google.com/notebook/9d1509b9-ba26-4147-9240-90f3db5d339a" target="_blank" class="resource-platform" style="margin-bottom:6px;"><span class="rp-logo">🎙️</span><div class="rp-text"><strong>L2 P7 The Molecular Pathway from DNA to Protein Synthesis</strong><span>Open in NotebookLM</span></div><span class="rp-arrow">↗</span></a>
+          <a href="https://notebooklm.google.com/notebook/a6e4b4fb-2862-4585-a44b-3c0c56701dff" target="_blank" class="resource-platform" style="margin-bottom:6px;"><span class="rp-logo">🎙️</span><div class="rp-text"><strong>L2 P8 From DNA to Trait: Molecular Biology Principles and Mutations</strong><span>Open in NotebookLM</span></div><span class="rp-arrow">↗</span></a>
+        </div>
+      </div>
+      <div style="margin-bottom:14px;">
+        <h4 style="font-size:0.82rem;font-weight:600;color:#555;margin:0 0 6px;padding:4px 8px;background:#f0f4f8;border-radius:4px;">3C — Molecular Genetics: Lesson 3 — Mutations &amp; Genetic Variation</h4>
+        <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:6px;">
+          <a href="https://notebooklm.google.com/notebook/ce3c5226-fba2-4368-9925-9f94a88a90db" target="_blank" class="resource-platform" style="margin-bottom:6px;"><span class="rp-logo">🎙️</span><div class="rp-text"><strong>L3 P1 Genetic Mutations and Evolutionary Change</strong><span>Open in NotebookLM</span></div><span class="rp-arrow">↗</span></a>
+          <a href="https://notebooklm.google.com/notebook/45c95063-3a95-4089-9731-2b11a22e30fc" target="_blank" class="resource-platform" style="margin-bottom:6px;"><span class="rp-logo">🎙️</span><div class="rp-text"><strong>L3 P2 Environmental Mutagens and DNA Damage</strong><span>Open in NotebookLM</span></div><span class="rp-arrow">↗</span></a>
+          <a href="https://notebooklm.google.com/notebook/7824ee41-a11a-4bb6-b167-3ac98083e3a5" target="_blank" class="resource-platform" style="margin-bottom:6px;"><span class="rp-logo">🎙️</span><div class="rp-text"><strong>L3 P3 Genetic Disorders and Mutation Consequences</strong><span>Open in NotebookLM</span></div><span class="rp-arrow">↗</span></a>
+          <a href="https://notebooklm.google.com/notebook/aeba6448-ca55-4aa4-926e-adcf374e6910" target="_blank" class="resource-platform" style="margin-bottom:6px;"><span class="rp-logo">🎙️</span><div class="rp-text"><strong>L3 P4 Genetic Variation, Mutation, and Natural Selection</strong><span>Open in NotebookLM</span></div><span class="rp-arrow">↗</span></a>
+          <a href="https://notebooklm.google.com/notebook/6e1112ca-a7e3-4f0b-932e-f32dd680fb24" target="_blank" class="resource-platform" style="margin-bottom:6px;"><span class="rp-logo">🎙️</span><div class="rp-text"><strong>L3 P5 Molecular Scissors and the Architecture of Recombinant DNA</strong><span>Open in NotebookLM</span></div><span class="rp-arrow">↗</span></a>
+          <a href="https://notebooklm.google.com/notebook/6f4b330f-3f21-4908-8baf-f63f12476562" target="_blank" class="resource-platform" style="margin-bottom:6px;"><span class="rp-logo">🎙️</span><div class="rp-text"><strong>L3 P6 Molecular Evidence and Genetic Pathways of Evolution</strong><span>Open in NotebookLM</span></div><span class="rp-arrow">↗</span></a>
+          <a href="https://notebooklm.google.com/notebook/20925526-5d6b-4e6d-bd43-8058f401b869" target="_blank" class="resource-platform" style="margin-bottom:6px;"><span class="rp-logo">🎙️</span><div class="rp-text"><strong>L3 P7 Mutations, Variation, and Molecular Evidence</strong><span>Open in NotebookLM</span></div><span class="rp-arrow">↗</span></a>
+        </div>
+      </div>
+      <div style="margin-bottom:14px;">
+        <h4 style="font-size:0.82rem;font-weight:600;color:#555;margin:0 0 6px;padding:4px 8px;background:#f0f4f8;border-radius:4px;">3C — Molecular Genetics: Lesson 4 — Biotechnology</h4>
+        <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:6px;">
+          <a href="https://notebooklm.google.com/notebook/99a3456b-d814-4bbe-8109-423d6375faeb" target="_blank" class="resource-platform" style="margin-bottom:6px;"><span class="rp-logo">🎙️</span><div class="rp-text"><strong>L4 P1 Molecular Tools for Constructing Recombinant DNA</strong><span>Open in NotebookLM</span></div><span class="rp-arrow">↗</span></a>
+          <a href="https://notebooklm.google.com/notebook/5de42ce5-d1af-4e07-b8de-084d5ea0dd74" target="_blank" class="resource-platform" style="margin-bottom:6px;"><span class="rp-logo">🎙️</span><div class="rp-text"><strong>L4 P2 Recombinant DNA and Cellular Transformation</strong><span>Open in NotebookLM</span></div><span class="rp-arrow">↗</span></a>
+          <a href="https://notebooklm.google.com/notebook/26dee55a-bda1-4a67-963a-71d0f3548f19" target="_blank" class="resource-platform" style="margin-bottom:6px;"><span class="rp-logo">🎙️</span><div class="rp-text"><strong>L4 P3 Principles of Gel Electrophoresis and DNA Analysis</strong><span>Open in NotebookLM</span></div><span class="rp-arrow">↗</span></a>
+          <a href="https://notebooklm.google.com/notebook/cfe66848-2251-4fd3-bf8b-524ac5f9d007" target="_blank" class="resource-platform" style="margin-bottom:6px;"><span class="rp-logo">🎙️</span><div class="rp-text"><strong>L4 P4 Biotechnology Applications: Insulin, Gene Therapy, and Diagnostics</strong><span>Open in NotebookLM</span></div><span class="rp-arrow">↗</span></a>
+          <a href="https://notebooklm.google.com/notebook/88535b8e-3ac7-4f79-b7f1-ed59e92d1c03" target="_blank" class="resource-platform" style="margin-bottom:6px;"><span class="rp-logo">🎙️</span><div class="rp-text"><strong>L4 P5 DNA Sequencing, Genomics, and the Human Genome Project</strong><span>Open in NotebookLM</span></div><span class="rp-arrow">↗</span></a>
+          <a href="https://notebooklm.google.com/notebook/a27060cc-fd6b-4bc2-a1d7-bbfe0e2ff5fa" target="_blank" class="resource-platform" style="margin-bottom:6px;"><span class="rp-logo">🎙️</span><div class="rp-text"><strong>L4 P6 Nanotechnology and Molecular Diagnostics</strong><span>Open in NotebookLM</span></div><span class="rp-arrow">↗</span></a>
+          <a href="https://notebooklm.google.com/notebook/53e8114b-6a17-4c6d-a3f2-a135cccf67f2" target="_blank" class="resource-platform" style="margin-bottom:6px;"><span class="rp-logo">🎙️</span><div class="rp-text"><strong>L4 P7 Ethics, Society, and the Evolution of Biotechnology</strong><span>Open in NotebookLM</span></div><span class="rp-arrow">↗</span></a>
+          <a href="https://notebooklm.google.com/notebook/d758e74b-9967-4aa0-95d8-e4c7ac6a25d5" target="_blank" class="resource-platform" style="margin-bottom:6px;"><span class="rp-logo">🎙️</span><div class="rp-text"><strong>L4 Supplementary — PCR Methodologies and Thermal Cycler Technologies</strong><span>Open in NotebookLM</span></div><span class="rp-arrow">↗</span></a>
+          <a href="https://notebooklm.google.com/notebook/afc68a63-645c-4ec6-974c-ef99d71d072b" target="_blank" class="resource-platform" style="margin-bottom:6px;"><span class="rp-logo">🎙️</span><div class="rp-text"><strong>L4 Therapeutic Cloning: Scientific Horizons and Ethical Frontiers</strong><span>Open in NotebookLM</span></div><span class="rp-arrow">↗</span></a>
+          <a href="https://notebooklm.google.com/notebook/24a6c3dc-9304-4270-95f9-bf5de02af04c" target="_blank" class="resource-platform" style="margin-bottom:6px;"><span class="rp-logo">🎙️</span><div class="rp-text"><strong>Unit 3C Overview: Principles of Genetic Linkage and Map Construction</strong><span>Open in NotebookLM</span></div><span class="rp-arrow">↗</span></a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+</div><!-- unit-c end -->
+
+<!-- ═══════════════════════════════════════════════════ UNIT D -->
+<div style="background:#FAF5FF;">
+<div class="section" id="unit-d">
+
+  <div class="section-header">
+    <div><div class="unit-tag tag-d">Unit D</div></div>
+    <div class="header-text">
+      <h2>Population &amp; Community Dynamics</h2>
+      <p>How allele frequencies change in populations over time, and the ecological forces that shape communities.</p>
+    </div>
+    <div class="weight-badge"><div class="pct">20%</div><div class="lbl">of Diploma</div></div>
+  </div>
+
+  <div class="tabs" id="tabs-d">
+    <button class="tab-btn active" onclick="openTab('d','outcomes')">📋 Outcomes Checklist</button>
+    <button class="tab-btn" onclick="openTab('d','concepts')">🌿 Key Concepts</button>
+    <button class="tab-btn" onclick="openTab('d','resources')">📄 Your Resources</button>
+    <button class="tab-btn" onclick="openTab('d','online')">🌐 Online Tools</button>
+  </div>
+
+  <!-- TAB: OUTCOMES -->
+  <div class="tab-content active" id="tab-d-outcomes">
+
+    <div class="progress-section">
+      <h3>Unit D Progress</h3>
+      <div class="progress-bars">
+        <div class="prog-row"><span class="prog-label">Population Genetics</span><div class="prog-track"><div class="prog-fill" id="prog-d" style="width:0%;background:#9B72CF;"></div></div><span class="prog-pct" id="pct-d">0%</span></div>
+      </div>
+    </div>
+
+    <h3 style="font-size:0.9rem;font-weight:700;color:var(--green-dark);margin-bottom:12px;">Hardy-Weinberg Equilibrium &amp; Population Genetics</h3>
+    <div class="outcomes-list">
+
+      <div class="outcome-item" data-id="d-hw">
+        <button class="outcome-toggle" onclick="toggleOutcome('d-hw')">
+          <span class="ot-arrow">▶</span><span class="ot-code">Unit D</span>
+          Hardy-Weinberg Theory &amp; Equations
+          <span class="ot-check" onclick="checkOutcome(event,'d-hw')"></span>
+        </button>
+        <div class="outcome-body">
+          <ul>
+            <li><strong>Gene pool:</strong> all alleles in a population at a given time</li>
+            <li><strong>H-W equations:</strong> p + q = 1 (allele frequencies); p² + 2pq + q² = 1 (genotype frequencies)</li>
+            <li><strong>p² = AA, 2pq = Aa, q² = aa</strong></li>
+            <li><strong>H-W equilibrium conditions:</strong> large population, random mating, no mutation, no migration, no natural selection</li>
+            <li><strong>Solving H-W problems:</strong> start with q² (recessive phenotype) → q → p → p², 2pq</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="outcome-item" data-id="d-evo">
+        <button class="outcome-toggle" onclick="toggleOutcome('d-evo')">
+          <span class="ot-arrow">▶</span><span class="ot-code">Unit D</span>
+          Forces of Evolution
+          <span class="ot-check" onclick="checkOutcome(event,'d-evo')"></span>
+        </button>
+        <div class="outcome-body">
+          <ul>
+            <li><strong>Natural selection:</strong> differential survival and reproduction based on heritable traits</li>
+            <li><strong>Genetic drift:</strong> random changes in allele frequency; most significant in small populations</li>
+            <li><strong>Bottleneck effect:</strong> population reduced dramatically → loss of genetic diversity</li>
+            <li><strong>Founder effect:</strong> new population from few individuals → limited gene pool</li>
+            <li><strong>Gene flow:</strong> movement of alleles into or out of population via migration</li>
+            <li><strong>Mutation:</strong> ultimate source of new alleles</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="outcome-item" data-id="d-spec">
+        <button class="outcome-toggle" onclick="toggleOutcome('d-spec')">
+          <span class="ot-arrow">▶</span><span class="ot-code">Unit D</span>
+          Speciation &amp; Community Interactions
+          <span class="ot-check" onclick="checkOutcome(event,'d-spec')"></span>
+        </button>
+        <div class="outcome-body">
+          <ul>
+            <li><strong>Speciation:</strong> formation of new species; requires reproductive isolation</li>
+            <li><strong>Allopatric speciation:</strong> geographic isolation → separate gene pools evolve independently → reproductive isolation</li>
+            <li><strong>Population interactions:</strong> predation (+/−), competition (−/−), mutualism (+/+), commensalism (+/0), parasitism (+/−)</li>
+            <li><strong>Carrying capacity (K):</strong> maximum population size an environment can sustain</li>
+            <li><strong>Logistic growth:</strong> S-curve; population grows quickly at first, slows as it approaches K</li>
+            <li><strong>Exponential growth:</strong> J-curve; unlimited resources → constant growth rate (r)</li>
+            <li><strong>Ecological succession:</strong> pioneer species → intermediate communities → climax community</li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- TAB: CONCEPTS -->
+  <div class="tab-content" id="tab-d-concepts">
+    <div class="intro-box">
+      <p><strong>Theme: Change &amp; Diversity.</strong> Unit D bridges genetics and ecology — showing how genetic variation within populations is the raw material for evolution, and how populations interact within ecosystems.</p>
+    </div>
+    <div class="concept-grid">
+      <div class="concept-box">
+        <h4>🧮 Hardy-Weinberg Problem Solving</h4>
+        <ul>
+          <li>Step 1: Identify q² (% showing recessive phenotype)</li>
+          <li>Step 2: q = √q²</li>
+          <li>Step 3: p = 1 − q</li>
+          <li>Step 4: p² = AA, 2pq = Aa, q² = aa</li>
+          <li>Step 5: multiply by population size for actual numbers</li>
+          <li>Check: p + q must = 1; p² + 2pq + q² must = 1</li>
+        </ul>
+      </div>
+      <div class="concept-box">
+        <h4>⚡ 5 Forces That Change Allele Frequency</h4>
+        <ul>
+          <li>1. Natural selection — non-random survival</li>
+          <li>2. Genetic drift — random chance (small populations)</li>
+          <li>3. Gene flow — migration in/out</li>
+          <li>4. Mutation — new alleles created</li>
+          <li>5. Non-random mating — changes genotype ratios</li>
+          <li>All 5 violate H-W equilibrium → evolution occurring</li>
+        </ul>
+      </div>
+      <div class="concept-box">
+        <h4>📈 Population Growth Curves</h4>
+        <ul>
+          <li>Exponential (J-curve): dN/dt = rN; unlimited resources</li>
+          <li>Logistic (S-curve): slows as N → K</li>
+          <li>K = carrying capacity (environmental limit)</li>
+          <li>r-strategists: many offspring, little care, unstable environments</li>
+          <li>K-strategists: few offspring, much care, stable environments</li>
+        </ul>
+      </div>
+      <div class="concept-box">
+        <h4>🌿 Species Interactions</h4>
+        <ul>
+          <li>Predation: predator +, prey − (cycles: lynx/hare)</li>
+          <li>Competition: −/− (niche overlap; competitive exclusion)</li>
+          <li>Mutualism: +/+ (bees &amp; flowers; mycorrhizae)</li>
+          <li>Commensalism: +/0 (barnacles on whale)</li>
+          <li>Parasitism: +/− (tapeworm in host)</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- TAB: RESOURCES -->
+  <div class="tab-content" id="tab-d-resources">
+    <div class="cards-grid">
+      <div class="card">
+        <div class="card-header"><span class="card-icon">📖</span><div><h3>Unit Notes &amp; Study Guides</h3><p>Population &amp; Community Dynamics</p></div></div>
+        <ul class="card-links">
+<li><a href="resources/unit_d/Biology30_UnitD Full UNit Notes.pdf" target="_blank"><span class="link-icon">📄</span> Unit D Full Unit Notes <span class="pdf-badge">PDF</span></a></li>
+<li><a href="resources/unit_d/Biology_30_Unit_D__Population_and_Community_Dynamics_Study_Guide 2026.pdf" target="_blank"><span class="link-icon">📄</span> Population &amp; Community Dynamics Study Guide 2026 <span class="pdf-badge">PDF</span></a></li>
+<li><a href="resources/unit_d/Unit D Note Set.pdf" target="_blank"><span class="link-icon">📄</span> Unit D Note Set <span class="pdf-badge">PDF</span></a></li>
+<li><a href="resources/unit_d/Biology30_UnitD_Lesson1.pdf" target="_blank"><span class="link-icon">📄</span> Lesson 1 Notes <span class="pdf-badge">PDF</span></a></li>
+<li><a href="resources/unit_d/Biology30_UnitD_Lesson2.pdf" target="_blank"><span class="link-icon">📄</span> Lesson 2 Notes <span class="pdf-badge">PDF</span></a></li>
+        </ul>
+      </div>
+      <div class="card">
+        <div class="card-header"><span class="card-icon">✏️</span><div><h3>Review Materials</h3><p>Unit D review resources</p></div></div>
+        <ul class="card-links">
+<li><a href="resources/unit_d/Unit D Review.pdf" target="_blank"><span class="link-icon">📄</span> Unit D Review <span class="pdf-badge">PDF</span></a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- TAB: ONLINE -->
+  <div class="tab-content" id="tab-d-online">
+    <a href="https://www.khanacademy.org/science/ap-biology/natural-selection" target="_blank" class="resource-platform"><span class="rp-logo">🎓</span><div class="rp-text"><strong>Khan Academy — Natural Selection &amp; Evolution</strong><span>Hardy-Weinberg, selection, genetic drift, speciation</span></div><span class="rp-arrow">↗</span></a>
+    <a href="https://www.youtube.com/watch?v=aTftyFboC_M" target="_blank" class="resource-platform"><span class="rp-logo">▶️</span><div class="rp-text"><strong>CrashCourse — Natural Selection</strong><span>How selection changes populations over time</span></div><span class="rp-arrow">↗</span></a>
+    <a href="https://www.youtube.com/watch?v=WhFKPaRnTdQ" target="_blank" class="resource-platform"><span class="rp-logo">▶️</span><div class="rp-text"><strong>CrashCourse — Population Genetics</strong><span>Hardy-Weinberg equilibrium explained with examples</span></div><span class="rp-arrow">↗</span></a>
+    <a href="https://www.youtube.com/watch?v=5NdMnlt2keE" target="_blank" class="resource-platform"><span class="rp-logo">▶️</span><div class="rp-text"><strong>CrashCourse — Community Ecology</strong><span>Species interactions, succession, and niches</span></div><span class="rp-arrow">↗</span></a>
+    <a href="https://phet.colorado.edu/en/simulations/natural-selection" target="_blank" class="resource-platform"><span class="rp-logo">⚡</span><div class="rp-text"><strong>PhET — Natural Selection Simulation</strong><span>Watch allele frequencies change in a simulated population</span></div><span class="rp-arrow">↗</span></a>
+    <a href="https://www.biologycorner.com/worksheets/hardy-weinberg.html" target="_blank" class="resource-platform"><span class="rp-logo">📋</span><div class="rp-text"><strong>Biology Corner — Hardy-Weinberg Practice</strong><span>Printable problems with worked solutions</span></div><span class="rp-arrow">↗</span></a>
+    <div style="margin-top:20px;padding:16px 18px;background:linear-gradient(135deg,#c00,#900);border-radius:10px;display:flex;align-items:center;gap:16px;">
+      <span style="font-size:2.2rem;line-height:1;">▶️</span>
+      <div style="flex:1;">
+        <strong style="color:#fff;font-size:0.95rem;display:block;margin-bottom:4px;">YouTube Playlist — Unit D — Population &amp; Community Dynamics</strong>
+        <p style="color:rgba(255,255,255,0.82);font-size:0.78rem;margin:0 0 10px;">Video lessons covering all Unit D — Population &amp; Community Dynamics outcomes — curated for Alberta Biology 30.</p>
+        <a href="https://www.youtube.com/playlist?list=PLLaZ8k0__hr17LkkO6pBQtvYPBQnNJNSL" target="_blank" style="display:inline-block;background:#fff;color:#900;padding:6px 16px;border-radius:20px;font-size:0.82rem;font-weight:700;text-decoration:none;">Watch Playlist ▶</a>
+      </div>
+    </div>
+    <div style="margin-top:24px;">
+      <h3 style="font-size:0.9rem;font-weight:700;color:var(--green-dark);margin-bottom:4px;">🎙️ NotebookLM Study Notebooks</h3>
+      <p style="font-size:0.78rem;color:#666;margin-bottom:14px;">AI-powered notebooks built from your course materials — ask questions, get summaries, and listen to audio overviews.</p>
+      <div style="margin-bottom:14px;">
+        <h4 style="font-size:0.82rem;font-weight:600;color:#555;margin:0 0 6px;padding:4px 8px;background:#f0f4f8;border-radius:4px;">Lesson 1 — Hardy-Weinberg Equilibrium</h4>
+        <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:6px;">
+          <a href="https://notebooklm.google.com/notebook/3d4ff731-5c35-4a60-a6bb-72162acaf71e" target="_blank" class="resource-platform" style="margin-bottom:6px;"><span class="rp-logo">🎙️</span><div class="rp-text"><strong>L1 P1 Hardy-Weinberg Theory: Gene Pools and Allele Frequencies</strong><span>Open in NotebookLM</span></div><span class="rp-arrow">↗</span></a>
+          <a href="https://notebooklm.google.com/notebook/11c8b4fb-2441-4732-8da4-ee8960e20b95" target="_blank" class="resource-platform" style="margin-bottom:6px;"><span class="rp-logo">🎙️</span><div class="rp-text"><strong>L1 P2 Hardy-Weinberg Equilibrium: Genetic Baselines and Evolutionary Predictions</strong><span>Open in NotebookLM</span></div><span class="rp-arrow">↗</span></a>
+          <a href="https://notebooklm.google.com/notebook/7359c6aa-446e-4c7d-8785-7e665d9efd93" target="_blank" class="resource-platform" style="margin-bottom:6px;"><span class="rp-logo">🎙️</span><div class="rp-text"><strong>L1 P3 Hardy-Weinberg Mathematical Framework and Population Genetics Applications</strong><span>Open in NotebookLM</span></div><span class="rp-arrow">↗</span></a>
+          <a href="https://notebooklm.google.com/notebook/9bacca72-61ea-4b3d-a15f-1690881bced7" target="_blank" class="resource-platform" style="margin-bottom:6px;"><span class="rp-logo">🎙️</span><div class="rp-text"><strong>L1 P4 Evolutionary Forces and Hardy-Weinberg Violations</strong><span>Open in NotebookLM</span></div><span class="rp-arrow">↗</span></a>
+          <a href="https://notebooklm.google.com/notebook/471c63b8-72da-4022-87e5-5837ee3b348b" target="_blank" class="resource-platform" style="margin-bottom:6px;"><span class="rp-logo">🎙️</span><div class="rp-text"><strong>L1 P5 Molecular Basis of Mutation and Gene Pool Dynamics</strong><span>Open in NotebookLM</span></div><span class="rp-arrow">↗</span></a>
+          <a href="https://notebooklm.google.com/notebook/ed936af2-4461-418c-a5be-331d0a586e01" target="_blank" class="resource-platform" style="margin-bottom:6px;"><span class="rp-logo">🎙️</span><div class="rp-text"><strong>L1 P6 Hardy-Weinberg Analysis: From Molecular Foundations to Population Management</strong><span>Open in NotebookLM</span></div><span class="rp-arrow">↗</span></a>
+        </div>
+      </div>
+      <div style="margin-bottom:14px;">
+        <h4 style="font-size:0.82rem;font-weight:600;color:#555;margin:0 0 6px;padding:4px 8px;background:#f0f4f8;border-radius:4px;">Lesson 2 — Population Dynamics &amp; Ecology</h4>
+        <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:6px;">
+          <a href="https://notebooklm.google.com/notebook/fe380f81-791b-4a75-b94d-4fd125677a92" target="_blank" class="resource-platform" style="margin-bottom:6px;"><span class="rp-logo">🎙️</span><div class="rp-text"><strong>L2 P1 Population Dynamics: Mechanisms and Calculations of Change</strong><span>Open in NotebookLM</span></div><span class="rp-arrow">↗</span></a>
+          <a href="https://notebooklm.google.com/notebook/e5d6bc6f-d210-4633-acf9-19900213fb7c" target="_blank" class="resource-platform" style="margin-bottom:6px;"><span class="rp-logo">🎙️</span><div class="rp-text"><strong>L2 P2 Population Growth Rates and Density Calculations</strong><span>Open in NotebookLM</span></div><span class="rp-arrow">↗</span></a>
+          <a href="https://notebooklm.google.com/notebook/ff9c7eea-6abe-4fdc-9b9d-3dfcac601588" target="_blank" class="resource-platform" style="margin-bottom:6px;"><span class="rp-logo">🎙️</span><div class="rp-text"><strong>L2 P3 Population Growth Patterns: Exponential and Logistic Dynamics</strong><span>Open in NotebookLM</span></div><span class="rp-arrow">↗</span></a>
+          <a href="https://notebooklm.google.com/notebook/a8b73078-5b71-489c-9099-462e08703e0e" target="_blank" class="resource-platform" style="margin-bottom:6px;"><span class="rp-logo">🎙️</span><div class="rp-text"><strong>L2 P4 Reproductive Strategies: r-Selection vs. K-Selection</strong><span>Open in NotebookLM</span></div><span class="rp-arrow">↗</span></a>
+          <a href="https://notebooklm.google.com/notebook/5dd47563-6cfb-49a6-bb1e-d159a6bcefdd" target="_blank" class="resource-platform" style="margin-bottom:6px;"><span class="rp-logo">🎙️</span><div class="rp-text"><strong>L2 P5 Species Interactions and Symbiotic Relationships</strong><span>Open in NotebookLM</span></div><span class="rp-arrow">↗</span></a>
+          <a href="https://notebooklm.google.com/notebook/47b6edfe-9f91-4e3d-a652-764bf792fb83" target="_blank" class="resource-platform" style="margin-bottom:6px;"><span class="rp-logo">🎙️</span><div class="rp-text"><strong>L2 P6 Ecological Defense Mechanisms and Population Succession Dynamics</strong><span>Open in NotebookLM</span></div><span class="rp-arrow">↗</span></a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+</div><!-- unit-d end -->
+
+<!-- ═══════════════════════════════════════════════════ DIPLOMA PREP -->
+<div id="diploma" style="background:#fff;">
+<div class="section">
+
+  <div class="section-header">
+    <div><div class="unit-tag tag-diploma">🎓 Diploma</div></div>
+    <div class="header-text">
+      <h2>Diploma Exam Preparation</h2>
+      <p>Full practice exams, released items, review packages, study cards, and exam-writing strategies — all in one place.</p>
+    </div>
+  </div>
+
+  <div class="tips-bar">
+    <span class="tip-icon">🎯</span>
+    <div>
+      <h4>Diploma Exam Format</h4>
+      <p>The Biology 30 Diploma Exam consists of <strong>multiple choice questions</strong> (Part A) and <strong>written response questions</strong> (Part B) including numerical response and extended response. Your diploma exam is worth <strong>30% of your final mark</strong>.</p>
+    </div>
+  </div>
+
+  <div class="diploma-grid">
+
+    <div class="diploma-card">
+      <h3>📝 Full Practice Exams</h3>
+      <p>Complete practice diploma exams formatted like the real exam, with answer keys.</p>
+      <a href="resources/diploma/Bio 30 2017 Sample Diploma with Solutions.pdf" target="_blank" class="btn-primary">📄 2017 Sample Diploma + Solutions</a>
+      <a href="resources/diploma/Biology 30 practice Exam 2012.pdf" target="_blank" class="btn-secondary">📄 2012 Practice Exam</a>
+      <a href="resources/diploma/Bio 30 2012 Practice Exam Key.pdf" target="_blank" class="btn-secondary">📄 2012 Practice Exam — Key</a>
+      <a href="resources/diploma/Complete set.pdf" target="_blank" class="btn-secondary">📄 Complete Practice Set</a>
+    </div>
+
+    <div class="diploma-card">
+      <h3>📋 Alberta Education Released Items</h3>
+      <p>Official released diploma items from Alberta Education — the closest you'll get to the real exam.</p>
+      <a href="resources/diploma/edc-diploma-exam-biology30-released-materials-2021.pdf" target="_blank" class="btn-primary">📄 2021 Released Materials</a>
+      <a href="resources/diploma/ed-diploma-exam-biology30-released-materials-2019.pdf" target="_blank" class="btn-secondary">📄 2019 Released Materials</a>
+      <a href="resources/diploma/edc-biology30-released-items-2017.pdf" target="_blank" class="btn-secondary">📄 2017 Released Items</a>
+      <a href="resources/diploma/Alb-Diploma-Exam-Released-Materials-Biology 2014.pdf" target="_blank" class="btn-secondary">📄 2014 Released Materials</a>
+    </div>
+
+    <div class="diploma-card">
+      <h3>📚 Review Packages &amp; Notes</h3>
+      <p>Condensed review packages covering all four units — great for final preparation.</p>
+      <a href="resources/diploma/Diploma Review Package.pdf" target="_blank" class="btn-primary">📄 Diploma Review Package</a>
+      <a href="resources/diploma/Bio 30 review package.pdf" target="_blank" class="btn-secondary">📄 Bio 30 Review Package</a>
+      <a href="resources/diploma/Bio_30_Review_Notes (6).PDF" target="_blank" class="btn-secondary">📄 Review Notes (Complete)</a>
+      <a href="resources/diploma/Bio_30_Study_Guide_(Major_Concepts).pdf" target="_blank" class="btn-secondary">📄 Major Concepts Study Guide</a>
+      <a href="resources/diploma/Bio_30_Complete_Outcome_Checklist.pdf" target="_blank" class="btn-secondary">📄 Complete Outcome Checklist</a>
+    </div>
+
+    <div class="diploma-card">
+      <h3>🃏 Unit Study Cards</h3>
+      <p>Targeted study cards for each unit — great for quick review and self-testing.</p>
+      <a href="resources/diploma/Study Cards- Nervous System.pdf" target="_blank" class="btn-primary">📄 Study Cards — Nervous System</a>
+      <a href="resources/diploma/Study Cards - Endocrine System.pdf" target="_blank" class="btn-secondary">📄 Study Cards — Endocrine System</a>
+      <a href="resources/diploma/Study Cards - Reproductive System.pdf" target="_blank" class="btn-secondary">📄 Study Cards — Reproductive System</a>
+      <a href="resources/diploma/Study Cards - Molecular Genetics0.pdf" target="_blank" class="btn-secondary">📄 Study Cards — Molecular Genetics</a>
+    </div>
+
+    <div class="diploma-card">
+      <h3>✏️ Unit-Specific Practice &amp; Prep</h3>
+      <p>Topic-specific diploma review packages and exemplar questions with answer keys.</p>
+      <a href="resources/diploma/Nervous and Endocrine Systems Diploma Prep.pdf" target="_blank" class="btn-primary">📄 Nervous &amp; Endocrine Diploma Prep</a>
+      <a href="resources/diploma/Diploma Q Exemplars - Nervous System.pdf" target="_blank" class="btn-secondary">📄 Nervous System Q Exemplars</a>
+      <a href="resources/diploma/Nervous and Endocrine System Review Questions.pdf" target="_blank" class="btn-secondary">📄 Nervous &amp; Endocrine Review Q's</a>
+      <a href="resources/diploma/Nervous and Endocrine System Review Questions KEY.pdf" target="_blank" class="btn-secondary">📄 Nervous &amp; Endocrine Q's — KEY</a>
+      <a href="resources/diploma/Unit B Reproduction Diploma Review Hillaby.pdf" target="_blank" class="btn-secondary">📄 Unit B Diploma Review (Hillaby)</a>
+      <a href="resources/diploma/Genetics Diploma Review Hillaby 2013.pdf" target="_blank" class="btn-secondary">📄 Genetics Diploma Review (Hillaby)</a>
+    </div>
+
+    <div class="diploma-card">
+      <h3>🌐 Online Practice Resources</h3>
+      <p>Official and trusted external resources for diploma-style practice.</p>
+      <a href="https://www.alberta.ca/diploma-exams-overview.aspx" target="_blank" class="btn-primary">🏛️ Alberta Education — Diploma Info</a>
+      <a href="resources/diploma/Reading Strategies for the Diploma Exam.pdf" target="_blank" class="btn-secondary">📄 Reading Strategies for the Diploma</a>
+      <a href="https://www.khanacademy.org/science/ap-biology" target="_blank" class="btn-secondary">🎓 Khan Academy AP Biology</a>
+      <a href="https://quizlet.com/search?query=biology+30+alberta&type=sets" target="_blank" class="btn-secondary">🃏 Quizlet — Biology 30 Alberta</a>
+    </div>
+
+  </div>
+
+  <!-- EXAM STRATEGY SECTION -->
+  <div style="margin-top: 8px;">
+    <h3 style="font-family:'Playfair Display',serif;font-size:1.2rem;color:var(--green-dark);margin-bottom:18px;">Exam-Day Strategies</h3>
+    <div class="concept-grid">
+      <div class="concept-box">
+        <h4>📝 Multiple Choice Tips</h4>
+        <ul>
+          <li>Read ALL options before choosing</li>
+          <li>Eliminate obviously wrong answers first</li>
+          <li>Watch for "always," "never," "all," "none" — often wrong</li>
+          <li>Diagrams: label all parts before answering questions about them</li>
+          <li>Flag uncertain questions and return at the end</li>
+          <li>Your first instinct is often correct — don't second-guess without reason</li>
+        </ul>
+      </div>
+      <div class="concept-box">
+        <h4>✍️ Written Response Tips</h4>
+        <ul>
+          <li>Read the question carefully — underline key words (describe, explain, compare, evaluate)</li>
+          <li>Plan your answer briefly before writing</li>
+          <li>Use scientific vocabulary — it earns marks</li>
+          <li>For "explain" questions: state the fact AND the reason/mechanism</li>
+          <li>For calculations: show ALL steps; partial marks are awarded</li>
+          <li>Match your response length to the mark value</li>
+        </ul>
+      </div>
+      <div class="concept-box">
+        <h4>📊 Diagram Questions</h4>
+        <ul>
+          <li>Label clearly with proper terminology</li>
+          <li>Draw arrows to show direction of flow/signal</li>
+          <li>Use pencil so you can erase and correct</li>
+          <li>If interpreting a graph: state the trend, give specific values, explain the biology</li>
+          <li>Menstrual cycle graphs: know what each hormone is doing at each phase</li>
+        </ul>
+      </div>
+      <div class="concept-box">
+        <h4>🧮 Calculation Checklist</h4>
+        <ul>
+          <li>Genetics: set up Punnett square first, even if it seems simple</li>
+          <li>Hardy-Weinberg: always start with q² (recessive phenotype)</li>
+          <li>Show p + q = 1 and p² + 2pq + q² = 1 explicitly</li>
+          <li>Check your math: do final values make biological sense?</li>
+          <li>Include units where appropriate</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+</div>
+</div><!-- diploma end -->
+
+<!-- ═══════════════════════════════════════════════════ FOOTER -->
+<footer>
+  <p><strong>Biology 30 Diploma Review Hub</strong></p>
+  <p>Built for students preparing for the Alberta Biology 30 Diploma Examination.</p>
+  <p style="margin-top:8px;font-size:0.72rem;opacity:0.6;">All linked PDF files are located in the <em>resources</em> folder alongside this HTML file. Open the HTML file directly from your computer — links will not work if you move the file without its resources folder. Online resource links require an internet connection.</p>
+</footer>
+
+<!-- ═══════════════════════════════════════════════════ JAVASCRIPT -->
+<script>
+// ── Tab switching ─────────────────────────────────────
+function openTab(unit, tab) {
+  // Deactivate all tabs in this unit
+  const allContents = document.querySelectorAll('[id^="tab-' + unit + '-"]');
+  allContents.forEach(el => el.classList.remove('active'));
+  const allBtns = document.querySelectorAll('#tabs-' + unit + ' .tab-btn');
+  allBtns.forEach(btn => btn.classList.remove('active'));
+
+  // Activate selected tab
+  const target = document.getElementById('tab-' + unit + '-' + tab);
+  if (target) target.classList.add('active');
+
+  // Activate the button that matches
+  allBtns.forEach(btn => {
+    if (btn.textContent.toLowerCase().includes(tab === 'outcomes' ? 'outcome' :
+        tab === 'concepts' ? 'concept' :
+        tab === 'resources' ? 'resource' : 'online')) {
+      btn.classList.add('active');
+    }
+  });
+  // Scroll to section
+  const section = document.getElementById('unit-' + unit);
+  if (section) setTimeout(() => section.scrollIntoView({behavior:'smooth', block:'start'}), 50);
+}
+
+// ── Outcome accordion ─────────────────────────────────
+function toggleOutcome(id) {
+  const item = document.querySelector('[data-id="' + id + '"]');
+  if (!item) return;
+  item.classList.toggle('open');
+}
+
+// ── Outcome checkboxes ────────────────────────────────
+function checkOutcome(event, id) {
+  event.stopPropagation();
+  const check = event.currentTarget;
+  check.classList.toggle('checked');
+  // Save to localStorage
+  const saved = JSON.parse(localStorage.getItem('bio30progress') || '{}');
+  saved[id] = check.classList.contains('checked');
+  localStorage.setItem('bio30progress', JSON.stringify(saved));
+  updateProgress();
+}
+
+// ── Restore progress from localStorage ───────────────
+function restoreProgress() {
+  const saved = JSON.parse(localStorage.getItem('bio30progress') || '{}');
+  Object.entries(saved).forEach(([id, checked]) => {
+    const item = document.querySelector('[data-id="' + id + '"]');
+    if (item && checked) {
+      const check = item.querySelector('.ot-check');
+      if (check) check.classList.add('checked');
+    }
+  });
+  updateProgress();
+}
+
+// ── Progress bars ─────────────────────────────────────
+function updateProgress() {
+  const groups = [
+    { ids: ['a1-1','a1-2','a1-3','a1-4','a1-5','a1-6'], bar: 'prog-a1', pct: 'pct-a1' },
+    { ids: ['a2-1','a2-2','a2-3'], bar: 'prog-a2', pct: 'pct-a2' },
+    { ids: ['b1-1','b1-2','b1-4'], bar: 'prog-b1', pct: 'pct-b1' },
+    { ids: ['b2-1','b2-2'], bar: 'prog-b2', pct: 'pct-b2' },
+    { ids: ['b3-1','b3-2','b3-3'], bar: 'prog-b3', pct: 'pct-b3' },
+    { ids: ['c-mitosis','c-meiosis','c-karyotype','c-mono','c-di','c-ped','c-dna','c-trans','c-mut'], bar: 'prog-c', pct: 'pct-c' },
+    { ids: ['d-hw','d-evo','d-spec'], bar: 'prog-d', pct: 'pct-d' },
+  ];
+  groups.forEach(g => {
+    const total = g.ids.length;
+    const done = g.ids.filter(id => {
+      const el = document.querySelector('[data-id="' + id + '"] .ot-check');
+      return el && el.classList.contains('checked');
+    }).length;
+    const pct = Math.round((done / total) * 100);
+    const bar = document.getElementById(g.bar);
+    const pctEl = document.getElementById(g.pct);
+    if (bar) bar.style.width = pct + '%';
+    if (pctEl) pctEl.textContent = pct + '%';
+  });
+}
+
+// ── Countdown timer ───────────────────────────────────
+function updateCountdown() {
+  const dateInput = document.getElementById('exam-date');
+  const display = document.getElementById('countdown-display');
+  if (!dateInput.value) { display.textContent = '← Set your exam date!'; generateSchedule(-1); return; }
+  const examDate = new Date(dateInput.value + 'T08:00:00');
+  const now = new Date();
+  const diff = examDate - now;
+  if (diff < 0) { display.textContent = 'Good luck — you\'ve got this! 🌟'; generateSchedule(0); return; }
+  const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+  const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+  if (days === 0) display.textContent = `Exam is TODAY! ${hours}h remaining 🎯`;
+  else if (days === 1) display.textContent = `1 day to go — final review time! 💪`;
+  else display.textContent = `${days} days until your diploma exam`;
+  generateSchedule(days);
+  // Save date
+  localStorage.setItem('bio30examdate', dateInput.value);
+}
+
+// ── Study schedule generator ──────────────────────────
+function generateSchedule(days) {
+  const panel = document.getElementById('schedule-panel');
+  if (!panel) return;
+  if (days < 0) { panel.classList.remove('visible'); return; }
+
+  const today = new Date(); today.setHours(0,0,0,0);
+  const addD = (d,n) => { const r=new Date(d); r.setDate(r.getDate()+n); return r; };
+  const fmt  = d => d.toLocaleDateString('en-CA',{month:'short',day:'numeric'});
+  const dateRange = (start,n) => n<=1 ? fmt(start) : `${fmt(start)} – ${fmt(addD(start,n-1))}`;
+
+  // Unit definitions — Biology 30
+  const UNITS = [
+    { icon:'🧠', name:'Unit A', sub:'Nervous & Endocrine',     anchor:'#unit-a', color:'#4caf50', w:25,
+      tips: ['Focus on homeostasis, hormone feedback loops, and neuron function.',
+             'Key diagrams: reflex arc, endocrine glands, hormone targets.',
+             'Outcomes checklist + key concept cards only.',
+             'Quick sweep: nervous system vocab & homeostasis.'] },
+    { icon:'🧬', name:'Unit B', sub:'Reproduction & Dev.',     anchor:'#unit-b', color:'#2196f3', w:20,
+      tips: ['Master the hormonal cycles (menstrual, pregnancy) and embryonic development.',
+             'Focus on hormonal feedback and embryonic stages.',
+             'Hormonal cycles & stages — one day, one unit.',
+             'Review hormonal cycle diagram.'] },
+    { icon:'🔬', name:'Unit C', sub:'Cell Division & Genetics', anchor:'#unit-c', color:'#9c27b0', w:35,
+      tips: ['Largest unit (35%) — genetics calculations appear as written response! Work through Punnett squares, pedigrees, linkage maps, and chi-square.',
+             'Prioritize: Punnett squares, pedigrees, meiosis, DNA replication, linkage maps.',
+             'Practice 5 genetics problems. Review pedigrees and chi-square.',
+             'Unit C quick sweep: meiosis diagram + one genetics problem.'] },
+    { icon:'🌍', name:'Unit D', sub:'Population Dynamics',          anchor:'#unit-d', color:'#ff9800', w:20,
+      tips: ['Ecological relationships, population growth graphs, succession, and sustainability.',
+             'Succession, population models, and ecosystem interactions.',
+             'Quick sweep: graphs, succession stages, ecology vocabulary.',
+             'Population graphs & ecological terms.'] },
+  ];
+
+  const DIPLOMA = { icon:'🎓', name:'Diploma Prep', sub:'Practice & Strategy', anchor:'#diploma', color:'#e91e63',
+    tips: ['Full practice exams under timed conditions. Review every wrong answer with the marking guide.',
+           'Complete 2 full practice exams. Review every wrong answer.',
+           'Use the outcomes checklist to find weak spots, then target practice questions.',
+           'Use the outcomes checklist. Practice diploma-style written response questions.'] };
+
+  const card = (icon,name,sub,anchor,color,dateStr,tip) =>
+    `<div class="sched-card" style="--sc-color:${color};border-top-color:${color}">
+      <div class="sc-icon">${icon}</div>
+      <div class="sc-name">${name}</div>
+      <div class="sc-sub">${sub}</div>
+      <div class="sc-dates">${dateStr}</div>
+      <div class="sc-tip">${tip}</div>
+      <a href="${anchor}" class="sc-jump">Go →</a>
+    </div>`;
+
+  let title, cards = '', cursor = new Date(today);
+
+  if (days === 0) {
+    title = '🌟 Exam Day — You\'ve prepared hard. Go show what you know!';
+    cards = `<div style="text-align:center;font-size:0.82rem;color:var(--green-dark);font-weight:600;padding:4px 0;">
+      Breathe. Read each question carefully. Show your work on written response. You’ve got this. 💪</div>`;
+  } else if (days >= 28) {
+    title = '📚 Comprehensive Review Plan';
+    const studyD = Math.floor(days * 0.80);
+    const prepD  = days - studyD;
+    for (let i=0;i<UNITS.length;i++) {
+      const u=UNITS[i], d=Math.max(1,Math.round(studyD*u.w/100));
+      cards += card(u.icon,u.name,u.sub,u.anchor,u.color,dateRange(cursor,d),u.tips[0]);
+      cursor=addD(cursor,d);
+    }
+    cards += card(DIPLOMA.icon,DIPLOMA.name,DIPLOMA.sub,DIPLOMA.anchor,DIPLOMA.color,dateRange(cursor,prepD),DIPLOMA.tips[0]);
+  } else if (days >= 14) {
+    title = '🎯 Focused Review Plan';
+    const studyD = Math.floor(days * 0.78);
+    const prepD  = Math.max(2, days - studyD);
+    for (let i=0;i<UNITS.length;i++) {
+      const u=UNITS[i], d=Math.max(1,Math.round(studyD*u.w/100));
+      cards += card(u.icon,u.name,u.sub,u.anchor,u.color,dateRange(cursor,d),u.tips[1]);
+      cursor=addD(cursor,d);
+    }
+    cards += card(DIPLOMA.icon,DIPLOMA.name,DIPLOMA.sub,DIPLOMA.anchor,DIPLOMA.color,dateRange(cursor,prepD),DIPLOMA.tips[1]);
+  } else if (days >= 5) {
+    title = '⚡ Rapid Review Mode';
+    const contentD = Math.ceil(days * 0.62);
+    const prepD    = Math.max(1, days - contentD);
+    for (let i=0;i<UNITS.length;i++) {
+      const u=UNITS[i], d=Math.max(1,Math.round(contentD*u.w/100));
+      cards += card(u.icon,u.name,u.sub,u.anchor,u.color,dateRange(cursor,d),u.tips[2]);
+      cursor=addD(cursor,d);
+    }
+    cards += card(DIPLOMA.icon,DIPLOMA.name,DIPLOMA.sub,DIPLOMA.anchor,DIPLOMA.color,dateRange(cursor,prepD),DIPLOMA.tips[2]);
+  } else {
+    title = '🔥 Exam Crunch Mode';
+    const phases = [
+      {icon:'✅',name:'Outcomes Sweep',sub:'All units',anchor:'#unit-a',color:'#4caf50',d:1,tip:'Go through every unit’s outcomes checklist. Flag anything you’re unsure of.'},
+      {icon:'📝',name:'Targeted Practice',sub:'Diploma-style Qs',anchor:'#diploma',color:'#e91e63',d:Math.max(1,days-2),tip:'Written response practice. Use the marking guides. Focus on genetics calculations.'},
+      {icon:'💤',name:'Rest Well',sub:'Night before exam',anchor:'#diploma',color:'#607d8b',d:1,tip:'Stop studying by 9 pm. Sleep 8+ hours. Your brain consolidates memory while you sleep.'},
+    ];
+    for (const p of phases) {
+      cards += card(p.icon,p.name,p.sub,p.anchor,p.color,dateRange(cursor,p.d),p.tip);
+      cursor=addD(cursor,p.d);
+    }
+  }
+
+  panel.innerHTML = `<div class="schedule-title">${title}</div><div class="schedule-grid">${cards}</div>`;
+  panel.classList.add('visible');
+}
+
+
+// ── Init ──────────────────────────────────────────────
+document.addEventListener('DOMContentLoaded', () => {
+  restoreProgress();
+  // Restore saved exam date
+  const savedDate = localStorage.getItem('bio30examdate');
+  const dateInput = document.getElementById('exam-date');
+  if (savedDate && dateInput) {
+    dateInput.value = savedDate;
+    updateCountdown();
+  }
+  // Update countdown every minute
+  setInterval(updateCountdown, 60000);
+});
+
+// Smooth scroll for anchor links
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+  a.addEventListener('click', e => {
+    const target = document.querySelector(a.getAttribute('href'));
+    if (target) { e.preventDefault(); target.scrollIntoView({behavior:'smooth'}); }
+  });
+});
+</script>
+
+</body>
+</html>
